@@ -1,0 +1,517 @@
+{
+	"id": "5b69549d-7b5a-4133-80f4-b57d445ad80f",
+	"name": "GET and PUT",
+	"timestamp": "2023-05-28T09:31:55.383Z",
+	"collection_id": "27454725-155759ff-c486-4c01-bd89-43a3b0d15a08",
+	"folder_id": "27454725-a376e6be-82a9-40c7-8e92-232890dadc24",
+	"environment_id": "27454725-364a4757-5cb1-4c25-b54b-8add6b9a48ed",
+	"totalPass": 18,
+	"delay": 0,
+	"persist": true,
+	"status": "finished",
+	"startedAt": "2023-05-28T09:31:23.412Z",
+	"totalFail": 27,
+	"results": [
+		{
+			"id": "85af488e-9ebd-4467-8579-d9d19b16397a",
+			"name": "GET all trainers",
+			"url": "https://trainers.mocklab.io/v1/trainers",
+			"time": 4758,
+			"responseCode": {
+				"code": 400,
+				"name": "Bad Request"
+			},
+			"tests": {
+				"Status code is 200": false,
+				"Response time is less than 1sec": false,
+				"Response body has expected properties": true,
+				"Response body is a valid JSON": false,
+				"User 1 should have id, fname, and lname": true,
+				"User 2 should have id, fname, and lname": true,
+				"Expected response values": true
+			},
+			"testPassFailCounts": {
+				"Status code is 200": {
+					"pass": 0,
+					"fail": 1
+				},
+				"Response time is less than 1sec": {
+					"pass": 0,
+					"fail": 1
+				},
+				"Response body has expected properties": {
+					"pass": 1,
+					"fail": 0
+				},
+				"Response body is a valid JSON": {
+					"pass": 0,
+					"fail": 1
+				},
+				"User 1 should have id, fname, and lname": {
+					"pass": 1,
+					"fail": 0
+				},
+				"User 2 should have id, fname, and lname": {
+					"pass": 1,
+					"fail": 0
+				},
+				"Expected response values": {
+					"pass": 1,
+					"fail": 0
+				}
+			},
+			"times": [
+				4758
+			],
+			"allTests": [
+				{
+					"Status code is 200": false,
+					"Response time is less than 1sec": false,
+					"Response body has expected properties": true,
+					"Response body is a valid JSON": false,
+					"User 1 should have id, fname, and lname": true,
+					"User 2 should have id, fname, and lname": true,
+					"Expected response values": true
+				}
+			]
+		},
+		{
+			"id": "fac94afb-5446-4e3d-a2ac-3eb061bf0005",
+			"name": "fname=Michael",
+			"url": "https://trainers.mocklab.io/v1/trainers?fname=Michael",
+			"time": 254,
+			"responseCode": {
+				"code": 200,
+				"name": "OK"
+			},
+			"tests": {
+				"Status code is 200": true,
+				"Response time is less than 1s": true,
+				"Response body has expected properties": true,
+				"Response body is a valid JSON": true,
+				"Response body contains the expected values for user#1": true
+			},
+			"testPassFailCounts": {
+				"Status code is 200": {
+					"pass": 1,
+					"fail": 0
+				},
+				"Response time is less than 1s": {
+					"pass": 1,
+					"fail": 0
+				},
+				"Response body has expected properties": {
+					"pass": 1,
+					"fail": 0
+				},
+				"Response body is a valid JSON": {
+					"pass": 1,
+					"fail": 0
+				},
+				"Response body contains the expected values for user#1": {
+					"pass": 1,
+					"fail": 0
+				}
+			},
+			"times": [
+				254
+			],
+			"allTests": [
+				{
+					"Status code is 200": true,
+					"Response time is less than 1s": true,
+					"Response body has expected properties": true,
+					"Response body is a valid JSON": true,
+					"Response body contains the expected values for user#1": true
+				}
+			]
+		},
+		{
+			"id": "400f603a-2808-4a5c-bd2b-b4235198a4a4",
+			"name": "lname=Choi",
+			"url": "https://trainers.mocklab.io/v1/trainers?lname=Choi",
+			"time": 2971,
+			"responseCode": {
+				"code": 400,
+				"name": "Bad Request"
+			},
+			"tests": {
+				"Status code is 200": false,
+				"Response time is less than 1s": false,
+				"Response body has expected properties": true,
+				"Response body is a valid JSON": false,
+				"Response body contains the expected values for user#1": false
+			},
+			"testPassFailCounts": {
+				"Status code is 200": {
+					"pass": 0,
+					"fail": 1
+				},
+				"Response time is less than 1s": {
+					"pass": 0,
+					"fail": 1
+				},
+				"Response body has expected properties": {
+					"pass": 1,
+					"fail": 0
+				},
+				"Response body is a valid JSON": {
+					"pass": 0,
+					"fail": 1
+				},
+				"Response body contains the expected values for user#1": {
+					"pass": 0,
+					"fail": 1
+				}
+			},
+			"times": [
+				2971
+			],
+			"allTests": [
+				{
+					"Status code is 200": false,
+					"Response time is less than 1s": false,
+					"Response body has expected properties": true,
+					"Response body is a valid JSON": false,
+					"Response body contains the expected values for user#1": false
+				}
+			]
+		},
+		{
+			"id": "6e08823a-75da-4f54-b711-4b809b8837fb",
+			"name": "fname=Michael&lname=Choi",
+			"url": "https://trainers.mocklab.io/v1/trainers?fname=Michael&lname=Choi",
+			"time": 259,
+			"responseCode": {
+				"code": 200,
+				"name": "OK"
+			},
+			"tests": {
+				"Status code is 200": true,
+				"Response time is less than 1s": true,
+				"Response body has expected properties": true,
+				"Response body is a valid JSON": true,
+				"Response body contains the expected values for user#1": true
+			},
+			"testPassFailCounts": {
+				"Status code is 200": {
+					"pass": 1,
+					"fail": 0
+				},
+				"Response time is less than 1s": {
+					"pass": 1,
+					"fail": 0
+				},
+				"Response body has expected properties": {
+					"pass": 1,
+					"fail": 0
+				},
+				"Response body is a valid JSON": {
+					"pass": 1,
+					"fail": 0
+				},
+				"Response body contains the expected values for user#1": {
+					"pass": 1,
+					"fail": 0
+				}
+			},
+			"times": [
+				259
+			],
+			"allTests": [
+				{
+					"Status code is 200": true,
+					"Response time is less than 1s": true,
+					"Response body has expected properties": true,
+					"Response body is a valid JSON": true,
+					"Response body contains the expected values for user#1": true
+				}
+			]
+		},
+		{
+			"id": "76e564f6-67b0-4aed-9e4c-2ed1c00df42a",
+			"name": "fname=Karen",
+			"url": "https://trainers.mocklab.io/v1/trainers?fname=Karen",
+			"time": 6690,
+			"responseCode": {
+				"code": 400,
+				"name": "Bad Request"
+			},
+			"tests": {
+				"Status code is 200": false,
+				"Response time is less than 1s": false,
+				"Response body has expected properties": true,
+				"Response body is a valid JSON": false,
+				"Response body contains the expected values for user#2": false
+			},
+			"testPassFailCounts": {
+				"Status code is 200": {
+					"pass": 0,
+					"fail": 1
+				},
+				"Response time is less than 1s": {
+					"pass": 0,
+					"fail": 1
+				},
+				"Response body has expected properties": {
+					"pass": 1,
+					"fail": 0
+				},
+				"Response body is a valid JSON": {
+					"pass": 0,
+					"fail": 1
+				},
+				"Response body contains the expected values for user#2": {
+					"pass": 0,
+					"fail": 1
+				}
+			},
+			"times": [
+				6690
+			],
+			"allTests": [
+				{
+					"Status code is 200": false,
+					"Response time is less than 1s": false,
+					"Response body has expected properties": true,
+					"Response body is a valid JSON": false,
+					"Response body contains the expected values for user#2": false
+				}
+			]
+		},
+		{
+			"id": "c6e96df5-0669-4e97-9d8e-2693deddbcaa",
+			"name": "lname=Igcasan",
+			"url": "https://trainers.mocklab.io/v1/trainers?lname=Igcasan",
+			"time": 4301,
+			"responseCode": {
+				"code": 400,
+				"name": "Bad Request"
+			},
+			"tests": {
+				"Status code is 200": false,
+				"Response time is less than 1s": false,
+				"Response body has expected properties": true,
+				"Response body is a valid JSON": false,
+				"Response body contains the expected values for user#2": false
+			},
+			"testPassFailCounts": {
+				"Status code is 200": {
+					"pass": 0,
+					"fail": 1
+				},
+				"Response time is less than 1s": {
+					"pass": 0,
+					"fail": 1
+				},
+				"Response body has expected properties": {
+					"pass": 1,
+					"fail": 0
+				},
+				"Response body is a valid JSON": {
+					"pass": 0,
+					"fail": 1
+				},
+				"Response body contains the expected values for user#2": {
+					"pass": 0,
+					"fail": 1
+				}
+			},
+			"times": [
+				4301
+			],
+			"allTests": [
+				{
+					"Status code is 200": false,
+					"Response time is less than 1s": false,
+					"Response body has expected properties": true,
+					"Response body is a valid JSON": false,
+					"Response body contains the expected values for user#2": false
+				}
+			]
+		},
+		{
+			"id": "e215d080-3df7-4624-93a1-c2355191a4a8",
+			"name": "fname=Karen&lname=Igcasan",
+			"url": "https://trainers.mocklab.io/v1/trainers?fname=Karen&lname=Igcasan",
+			"time": 4369,
+			"responseCode": {
+				"code": 400,
+				"name": "Bad Request"
+			},
+			"tests": {
+				"Status code is 200": false,
+				"Response time is less than 1s": false,
+				"Response body has expected properties": true,
+				"Response body is a valid JSON": false,
+				"Response body contains the expected values for user#2": false
+			},
+			"testPassFailCounts": {
+				"Status code is 200": {
+					"pass": 0,
+					"fail": 1
+				},
+				"Response time is less than 1s": {
+					"pass": 0,
+					"fail": 1
+				},
+				"Response body has expected properties": {
+					"pass": 1,
+					"fail": 0
+				},
+				"Response body is a valid JSON": {
+					"pass": 0,
+					"fail": 1
+				},
+				"Response body contains the expected values for user#2": {
+					"pass": 0,
+					"fail": 1
+				}
+			},
+			"times": [
+				4369
+			],
+			"allTests": [
+				{
+					"Status code is 200": false,
+					"Response time is less than 1s": false,
+					"Response body has expected properties": true,
+					"Response body is a valid JSON": false,
+					"Response body contains the expected values for user#2": false
+				}
+			]
+		},
+		{
+			"id": "b298769b-0986-438c-b44a-b9a123b66cfb",
+			"name": "fname=John",
+			"url": "https://trainers.mocklab.io/v1/trainers?fname=John",
+			"time": 3068,
+			"responseCode": {
+				"code": 400,
+				"name": "Bad Request"
+			},
+			"tests": {
+				"Status code is 200": false,
+				"Response time is less than 1s": false,
+				"Status code is 404 Not Found": false,
+				"Response body has message: 'Request was not matched'": false
+			},
+			"testPassFailCounts": {
+				"Status code is 200": {
+					"pass": 0,
+					"fail": 1
+				},
+				"Response time is less than 1s": {
+					"pass": 0,
+					"fail": 1
+				},
+				"Status code is 404 Not Found": {
+					"pass": 0,
+					"fail": 1
+				},
+				"Response body has message: 'Request was not matched'": {
+					"pass": 0,
+					"fail": 1
+				}
+			},
+			"times": [
+				3068
+			],
+			"allTests": [
+				{
+					"Status code is 200": false,
+					"Response time is less than 1s": false,
+					"Status code is 404 Not Found": false,
+					"Response body has message: 'Request was not matched'": false
+				}
+			]
+		},
+		{
+			"id": "6c827978-4a35-481d-8f21-48f3153f9ff6",
+			"name": "Authorization header",
+			"url": "https://trainers.mocklab.io/v1/trainers?fname=John",
+			"time": 4343,
+			"responseCode": {
+				"code": 400,
+				"name": "Bad Request"
+			},
+			"tests": {
+				"Status code is 200": false,
+				"Response time is less than 1s": false,
+				"Status code is 404 Not Found": false,
+				"Response body has message: 'Request was not matched'": false
+			},
+			"testPassFailCounts": {
+				"Status code is 200": {
+					"pass": 0,
+					"fail": 1
+				},
+				"Response time is less than 1s": {
+					"pass": 0,
+					"fail": 1
+				},
+				"Status code is 404 Not Found": {
+					"pass": 0,
+					"fail": 1
+				},
+				"Response body has message: 'Request was not matched'": {
+					"pass": 0,
+					"fail": 1
+				}
+			},
+			"times": [
+				4343
+			],
+			"allTests": [
+				{
+					"Status code is 200": false,
+					"Response time is less than 1s": false,
+					"Status code is 404 Not Found": false,
+					"Response body has message: 'Request was not matched'": false
+				}
+			]
+		}
+	],
+	"count": 1,
+	"totalTime": 31013,
+	"collection": {
+		"requests": [
+			{
+				"id": "85af488e-9ebd-4467-8579-d9d19b16397a",
+				"method": "GET"
+			},
+			{
+				"id": "fac94afb-5446-4e3d-a2ac-3eb061bf0005",
+				"method": "GET"
+			},
+			{
+				"id": "400f603a-2808-4a5c-bd2b-b4235198a4a4",
+				"method": "GET"
+			},
+			{
+				"id": "6e08823a-75da-4f54-b711-4b809b8837fb",
+				"method": "GET"
+			},
+			{
+				"id": "76e564f6-67b0-4aed-9e4c-2ed1c00df42a",
+				"method": "GET"
+			},
+			{
+				"id": "c6e96df5-0669-4e97-9d8e-2693deddbcaa",
+				"method": "GET"
+			},
+			{
+				"id": "e215d080-3df7-4624-93a1-c2355191a4a8",
+				"method": "GET"
+			},
+			{
+				"id": "b298769b-0986-438c-b44a-b9a123b66cfb",
+				"method": "GET"
+			},
+			{
+				"id": "6c827978-4a35-481d-8f21-48f3153f9ff6",
+				"method": "GET"
+			}
+		]
+	}
+}

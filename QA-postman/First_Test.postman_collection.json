@@ -1,0 +1,112 @@
+{
+	"info": {
+		"_postman_id": "d8ae40aa-cf4e-402c-9d8b-c8d2339d4b8c",
+		"name": "First_Test",
+		"schema": "https://schema.getpostman.com/json/collection/v2.1.0/collection.json",
+		"_exporter_id": "27454725"
+	},
+	"item": [
+		{
+			"name": "{{url}}/products/1",
+			"event": [
+				{
+					"listen": "test",
+					"script": {
+						"exec": [
+							"pm.test(\"Status code is 200\", function () {\r",
+							"    pm.response.to.have.status(200);\r",
+							"});\r",
+							"pm.test(\"Response body has expected properties\", function () {\r",
+							"    pm.response.to.have.jsonBody('id');\r",
+							"    pm.response.to.have.jsonBody('name');\r",
+							"    pm.response.to.have.jsonBody('price');\r",
+							"    pm.response.to.have.jsonBody('description');\r",
+							"});\r",
+							"pm.test(\"Response time is less than 500ms\", function () {\r",
+							"    pm.expect(pm.response.responseTime).to.be.below(500);\r",
+							"});\r",
+							"\r",
+							"pm.test(\"Price is a numeric value and greater than 0\", function () {\r",
+							"    pm.expect(price).to.be.a('number');\r",
+							"    pm.expect(price).to.be.greaterThan(0);\r",
+							"});"
+						],
+						"type": "text/javascript"
+					}
+				}
+			],
+			"protocolProfileBehavior": {
+				"disableBodyPruning": true
+			},
+			"request": {
+				"method": "GET",
+				"header": [],
+				"body": {
+					"mode": "raw",
+					"raw": "",
+					"options": {
+						"raw": {
+							"language": "text"
+						}
+					}
+				},
+				"url": {
+					"raw": "{{url}}/products/1",
+					"host": [
+						"{{url}}"
+					],
+					"path": [
+						"products",
+						"1"
+					]
+				}
+			},
+			"response": []
+		},
+		{
+			"name": "{{url}}/products/2",
+			"event": [
+				{
+					"listen": "test",
+					"script": {
+						"exec": [
+							"pm.test(\"Status code is 200\", function () {\r",
+							"    pm.response.to.have.status(200);\r",
+							"});\r",
+							"pm.test(\"Response body has expected properties\", function () {\r",
+							"    pm.response.to.have.jsonBody('id');\r",
+							"    pm.response.to.have.jsonBody('name');\r",
+							"    pm.response.to.have.jsonBody('price');\r",
+							"    pm.response.to.have.jsonBody('description');\r",
+							"});\r",
+							"pm.test(\"Response time is less than 500ms\", function () {\r",
+							"    pm.expect(pm.response.responseTime).to.be.below(500);\r",
+							"});\r",
+							"\r",
+							"pm.test(\"Price is a numeric value and greater than 0\", function () {\r",
+							"    pm.expect(price).to.be.a('number');\r",
+							"    pm.expect(price).to.be.greaterThan(0);\r",
+							"});"
+						],
+						"type": "text/javascript"
+					}
+				}
+			],
+			"request": {
+				"method": "GET",
+				"header": [],
+				"url": {
+					"raw": "{{url}}/products/2",
+					"host": [
+						"{{url}}"
+					],
+					"path": [
+						"products",
+						"2"
+					]
+				}
+			},
+			"response": []
+		}
+	]
+}

@@ -1,0 +1,529 @@
+{
+	"info": {
+		"_postman_id": "b0f994a5-4742-43f4-b1b8-ce4923c6e97d",
+		"name": "PUT",
+		"schema": "https://schema.getpostman.com/json/collection/v2.1.0/collection.json",
+		"_exporter_id": "27454725"
+	},
+	"item": [
+		{
+			"name": "PUT",
+			"item": [
+				{
+					"name": "update user",
+					"event": [
+						{
+							"listen": "test",
+							"script": {
+								"exec": [
+									"//Assert that the response is less than 1sec\r",
+									"pm.test(\"Response time is less than 1s\", function () {\r",
+									"    pm.expect(pm.response.responseTime).to.be.below(1000);\r",
+									"});\r",
+									"\r",
+									"pm.test(\"Response body has the message 'Successfully updated existing trainer\", function () {\r",
+									"    var jsonData = pm.response.json();\r",
+									"    pm.expect(jsonData.message).to.eql(\"Successfully updated existing trainer.\");\r",
+									"});"
+								],
+								"type": "text/javascript"
+							}
+						}
+					],
+					"request": {
+						"method": "PUT",
+						"header": [],
+						"body": {
+							"mode": "raw",
+							"raw": "{\r\n  \"id\": 2,\r\n  \"fname\": \"Karen Marie\",\r\n  \"lname\": \"Igcasan\"\r\n}",
+							"options": {
+								"raw": {
+									"language": "json"
+								}
+							}
+						},
+						"url": {
+							"raw": "{{url}}",
+							"host": [
+								"{{url}}"
+							]
+						}
+					},
+					"response": []
+				},
+				{
+					"name": "Duplicate user",
+					"event": [
+						{
+							"listen": "test",
+							"script": {
+								"exec": [
+									"pm.test(\"Status code is 201\", function () {\r",
+									"    pm.response.to.have.status(201);\r",
+									"});\r",
+									"\r",
+									"//Assert that the response is less than 1sec\r",
+									"pm.test(\"Response time is less than 1s\", function () {\r",
+									"    pm.expect(pm.response.responseTime).to.be.below(1000);\r",
+									"});\r",
+									"\r",
+									"pm.test(\"Response body has the message 'Successfully created new trainer.'\", function () {\r",
+									"    var jsonData = pm.response.json();\r",
+									"    pm.expect(jsonData.message).to.eql(\"Successfully created new trainer.\");\r",
+									"    pm.expect(jsonData.id).to.eql(\"Successfully created new trainer.\");\r",
+									"\r",
+									"});"
+								],
+								"type": "text/javascript"
+							}
+						},
+						{
+							"listen": "prerequest",
+							"script": {
+								"exec": [
+									"//Assert numeric id\r",
+									"const trainer_id = Math.round(Math.random()*10);  \r",
+									"pm.collectionVariables.set(\"trainer_id\",trainer_id);"
+								],
+								"type": "text/javascript"
+							}
+						}
+					],
+					"request": {
+						"method": "PUT",
+						"header": [],
+						"body": {
+							"mode": "raw",
+							"raw": "{\r\n  \"id\": {{trainer_id}},\r\n  \"fname\": \"Karen\",\r\n  \"lname\": \"Igcasan\"\r\n}",
+							"options": {
+								"raw": {
+									"language": "json"
+								}
+							}
+						},
+						"url": {
+							"raw": "{{url}}",
+							"host": [
+								"{{url}}"
+							]
+						}
+					},
+					"response": []
+				},
+				{
+					"name": "new user",
+					"event": [
+						{
+							"listen": "test",
+							"script": {
+								"exec": [
+									"pm.test(\"Status code is 201 Created\", function () {\r",
+									"    pm.response.to.have.status(201);\r",
+									"});\r",
+									"\r",
+									"pm.test(\"Response time is less than 1s\", function () {\r",
+									"    pm.expect(pm.response.responseTime).to.be.below(1000);\r",
+									"});\r",
+									"\r",
+									"pm.test(\"Response body contains expected data\", function () {\r",
+									"  var expectedData = {\r",
+									"    \"message\": \"Successfully created new trainer.\",\r",
+									"    \"id\": pm.collectionVariables.get(trainer_id)\r",
+									"  };\r",
+									"  pm.response.body.to.deep.equal(expectedData);\r",
+									"});\r",
+									""
+								],
+								"type": "text/javascript"
+							}
+						},
+						{
+							"listen": "prerequest",
+							"script": {
+								"exec": [
+									"\r",
+									"const trainer_id = Math.round(Math.random()*9 +3) ; \r",
+									"pm.collectionVariables.set(\"trainer_id\",trainer_id);\r",
+									"\r",
+									"function randName (length)\r",
+									"{\r",
+									"    var chars = \"abcdefghijklmnopqrstuvwxyz\";\r",
+									"    var randomString = \"\";\r",
+									"    \r",
+									"    for(var i = 0; i < length; i++)\r",
+									"    {\r",
+									"        randomString += chars[Math.floor(Math.random() * chars.length)];\r",
+									"    }\r",
+									"\r",
+									"    var firstLetter = randomString.charAt(0).toUpperCase();\r",
+									"    return firstLetter + randomString.slice(1);\r",
+									"} \r",
+									"const trainer_fname = randName(6);\r",
+									"pm.collectionVariables.set(\"trainer_fname\",trainer_fname);\r",
+									"\r",
+									"const trainer_lname = randName(6);\r",
+									"pm.collectionVariables.set(\"trainer_lname\",trainer_lname);\r",
+									"\r",
+									""
+								],
+								"type": "text/javascript"
+							}
+						}
+					],
+					"request": {
+						"method": "PUT",
+						"header": [],
+						"body": {
+							"mode": "raw",
+							"raw": "{\r\n  \"id\": {{trainer_id}},\r\n  \"fname\": {{trainer_fname}},\r\n  \"lname\": {{trainer_lname}}\r\n}",
+							"options": {
+								"raw": {
+									"language": "json"
+								}
+							}
+						},
+						"url": {
+							"raw": "{{url}}",
+							"host": [
+								"{{url}}"
+							]
+						}
+					},
+					"response": []
+				},
+				{
+					"name": "invalid body",
+					"event": [
+						{
+							"listen": "test",
+							"script": {
+								"exec": [
+									"pm.test(\"Status code is 400, Bad Request\", function () {\r",
+									"    pm.response.to.have.status(400);\r",
+									"});\r",
+									"\r",
+									"pm.test(\"Response time is less than 1s\", function () {\r",
+									"    pm.expect(pm.response.responseTime).to.be.below(1000);\r",
+									"});\r",
+									"\r",
+									""
+								],
+								"type": "text/javascript"
+							}
+						},
+						{
+							"listen": "prerequest",
+							"script": {
+								"exec": [
+									"\r",
+									"//Assert alphanumeric id\r",
+									"const trainer_id = Math.random().toString(36).substring(12) || \r",
+									"\"z\"; \r",
+									"pm.collectionVariables.set(\"trainer_id\",trainer_id);\r",
+									"\r",
+									"//Assert alphanumeric first name\r",
+									"const trainer_fname = Math.random().toString(36).substring(10); \r",
+									"pm.collectionVariables.set(\"trainer_fname\",trainer_fname);\r",
+									"\r",
+									"//Assert alphanumeric last name\r",
+									"const trainer_lname = Math.random().toString(36).substring(6);\r",
+									"pm.collectionVariables.set(\"trainer_lname\",trainer_lname);"
+								],
+								"type": "text/javascript"
+							}
+						}
+					],
+					"request": {
+						"method": "PUT",
+						"header": [],
+						"body": {
+							"mode": "raw",
+							"raw": "{\r\n  \"id\": {{trainer_id}},\r\n  \"fname\": {{trainer_fname}},\r\n  \"lname\": {{trainer_lname}}\r\n}",
+							"options": {
+								"raw": {
+									"language": "json"
+								}
+							}
+						},
+						"url": {
+							"raw": "{{url}}",
+							"host": [
+								"{{url}}"
+							]
+						}
+					},
+					"response": []
+				},
+				{
+					"name": "missing ID",
+					"event": [
+						{
+							"listen": "test",
+							"script": {
+								"exec": [
+									"pm.test(\"Status code is 400, Bad Request\", function () {\r",
+									"    pm.response.to.have.status(400);\r",
+									"});\r",
+									"\r",
+									"pm.test(\"Response time is less than 1s\", function () {\r",
+									"    pm.expect(pm.response.responseTime).to.be.below(1000);\r",
+									"});\r",
+									"\r",
+									""
+								],
+								"type": "text/javascript"
+							}
+						},
+						{
+							"listen": "prerequest",
+							"script": {
+								"exec": [
+									"\r",
+									"//Assert alphanumeric first name\r",
+									"const trainer_fname = Math.random().toString(36).substring(10); \r",
+									"pm.collectionVariables.set(\"trainer_fname\",trainer_fname);\r",
+									"\r",
+									"//Assert alphanumeric last name\r",
+									"const trainer_lname = Math.random().toString(36).substring(6);\r",
+									"pm.collectionVariables.set(\"trainer_lname\",trainer_lname);"
+								],
+								"type": "text/javascript"
+							}
+						}
+					],
+					"request": {
+						"method": "PUT",
+						"header": [],
+						"body": {
+							"mode": "raw",
+							"raw": "{\r\n  \"fname\": {{trainer_fname}},\r\n  \"lname\": {{trainer_lname}}\r\n}",
+							"options": {
+								"raw": {
+									"language": "json"
+								}
+							}
+						},
+						"url": {
+							"raw": "{{url}}",
+							"host": [
+								"{{url}}"
+							]
+						}
+					},
+					"response": []
+				},
+				{
+					"name": "valid ID, invalid fname, invalid lname",
+					"event": [
+						{
+							"listen": "test",
+							"script": {
+								"exec": [
+									"pm.test(\"Status code is 400, Bad Request\", function () {\r",
+									"    pm.response.to.have.status(400);\r",
+									"});\r",
+									"\r",
+									"pm.test(\"Response time is less than 1s\", function () {\r",
+									"    pm.expect(pm.response.responseTime).to.be.below(1000);\r",
+									"});\r",
+									"\r",
+									""
+								],
+								"type": "text/javascript"
+							}
+						},
+						{
+							"listen": "prerequest",
+							"script": {
+								"exec": [
+									"\r",
+									"//Assert numeric id\r",
+									"const trainer_id = Math.round(Math.random()*10);  \r",
+									"pm.collectionVariables.set(\"trainer_id\",trainer_id);\r",
+									"\r",
+									"//Assert alphanumeric first name\r",
+									"const trainer_fname = Math.random().toString(36).substring(6); \r",
+									"pm.collectionVariables.set(\"trainer_fname\",trainer_fname);\r",
+									"\r",
+									"//Assert alphanumeric last name\r",
+									"const trainer_lname = Math.random().toString(36).substring(6);  \r",
+									"pm.collectionVariables.set(\"trainer_lname\",trainer_lname);"
+								],
+								"type": "text/javascript"
+							}
+						}
+					],
+					"request": {
+						"method": "PUT",
+						"header": [],
+						"body": {
+							"mode": "raw",
+							"raw": "{\r\n  \"id\": {{trainer_id}},\r\n  \"fname\": {{trainer_fname}},\r\n  \"lname\": {{trainer_lname}}\r\n}",
+							"options": {
+								"raw": {
+									"language": "json"
+								}
+							}
+						},
+						"url": {
+							"raw": "{{url}}",
+							"host": [
+								"{{url}}"
+							]
+						}
+					},
+					"response": []
+				},
+				{
+					"name": "valid ID, valid fname, invalid lname",
+					"event": [
+						{
+							"listen": "test",
+							"script": {
+								"exec": [
+									"pm.test(\"Status code is 400, Bad Request\", function () {\r",
+									"    pm.response.to.have.status(400);\r",
+									"});\r",
+									"\r",
+									"pm.test(\"Response time is less than 1s\", function () {\r",
+									"    pm.expect(pm.response.responseTime).to.be.below(1000);\r",
+									"});\r",
+									"\r",
+									""
+								],
+								"type": "text/javascript"
+							}
+						},
+						{
+							"listen": "prerequest",
+							"script": {
+								"exec": [
+									"//Assert numeric id\r",
+									"const trainer_id = Math.round(Math.random()*10);  \r",
+									"pm.collectionVariables.set(\"trainer_id\",trainer_id);\r",
+									"\r",
+									"//Assert alphabet first name\r",
+									"function randName (length)\r",
+									"{\r",
+									"    var chars = \"abcdefghijklmnopqrstuvwxyz\";\r",
+									"    var randomString = \"\";\r",
+									"    \r",
+									"    for(var i = 0; i < length; i++)\r",
+									"    {\r",
+									"        randomString += chars[Math.floor(Math.random() * chars.length)];\r",
+									"    }\r",
+									"\r",
+									"    return randomString\r",
+									"} \r",
+									"const trainer_fname = randName(5);\r",
+									"pm.collectionVariables.set(\"trainer_fname\",trainer_fname);\r",
+									"\r",
+									"\r",
+									"//Assert alphanumeric last name\r",
+									"const trainer_lname = Math.random().toString(36).substring(6);\r",
+									"pm.collectionVariables.set(\"trainer_lname\",trainer_lname);"
+								],
+								"type": "text/javascript"
+							}
+						}
+					],
+					"request": {
+						"method": "PUT",
+						"header": [],
+						"body": {
+							"mode": "raw",
+							"raw": "{\r\n  \"id\": {{trainer_id}},\r\n  \"fname\": {{trainer_fname}},\r\n  \"lname\": {{trainer_lname}}\r\n}",
+							"options": {
+								"raw": {
+									"language": "json"
+								}
+							}
+						},
+						"url": {
+							"raw": "{{url}}",
+							"host": [
+								"{{url}}"
+							]
+						}
+					},
+					"response": []
+				},
+				{
+					"name": "invalid ID, invalid fname, valid lname",
+					"event": [
+						{
+							"listen": "test",
+							"script": {
+								"exec": [
+									"pm.test(\"Status code is 400, Bad Request\", function () {\r",
+									"    pm.response.to.have.status(400);\r",
+									"});\r",
+									"\r",
+									"pm.test(\"Response time is less than 1s\", function () {\r",
+									"    pm.expect(pm.response.responseTime).to.be.below(1000);\r",
+									"});\r",
+									"\r",
+									""
+								],
+								"type": "text/javascript"
+							}
+						},
+						{
+							"listen": "prerequest",
+							"script": {
+								"exec": [
+									"\r",
+									"//Assert alphanumeric id\r",
+									"const trainer_id = Math.random().toString(36).substring(12) || \r",
+									"\"z\"; \r",
+									"pm.collectionVariables.set(\"trainer_id\",trainer_id);\r",
+									"\r",
+									"//Assert alphanumeric first name\r",
+									"const trainer_fname = Math.random().toString(36).substring(6); \r",
+									"pm.collectionVariables.set(\"trainer_fname\",trainer_fname);\r",
+									"\r",
+									"//Assert alphabet last name\r",
+									"function randName (length)\r",
+									"{\r",
+									"    var chars = \"abcdefghijklmnopqrstuvwxyz\";\r",
+									"    var randomString = \"\";\r",
+									"    \r",
+									"    for(var i = 0; i < length; i++)\r",
+									"    {\r",
+									"        randomString += chars[Math.floor(Math.random() * chars.length)];\r",
+									"    }\r",
+									"\r",
+									"    return randomString\r",
+									"} \r",
+									"const trainer_lname = randName(6);\r",
+									"pm.collectionVariables.set(\"trainer_lname\",trainer_lname);"
+								],
+								"type": "text/javascript"
+							}
+						}
+					],
+					"request": {
+						"method": "PUT",
+						"header": [],
+						"body": {
+							"mode": "raw",
+							"raw": "{\r\n  \"id\": {{trainer_id}},\r\n  \"fname\": {{trainer_fname}},\r\n  \"lname\": {{trainer_lname}}\r\n}",
+							"options": {
+								"raw": {
+									"language": "json"
+								}
+							}
+						},
+						"url": {
+							"raw": "{{url}}",
+							"host": [
+								"{{url}}"
+							]
+						}
+					},
+					"response": []
+				}
+			]
+		}
+	]
+}

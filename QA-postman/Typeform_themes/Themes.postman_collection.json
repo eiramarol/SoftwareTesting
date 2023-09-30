@@ -1,0 +1,486 @@
+{
+	"info": {
+		"_postman_id": "9099db31-9d63-4859-b198-ee40af3744d1",
+		"name": "Themes",
+		"schema": "https://schema.getpostman.com/json/collection/v2.1.0/collection.json",
+		"_exporter_id": "27454725"
+	},
+	"item": [
+		{
+			"name": "Retrieve themes",
+			"event": [
+				{
+					"listen": "test",
+					"script": {
+						"exec": [
+							"pm.test(\"Status code is 200\", function () {\r",
+							"    pm.response.to.have.status(200);\r",
+							"    pm.response.to.have.status(\"OK\");\r",
+							"\r",
+							"});\r",
+							"\r",
+							"pm.test(\"Response time is below 1sec\", ()=>{\r",
+							"    pm.expect(pm.response.responseTime).to.be.below(1000);\r",
+							"});\r",
+							"\r",
+							"\r",
+							""
+						],
+						"type": "text/javascript"
+					}
+				}
+			],
+			"request": {
+				"auth": {
+					"type": "bearer",
+					"bearer": [
+						{
+							"key": "token",
+							"value": "{{typeform_personal_token}}",
+							"type": "string"
+						}
+					]
+				},
+				"method": "GET",
+				"header": [
+					{
+						"key": "Content-Type",
+						"value": "application/json"
+					},
+					{
+						"key": "Accept",
+						"value": "application/json"
+					}
+				],
+				"url": {
+					"raw": "{{baseUrl}}/themes?page=1&page_size=10",
+					"host": [
+						"{{baseUrl}}"
+					],
+					"path": [
+						"themes"
+					],
+					"query": [
+						{
+							"key": "page",
+							"value": "1"
+						},
+						{
+							"key": "page_size",
+							"value": "10"
+						}
+					]
+				}
+			},
+			"response": []
+		},
+		{
+			"name": "Create theme",
+			"event": [
+				{
+					"listen": "prerequest",
+					"script": {
+						"exec": [
+							"function randomColor() \r",
+							"{\r",
+							"  var RandomCol = Math.floor(Math.random() * 16777215).toString(16);\r",
+							"  RandomCol = RandomCol.padStart(6, \"F\");\r",
+							"  return \"#\" + RandomCol;\r",
+							"}\r",
+							"\r",
+							"function randomStr(len) \r",
+							"{\r",
+							"  var id = '0123456789abcdefghijklmnopqrstuvwxyzABCDEFGHIJKLMNOPQRSTUVWXYZ';\r",
+							"  var strng = '';\r",
+							"  for (var i = 0; i < len; i++) \r",
+							"  {\r",
+							"    strng += id[Math.floor(Math.random() * id.length)];\r",
+							"  }\r",
+							"  return strng;\r",
+							"}\r",
+							"\r",
+							"function randomFont() \r",
+							"{\r",
+							"  var fonts = [\"Acme\", \"Arial\", \"Arvo\", \"Avenir Next\", \"Bangers\", \"Cabin\", \"Cabin Condensed\", \"Courier\", \"Crete Round\", \"Dancing Script\", \"Exo\", \"Georgia\", \"Handlee\", \"Headland One\", \"Karla\", \"Lato\", \"Lekton\", \"Lobster\", \"Lora\", \"McLaren\", \"Montserrat\", \"Nixie One\", \"Old Standard TT\", \"Open Sans\", \"Oswald\", \"Playfair Display\", \"Quicksand\", \"Raleway\", \"Signika\", \"Sniglet\", \"Source Sans Pro\", \"Vollkorn\"];\r",
+							"  var randFont = '';\r",
+							"\r",
+							"  for (var i = 0; i < fonts.length; i++) \r",
+							"  {\r",
+							"    randFont = fonts[Math.floor(Math.random() * fonts.length)];\r",
+							"  }\r",
+							"\r",
+							"  return randFont;\r",
+							"}\r",
+							"\r",
+							"function randomNos ()\r",
+							"{\r",
+							"    var nos = Math.floor(Math.random() * 100) / 100; \r",
+							"\t\treturn nos;  \r",
+							"}\r",
+							"var RandomAnswer = randomColor();\r",
+							"pm.environment.set(\"answer\", RandomAnswer.toUpperCase());\r",
+							"\r",
+							"var RandomBtn = randomColor();\r",
+							"pm.environment.set(\"button\", RandomBtn.toUpperCase());\r",
+							"\r",
+							"var RandomQ = randomColor();\r",
+							"pm.environment.set(\"question\", RandomQ.toUpperCase());\r",
+							"\r",
+							"var RandomBG = randomColor();\r",
+							"pm.environment.set(\"background\", RandomBG.toUpperCase());\r",
+							"\r",
+							"var bright = randomNos();\r",
+							"pm.environment.set(\"brightness\",bright);\r",
+							"\r",
+							"var randomID = randomStr(6)\r",
+							"pm.environment.set(\"id\",randomID);\r",
+							"\r",
+							"var fontRandom = randomFont();\r",
+							"pm.environment.set(\"font\",fontRandom);\r",
+							"\r",
+							"var themeName = \"TEST_\" + randomStr(5);\r",
+							"pm.environment.set(\"themeName\", themeName);\r",
+							"\r",
+							"\r",
+							""
+						],
+						"type": "text/javascript"
+					}
+				},
+				{
+					"listen": "test",
+					"script": {
+						"exec": [
+							"pm.test(\"Status code is 201\", function () {\r",
+							"    pm.response.to.have.status(201);\r",
+							"    pm.response.to.have.status(\"Created\");\r",
+							"});\r",
+							"\r",
+							"pm.test(\"Response time is below 1sec\", ()=>{\r",
+							"    pm.expect(pm.response.responseTime).to.be.below(1000);\r",
+							"});\r",
+							"\r",
+							"var response = pm.response.json();\r",
+							"var themeID = response.id;\r",
+							"console.log(themeID);\r",
+							"pm.globals.set(\"themeID\",themeID);"
+						],
+						"type": "text/javascript"
+					}
+				}
+			],
+			"request": {
+				"auth": {
+					"type": "bearer",
+					"bearer": [
+						{
+							"key": "token",
+							"value": "{{typeform_personal_token}}",
+							"type": "string"
+						}
+					]
+				},
+				"method": "POST",
+				"header": [
+					{
+						"key": "Content-Type",
+						"value": "application/json"
+					},
+					{
+						"key": "Accept",
+						"value": "application/json"
+					}
+				],
+				"body": {
+					"mode": "raw",
+					"raw": "{\r\n  \"background\": {\r\n    \"brightness\": {{brightness}},\r\n    \"href\": \"https://images.typeform.com/images/QXvZqNpAi94E\",\r\n    \"layout\": \"fullscreen\"\r\n  },\r\n  \"colors\": {\r\n    \"answer\": \"{{answer}}\",\r\n    \"background\": \"{{background}}\",\r\n    \"button\": \"{{button}}\",\r\n    \"question\": \"{{question}}\"\r\n  },\r\n  \"fields\": {\r\n    \"alignment\": \"left\",\r\n    \"font_size\": \"medium\"\r\n  },\r\n  \"font\": \"{{font}}\",\r\n  \"has_transparent_button\": false,\r\n  \"name\": \"{{themeName}}\",\r\n  \"rounded_corners\": \"small\",\r\n  \"screens\": {\r\n    \"alignment\": \"center\",\r\n    \"font_size\": \"small\"\r\n  },\r\n  \"visibility\": \"private\"\r\n}"
+				},
+				"url": {
+					"raw": "{{baseUrl}}/themes",
+					"host": [
+						"{{baseUrl}}"
+					],
+					"path": [
+						"themes"
+					]
+				}
+			},
+			"response": []
+		},
+		{
+			"name": "Update theme",
+			"event": [
+				{
+					"listen": "prerequest",
+					"script": {
+						"exec": [
+							"function randomColor() \r",
+							"{\r",
+							"  var RandomCol = Math.floor(Math.random() * 6172215).toString(16); \r",
+							"  RandomCol = RandomCol.padStart(6, 'F');\r",
+							"  return \"#\" + RandomCol;\r",
+							"}\r",
+							"\r",
+							"function randomStr(len) \r",
+							"{\r",
+							"  var id = '0123456789abcdefghijklmnopqrstuvwxyzABCDEFGHIJKLMNOPQRSTUVWXYZ';\r",
+							"  var strng = '';\r",
+							"  for (var i = 0; i < len; i++) \r",
+							"  {\r",
+							"    strng += id[Math.floor(Math.random() * id.length)];\r",
+							"  }\r",
+							"  return strng;\r",
+							"}\r",
+							"\r",
+							"function randomFont() \r",
+							"{\r",
+							"  var fonts = [\"Acme\", \"Arial\", \"Arvo\", \"Avenir Next\", \"Bangers\", \"Cabin\", \"Cabin Condensed\", \"Courier\", \"Crete Round\", \"Dancing Script\", \"Exo\", \"Georgia\", \"Handlee\", \"Helvetica Neue\", \"Karla\", \"Lato\", \"Lekton\", \"Lobster\", \"Lora\", \"McLaren\", \"Montserrat\", \"Nixie One\", \"Old Standard TT\", \"Open Sans\", \"Oswald\", \"Playfair Display\", \"Quicksand\", \"Raleway\", \"Signika\", \"Sniglet\", \"Source Sans Pro\", \"Vollkorn\"];\r",
+							"  var randFont = '';\r",
+							"\r",
+							"  for (var i = 0; i < fonts.length; i++) \r",
+							"  {\r",
+							"    randFont = fonts[Math.floor(Math.random() * fonts.length)];\r",
+							"  }\r",
+							"\r",
+							"  return randFont;\r",
+							"}\r",
+							"\r",
+							"function randomNos ()\r",
+							"{\r",
+							"    var nos = Math.floor(Math.random() * 100) / 100; \r",
+							"\t\treturn nos;  \r",
+							"}\r",
+							"var RandomAnswer = randomColor();\r",
+							"pm.environment.set(\"answer\", RandomAnswer.toUpperCase());\r",
+							"\r",
+							"var RandomBtn = randomColor();\r",
+							"pm.environment.set(\"button\", RandomBtn.toUpperCase());\r",
+							"\r",
+							"var RandomQ = randomColor();\r",
+							"pm.environment.set(\"question\", RandomQ.toUpperCase());\r",
+							"\r",
+							"var RandomBG = randomColor();\r",
+							"pm.environment.set(\"background\", RandomBG.toUpperCase());\r",
+							"\r",
+							"var bright = randomNos();\r",
+							"pm.environment.set(\"brightness\",bright);\r",
+							"\r",
+							"var randomID = randomStr(6)\r",
+							"pm.environment.set(\"id\",randomID);\r",
+							"\r",
+							"var fontRandom = randomFont();\r",
+							"pm.environment.set(\"font\",fontRandom);\r",
+							"\r",
+							"var themeName = \"TEST \" + randomStr(5);\r",
+							"pm.environment.set(\"themeName\", themeName);\r",
+							"\r",
+							"\r",
+							""
+						],
+						"type": "text/javascript"
+					}
+				},
+				{
+					"listen": "test",
+					"script": {
+						"exec": [
+							"\r",
+							"pm.test(\"Status code is 200\", function () {\r",
+							"    pm.response.to.have.status(200);\r",
+							"    pm.response.to.have.status(\"OK\");\r",
+							"\r",
+							"});\r",
+							"\r",
+							"pm.test(\"Response time is below 1sec\", ()=>{\r",
+							"    pm.expect(pm.response.responseTime).to.be.below(1000);\r",
+							"});\r",
+							"\r",
+							"\r",
+							""
+						],
+						"type": "text/javascript"
+					}
+				}
+			],
+			"request": {
+				"auth": {
+					"type": "bearer",
+					"bearer": [
+						{
+							"key": "token",
+							"value": "{{typeform_personal_token}}",
+							"type": "string"
+						}
+					]
+				},
+				"method": "PUT",
+				"header": [
+					{
+						"key": "Content-Type",
+						"value": "application/json"
+					},
+					{
+						"key": "Accept",
+						"value": "application/json"
+					}
+				],
+				"body": {
+					"mode": "raw",
+					"raw": "{\r\n  \"background\": {\r\n    \"brightness\": {{brightness}},\r\n    \"href\": \"https://images.typeform.com/images/QXvZqNpAi94E\",\r\n    \"layout\": \"fullscreen\"\r\n  },\r\n  \"colors\": {\r\n    \"answer\": \"{{answer}}\",\r\n    \"background\": \"{{background}}\",\r\n    \"button\": \"{{button}}\",\r\n    \"question\": \"{{question}}\"\r\n  },\r\n  \"fields\": {\r\n    \"alignment\": \"left\",\r\n    \"font_size\": \"medium\"\r\n  },\r\n  \"font\": \"{{font}}\",\r\n  \"has_transparent_button\": false,\r\n  \"name\": \"{{themeName}}\",\r\n  \"rounded_corners\": \"small\",\r\n  \"screens\": {\r\n    \"alignment\": \"center\",\r\n    \"font_size\": \"small\"\r\n  },\r\n  \"visibility\": \"private\"\r\n}"
+				},
+				"url": {
+					"raw": "{{baseUrl}}/themes/{{themeID}}",
+					"host": [
+						"{{baseUrl}}"
+					],
+					"path": [
+						"themes",
+						"{{themeID}}"
+					]
+				}
+			},
+			"response": []
+		},
+		{
+			"name": "Retrieve theme",
+			"event": [
+				{
+					"listen": "prerequest",
+					"script": {
+						"exec": [
+							""
+						],
+						"type": "text/javascript"
+					}
+				},
+				{
+					"listen": "test",
+					"script": {
+						"exec": [
+							"// var response = pm.response.json();\r",
+							"\r",
+							"// for(var i = 0; i < response.items.length; i++){\r",
+							"//     if (response.items[i].name === \"TEST 6WePY\") {\r",
+							"//         var themeID = response.items[i].id;\r",
+							"//         // console.log(\"ID: \" + themeID);\r",
+							"//         pm.environment.set(\"themeID\",  themeID  );\r",
+							"//     }\r",
+							"// }\r",
+							"\r",
+							"pm.test(\"Status code is 200\", function () {\r",
+							"    pm.response.to.have.status(200);\r",
+							"    pm.response.to.have.status(\"OK\");\r",
+							"\r",
+							"});\r",
+							"pm.test(\"Response time is below 1sec\", ()=>{\r",
+							"    pm.expect(pm.response.responseTime).to.be.below(1000);\r",
+							"});\r",
+							"\r",
+							""
+						],
+						"type": "text/javascript"
+					}
+				}
+			],
+			"request": {
+				"auth": {
+					"type": "bearer",
+					"bearer": [
+						{
+							"key": "token",
+							"value": "{{typeform_personal_token}}",
+							"type": "string"
+						}
+					]
+				},
+				"method": "GET",
+				"header": [
+					{
+						"key": "Content-Type",
+						"value": "application/json"
+					},
+					{
+						"key": "Accept",
+						"value": "application/json"
+					}
+				],
+				"url": {
+					"raw": "{{baseUrl}}/themes/{{themeID}}",
+					"host": [
+						"{{baseUrl}}"
+					],
+					"path": [
+						"themes",
+						"{{themeID}}"
+					]
+				}
+			},
+			"response": []
+		},
+		{
+			"name": "Delete theme",
+			"event": [
+				{
+					"listen": "test",
+					"script": {
+						"exec": [
+							"pm.test(\"Status code is 204\", function () {\r",
+							"    pm.response.to.have.status(204);\r",
+							"    pm.response.to.have.status(\"No Content\");\r",
+							"});\r",
+							"\r",
+							"pm.test(\"Response time is below 1sec\", ()=>{\r",
+							"    pm.expect(pm.response.responseTime).to.be.below(1000);\r",
+							"});"
+						],
+						"type": "text/javascript"
+					}
+				}
+			],
+			"request": {
+				"auth": {
+					"type": "bearer",
+					"bearer": [
+						{
+							"key": "token",
+							"value": "{{typeform_personal_token}}",
+							"type": "string"
+						}
+					]
+				},
+				"method": "DELETE",
+				"header": [
+					{
+						"key": "Content-Type",
+						"value": "application/json"
+					},
+					{
+						"key": "Accept",
+						"value": "application/json"
+					}
+				],
+				"body": {
+					"mode": "urlencoded",
+					"urlencoded": []
+				},
+				"url": {
+					"raw": "{{baseUrl}}/themes/{{themeID}}",
+					"host": [
+						"{{baseUrl}}"
+					],
+					"path": [
+						"themes",
+						"{{themeID}}"
+					]
+				}
+			},
+			"response": []
+		}
+	],
+	"variable": [
+		{
+			"key": "baseUrl",
+			"value": "https://api.typeform.com"
+		}
+	]
+}

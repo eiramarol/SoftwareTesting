@@ -1,0 +1,1179 @@
+{
+	"info": {
+		"_postman_id": "3303bd16-864b-4bdd-abf2-7f8e1d2fc04e",
+		"name": "Reqres",
+		"schema": "https://schema.getpostman.com/json/collection/v2.1.0/collection.json",
+		"_exporter_id": "27454725"
+	},
+	"item": [
+		{
+			"name": "GET",
+			"item": [
+				{
+					"name": "List users",
+					"event": [
+						{
+							"listen": "test",
+							"script": {
+								"exec": [
+									"pm.test(\"Status code is 200\", function () {\r",
+									"    pm.response.to.have.status(200);\r",
+									"    pm.response.to.have.status(\"OK\");\r",
+									"});\r",
+									"\r",
+									"pm.test(\"Response time should be max 1sec\", function () {\r",
+									"    pm.expect(pm.response.responseTime).to.be.below(1000);\r",
+									"});\r",
+									"\r",
+									"//Parse the response body to JSON object\r",
+									"var responseBody = pm.response.json();\r",
+									"\r",
+									"//Get the data array from the responseBody\r",
+									"var dataArray = responseBody.data;\r",
+									"\r",
+									"pm.test(\"Response displays 6 users\", function (){\r",
+									"    pm.expect(dataArray).to.have.length(6);\r",
+									"});\r",
+									"\r",
+									"//Iterate over each data in the array\r",
+									"pm.test(\"Data has the id, email, first_name, last_name, avatar properties\", function(){\r",
+									"    for(var i=0; i< dataArray.length; i++){\r",
+									"        var data = dataArray[i];\r",
+									"\r",
+									"        //check if the properties are present in each data\r",
+									"        pm.expect(data).to.have.property('id');\r",
+									"        pm.expect(data).to.have.property('email');\r",
+									"        pm.expect(data).to.have.property('first_name');\r",
+									"        pm.expect(data).to.have.property('last_name');\r",
+									"        pm.expect(data).to.have.property('avatar');\r",
+									"\r",
+									"    }\r",
+									"});\r",
+									"\r",
+									"pm.test(\"Verify top-level properties\", function(){\r",
+									"    pm.expect(responseBody).to.have.property('page');\r",
+									"    pm.expect(responseBody).to.have.property('per_page');\r",
+									"    pm.expect(responseBody).to.have.property('total');\r",
+									"    pm.expect(responseBody).to.have.property('total_pages');\r",
+									"    pm.expect(responseBody).to.have.property('data');\r",
+									"    pm.expect(responseBody).to.have.property('support');\r",
+									"\r",
+									"});"
+								],
+								"type": "text/javascript"
+							}
+						}
+					],
+					"request": {
+						"method": "GET",
+						"header": [],
+						"url": {
+							"raw": "{{url}}/api/users?page=2",
+							"host": [
+								"{{url}}"
+							],
+							"path": [
+								"api",
+								"users"
+							],
+							"query": [
+								{
+									"key": "page",
+									"value": "2"
+								}
+							]
+						}
+					},
+					"response": []
+				},
+				{
+					"name": "Single user",
+					"event": [
+						{
+							"listen": "test",
+							"script": {
+								"exec": [
+									"pm.test(\"Status code is 200\", function () {\r",
+									"    pm.response.to.have.status(200);\r",
+									"    pm.response.to.have.status(\"OK\");\r",
+									"});\r",
+									"\r",
+									"pm.test(\"Response time should be max 1sec\", function () {\r",
+									"    pm.expect(pm.response.responseTime).to.be.below(1000);\r",
+									"});\r",
+									"\r",
+									"//Parse the response body to JSON object\r",
+									"var responseBody = pm.response.json();\r",
+									"\r",
+									"//Get the user object from the responseBody\r",
+									"var user = responseBody.data;\r",
+									"\r",
+									"pm.test(\"Response is not empty\", function (){\r",
+									"    pm.expect(user).to.be.not.empty;\r",
+									"});\r",
+									"\r",
+									"//Iterate over each data in the array\r",
+									"pm.test(\"Data has the id, email, first_name, last_name, avatar properties\", function(){\r",
+									"    for(var i=0; i< user.length; i++){\r",
+									"        var data = user[i];\r",
+									"\r",
+									"        //check if the properties are present in each data\r",
+									"        pm.expect(user).to.have.property('id');\r",
+									"        pm.expect(user).to.have.property('email');\r",
+									"        pm.expect(user).to.have.property('first_name');\r",
+									"        pm.expect(user).to.have.property('last_name');\r",
+									"        pm.expect(user).to.have.property('avatar');\r",
+									"\r",
+									"    }\r",
+									"});\r",
+									"\r",
+									"pm.test(\"Verify top-level properties data and support are present\", function(){\r",
+									"    pm.expect(responseBody).to.have.property('data');\r",
+									"    pm.expect(responseBody).to.have.property('support');\r",
+									"\r",
+									"});"
+								],
+								"type": "text/javascript"
+							}
+						}
+					],
+					"request": {
+						"method": "GET",
+						"header": [],
+						"url": {
+							"raw": "{{url}}/api/users/12",
+							"host": [
+								"{{url}}"
+							],
+							"path": [
+								"api",
+								"users",
+								"12"
+							]
+						}
+					},
+					"response": []
+				},
+				{
+					"name": "Single user not found",
+					"event": [
+						{
+							"listen": "test",
+							"script": {
+								"exec": [
+									"pm.test(\"Status code is 404\", function () {\r",
+									"    pm.response.to.have.status(404);\r",
+									"    pm.response.to.have.status(\"Not Found\");\r",
+									"});\r",
+									"\r",
+									"pm.test(\"Response time should be max 1sec\", function () {\r",
+									"    pm.expect(pm.response.responseTime).to.be.below(1000);\r",
+									"});\r",
+									"\r",
+									"pm.test(\"Response body is empty\", function(){\r",
+									"    pm.expect(pm.response.json()).to.be.empty;\r",
+									"});"
+								],
+								"type": "text/javascript"
+							}
+						}
+					],
+					"request": {
+						"method": "GET",
+						"header": [],
+						"url": {
+							"raw": "{{url}}/api/users/23",
+							"host": [
+								"{{url}}"
+							],
+							"path": [
+								"api",
+								"users",
+								"23"
+							]
+						}
+					},
+					"response": []
+				},
+				{
+					"name": "List <resource>",
+					"event": [
+						{
+							"listen": "test",
+							"script": {
+								"exec": [
+									"pm.test(\"Status code is 200\", function () {\r",
+									"    pm.response.to.have.status(200);\r",
+									"    pm.response.to.have.status(\"OK\");\r",
+									"});\r",
+									"\r",
+									"pm.test(\"Response time should be max 1sec\", function () {\r",
+									"    pm.expect(pm.response.responseTime).to.be.below(1000);\r",
+									"});\r",
+									"\r",
+									"//Parse the response body to JSON object\r",
+									"var responseBody = pm.response.json();\r",
+									"\r",
+									"//Get the data array from the responseBody\r",
+									"var resourceArr = responseBody.data;\r",
+									"\r",
+									"pm.test(\"Response displays 6 users\", function (){\r",
+									"    pm.expect(resourceArr).to.have.length(6);\r",
+									"});\r",
+									"\r",
+									"pm.test(\"Data has properties id, name, year, color, pantone_value\", function(){\r",
+									"    for(var i = 0; i< resourceArr.length; i++){\r",
+									"        var data = resourceArr[i];\r",
+									"\r",
+									"        pm.expect(data).to.have.property(\"id\");\r",
+									"        pm.expect(data).to.have.property(\"name\");\r",
+									"        pm.expect(data).to.have.property(\"year\");\r",
+									"        pm.expect(data).to.have.property(\"color\");\r",
+									"        pm.expect(data).to.have.property(\"pantone_value\");\r",
+									"\r",
+									"\r",
+									"    }\r",
+									"});\r",
+									""
+								],
+								"type": "text/javascript"
+							}
+						}
+					],
+					"request": {
+						"method": "GET",
+						"header": [],
+						"url": {
+							"raw": "{{url}}/api/unknown",
+							"host": [
+								"{{url}}"
+							],
+							"path": [
+								"api",
+								"unknown"
+							]
+						}
+					},
+					"response": []
+				},
+				{
+					"name": "Single <resource>",
+					"event": [
+						{
+							"listen": "test",
+							"script": {
+								"exec": [
+									"pm.test(\"Status code is 200\", function () {\r",
+									"    pm.response.to.have.status(200);\r",
+									"    pm.response.to.have.status(\"OK\");\r",
+									"});\r",
+									"\r",
+									"pm.test(\"Response time should be max 1sec\", function () {\r",
+									"    pm.expect(pm.response.responseTime).to.be.below(1000);\r",
+									"});\r",
+									"\r",
+									"//Parse the response body to JSON object\r",
+									"var responseBody = pm.response.json();\r",
+									"\r",
+									"//Get the data array from the responseBody\r",
+									"var resourceArr = responseBody.data;\r",
+									"\r",
+									"pm.test(\"Response is not empty\", function (){\r",
+									"    pm.expect(resourceArr).to.be.not.empty\r",
+									"});"
+								],
+								"type": "text/javascript"
+							}
+						}
+					],
+					"request": {
+						"method": "GET",
+						"header": [],
+						"url": {
+							"raw": "{{url}}/api/unknown/3",
+							"host": [
+								"{{url}}"
+							],
+							"path": [
+								"api",
+								"unknown",
+								"3"
+							]
+						}
+					},
+					"response": []
+				},
+				{
+					"name": "Single <resource> not found",
+					"event": [
+						{
+							"listen": "test",
+							"script": {
+								"exec": [
+									"pm.test(\"Status code is 404\", function () {\r",
+									"    pm.response.to.have.status(404);\r",
+									"    pm.response.to.have.status(\"Not Found\");\r",
+									"});\r",
+									"\r",
+									"pm.test(\"Response time should be max 1sec\", function () {\r",
+									"    pm.expect(pm.response.responseTime).to.be.below(1000);\r",
+									"});\r",
+									"\r",
+									"pm.test(\"Response body is empty\", function(){\r",
+									"    pm.expect(pm.response.json()).to.be.empty;\r",
+									"});"
+								],
+								"type": "text/javascript"
+							}
+						}
+					],
+					"request": {
+						"method": "GET",
+						"header": [],
+						"url": {
+							"raw": "{{url}}/api/unknown/23",
+							"host": [
+								"{{url}}"
+							],
+							"path": [
+								"api",
+								"unknown",
+								"23"
+							]
+						}
+					},
+					"response": []
+				},
+				{
+					"name": "Delayed response",
+					"event": [
+						{
+							"listen": "test",
+							"script": {
+								"exec": [
+									"pm.test(\"Status code is 200\", function () {\r",
+									"    pm.response.to.have.status(200);\r",
+									"    pm.response.to.have.status(\"OK\");\r",
+									"});\r",
+									"\r",
+									"pm.test(\"Response time should be max 2sec\", function () {\r",
+									"    pm.expect(pm.response.responseTime).to.be.below(2000);\r",
+									"});\r",
+									"\r",
+									"//Parse the response body to JSON object\r",
+									"var responseBody = pm.response.json();\r",
+									"\r",
+									"//Get the data array from the responseBody\r",
+									"var dataArray = responseBody.data;\r",
+									"\r",
+									"pm.test(\"Response displays 6 users\", function (){\r",
+									"    pm.expect(dataArray).to.have.length(6);\r",
+									"});\r",
+									"\r",
+									"//Iterate over each data in the array\r",
+									"pm.test(\"Data has the id, email, first_name, last_name, avatar properties\", function(){\r",
+									"    for(var i=0; i< dataArray.length; i++){\r",
+									"        var data = dataArray[i];\r",
+									"\r",
+									"        //check if the properties are present in each data\r",
+									"        pm.expect(data).to.have.property('id');\r",
+									"        pm.expect(data).to.have.property('email');\r",
+									"        pm.expect(data).to.have.property('first_name');\r",
+									"        pm.expect(data).to.have.property('last_name');\r",
+									"        pm.expect(data).to.have.property('avatar');\r",
+									"\r",
+									"    }\r",
+									"});\r",
+									"\r",
+									"pm.test(\"Verify top-level properties\", function(){\r",
+									"    pm.expect(responseBody).to.have.property('page');\r",
+									"    pm.expect(responseBody).to.have.property('per_page');\r",
+									"    pm.expect(responseBody).to.have.property('total');\r",
+									"    pm.expect(responseBody).to.have.property('total_pages');\r",
+									"    pm.expect(responseBody).to.have.property('data');\r",
+									"    pm.expect(responseBody).to.have.property('support');\r",
+									"\r",
+									"});"
+								],
+								"type": "text/javascript"
+							}
+						}
+					],
+					"request": {
+						"method": "GET",
+						"header": [],
+						"url": {
+							"raw": "{{url}}/api/users?delay=1",
+							"host": [
+								"{{url}}"
+							],
+							"path": [
+								"api",
+								"users"
+							],
+							"query": [
+								{
+									"key": "delay",
+									"value": "1"
+								}
+							]
+						}
+					},
+					"response": []
+				}
+			]
+		},
+		{
+			"name": "POST",
+			"item": [
+				{
+					"name": "Create",
+					"event": [
+						{
+							"listen": "prerequest",
+							"script": {
+								"exec": [
+									"function randName (length)\r",
+									"{\r",
+									"    var chars = \"abcdefghijklmnopqrstuvwxyz\";\r",
+									"    var randomString = \"\";\r",
+									"    \r",
+									"    for(var i = 0; i < length; i++)\r",
+									"    {\r",
+									"        randomString += chars[Math.floor(Math.random() * chars.length)];\r",
+									"    }\r",
+									"\r",
+									"    var firstLetter = randomString.charAt(0).toUpperCase();\r",
+									"    return firstLetter + randomString.slice(1);\r",
+									"} \r",
+									"\r",
+									"function randJob()\r",
+									"{\r",
+									"    var jobs = [\"Engineer\",\"Manager\",\"Analyst\",\"Designer\",\"Developer\"];\r",
+									"    var randomJob = \"\";\r",
+									"\r",
+									"    for(var i=0; i < jobs.length; i++)\r",
+									"    {\r",
+									"        randJob = jobs[Math.floor(Math.random()*jobs.length)];\r",
+									"    }\r",
+									"    return randJob;\r",
+									"}\r",
+									"var name = randName(7);\r",
+									"pm.collectionVariables.set(\"name\",name);\r",
+									"\r",
+									"var job = randJob();\r",
+									"pm.collectionVariables.set(\"job\", job);\r",
+									"\r",
+									"\r",
+									""
+								],
+								"type": "text/javascript"
+							}
+						},
+						{
+							"listen": "test",
+							"script": {
+								"exec": [
+									"pm.test(\"Response status is 201\", function(){\r",
+									"    pm.response.to.have.status(201);\r",
+									"    pm.response.to.have.status(\"Created\");\r",
+									"});\r",
+									"\r",
+									"pm.test(\"Response time is less than 1s\", function () {\r",
+									"    pm.expect(pm.response.responseTime).to.be.below(1000);\r",
+									"});\r",
+									"\r",
+									"pm.test(\"Respnse body has properties name, job, id, createdAt\", function(){\r",
+									"    var responseBody = pm.response.json();\r",
+									"\r",
+									"    pm.expect(responseBody).to.have.property(\"name\");\r",
+									"    pm.expect(responseBody).to.have.property(\"job\");\r",
+									"    pm.expect(responseBody).to.have.property(\"id\");\r",
+									"    pm.expect(responseBody).to.have.property(\"createdAt\");\r",
+									"\r",
+									"});"
+								],
+								"type": "text/javascript"
+							}
+						}
+					],
+					"request": {
+						"method": "POST",
+						"header": [],
+						"body": {
+							"mode": "raw",
+							"raw": "{\r\n    \"name\": \"{{name}}\",\r\n    \"job\": \"{{job}}\"\r\n}\r\n",
+							"options": {
+								"raw": {
+									"language": "json"
+								}
+							}
+						},
+						"url": {
+							"raw": "{{url}}/api/users",
+							"host": [
+								"{{url}}"
+							],
+							"path": [
+								"api",
+								"users"
+							]
+						}
+					},
+					"response": []
+				},
+				{
+					"name": "Register - successful",
+					"event": [
+						{
+							"listen": "prerequest",
+							"script": {
+								"exec": [
+									"function password (length)\r",
+									"{\r",
+									"    var chars = \"abcdefghijklmnopqrstuvwxyz\";\r",
+									"    var randomName = \"\";\r",
+									"    \r",
+									"    for(var i = 0; i < length; i++)\r",
+									"    {\r",
+									"        randomName += chars[Math.floor(Math.random() * chars.length)];\r",
+									"      \r",
+									"    }\r",
+									"\r",
+									"    return randomName;\r",
+									"    \r",
+									"}\r",
+									"\r",
+									"function email() {\r",
+									"    var users = [\"george.bluth@reqres.in\", \"janet.weaver@reqres.in\", \"emma.wong@reqres.in\", \"eve.holt@reqres.in\", \"charles.morris@reqres.in\", \"tracey.ramos@reqres.in\", \"michael.lawson@reqres.in\", \"lindsay.ferguson@reqres.in\", \"tobias.funke@reqres.in\", \"byron.fields@reqres.in\", \"george.edwards@reqres.in\", \"rachel.howell@reqres.in\"];\r",
+									"    var user = \"\";\r",
+									"\r",
+									"    for (var i = 0; i < users.length; i++) {\r",
+									"        user = users[Math.floor(Math.random() * users.length)];\r",
+									"    }\r",
+									"\r",
+									"    return user;\r",
+									"\r",
+									"}\r",
+									"\r",
+									"var email = email();\r",
+									"pm.collectionVariables.set(\"email\",email);\r",
+									"\r",
+									"// var password = password(7);\r",
+									"var password = \"password\";\r",
+									"pm.collectionVariables.set(\"password\", password);\r",
+									"\r",
+									"\r",
+									""
+								],
+								"type": "text/javascript"
+							}
+						},
+						{
+							"listen": "test",
+							"script": {
+								"exec": [
+									"pm.test(\"Response status is 201\", function(){\r",
+									"    pm.response.to.have.status(201);\r",
+									"    pm.response.to.have.status(\"Created\");\r",
+									"});\r",
+									"\r",
+									"pm.test(\"Response time is less than 1s\", function () {\r",
+									"    pm.expect(pm.response.responseTime).to.be.below(1000);\r",
+									"});\r",
+									"\r",
+									"// pm.test(\"Respnse body has properties name, job, id, createdAt\", function(){\r",
+									"\r",
+									"// });"
+								],
+								"type": "text/javascript"
+							}
+						}
+					],
+					"request": {
+						"method": "POST",
+						"header": [],
+						"body": {
+							"mode": "raw",
+							"raw": "{\r\n    \"email\": \"{{email}}\",\r\n    \"password\": \"{{password}}\"\r\n}\r\n",
+							"options": {
+								"raw": {
+									"language": "json"
+								}
+							}
+						},
+						"url": {
+							"raw": "{{url}}/api/register",
+							"host": [
+								"{{url}}"
+							],
+							"path": [
+								"api",
+								"register"
+							]
+						}
+					},
+					"response": []
+				},
+				{
+					"name": "Register - unsuccessful",
+					"event": [
+						{
+							"listen": "prerequest",
+							"script": {
+								"exec": [
+									"function password (length)\r",
+									"{\r",
+									"    var chars = \"abcdefghijklmnopqrstuvwxyz\";\r",
+									"    var randomName = \"\";\r",
+									"    \r",
+									"    for(var i = 0; i < length; i++)\r",
+									"    {\r",
+									"        randomName += chars[Math.floor(Math.random() * chars.length)];\r",
+									"      \r",
+									"    }\r",
+									"\r",
+									"    return randomName;\r",
+									"    \r",
+									"}\r",
+									"\r",
+									"function email() {\r",
+									"    var users = [\"george.bluth@reqres.in\", \"janet.weaver@reqres.in\", \"emma.wong@reqres.in\", \"eve.holt@reqres.in\", \"charles.morris@reqres.in\", \"tracey.ramos@reqres.in\", \"michael.lawson@reqres.in\", \"lindsay.ferguson@reqres.in\", \"tobias.funke@reqres.in\", \"byron.fields@reqres.in\", \"george.edwards@reqres.in\", \"rachel.howell@reqres.in\"];\r",
+									"    var user = \"\";\r",
+									"\r",
+									"    for (var i = 0; i < users.length; i++) {\r",
+									"        user = users[Math.floor(Math.random() * users.length)];\r",
+									"    }\r",
+									"\r",
+									"    return user;\r",
+									"\r",
+									"}\r",
+									"\r",
+									"var email = email();\r",
+									"pm.collectionVariables.set(\"email\",email);\r",
+									"\r",
+									"var password = password(7);\r",
+									"pm.collectionVariables.set(\"password\", password);\r",
+									"\r",
+									"\r",
+									""
+								],
+								"type": "text/javascript"
+							}
+						},
+						{
+							"listen": "test",
+							"script": {
+								"exec": [
+									"pm.test(\"Response status is 400\", function(){\r",
+									"    pm.response.to.have.status(400);\r",
+									"    pm.response.to.have.status(\"Bad Request\");\r",
+									"\r",
+									"});\r",
+									"\r",
+									"pm.test(\"Response time is less than 1s\", function () {\r",
+									"    pm.expect(pm.response.responseTime).to.be.below(1000);\r",
+									"});\r",
+									"pm.test(\"Response body has 'Missing' error message\", function () {\r",
+									"    pm.expect(pm.response.text()).to.include(\"Missing\");\r",
+									"});"
+								],
+								"type": "text/javascript"
+							}
+						}
+					],
+					"request": {
+						"method": "POST",
+						"header": [],
+						"body": {
+							"mode": "raw",
+							"raw": "{\r\n    // \"email\": \"{{email}}\"\r\n    \"password\": \"{{password}}\"\r\n\r\n}\r\n",
+							"options": {
+								"raw": {
+									"language": "json"
+								}
+							}
+						},
+						"url": {
+							"raw": "{{url}}/api/register",
+							"host": [
+								"{{url}}"
+							],
+							"path": [
+								"api",
+								"register"
+							]
+						}
+					},
+					"response": []
+				},
+				{
+					"name": "Login - successful",
+					"event": [
+						{
+							"listen": "prerequest",
+							"script": {
+								"exec": [
+									"function password (length)\r",
+									"{\r",
+									"    var chars = \"abcdefghijklmnopqrstuvwxyz\";\r",
+									"    var randomName = \"\";\r",
+									"    \r",
+									"    for(var i = 0; i < length; i++)\r",
+									"    {\r",
+									"        randomName += chars[Math.floor(Math.random() * chars.length)];\r",
+									"      \r",
+									"    }\r",
+									"\r",
+									"    return randomName;\r",
+									"    \r",
+									"}\r",
+									"\r",
+									"function email() {\r",
+									"    var users = [\"george.bluth@reqres.in\", \"janet.weaver@reqres.in\", \"emma.wong@reqres.in\", \"eve.holt@reqres.in\", \"charles.morris@reqres.in\", \"tracey.ramos@reqres.in\", \"michael.lawson@reqres.in\", \"lindsay.ferguson@reqres.in\", \"tobias.funke@reqres.in\", \"byron.fields@reqres.in\", \"george.edwards@reqres.in\", \"rachel.howell@reqres.in\"];\r",
+									"    var user = \"\";\r",
+									"\r",
+									"    for (var i = 0; i < users.length; i++) {\r",
+									"        user = users[Math.floor(Math.random() * users.length)];\r",
+									"    }\r",
+									"\r",
+									"    return user;\r",
+									"\r",
+									"}\r",
+									"\r",
+									"var email = email();\r",
+									"pm.collectionVariables.set(\"email\",email);\r",
+									"\r",
+									"// var password = password(7);\r",
+									"var password = \"password\";\r",
+									"pm.collectionVariables.set(\"password\", password);\r",
+									"\r",
+									"\r",
+									""
+								],
+								"type": "text/javascript"
+							}
+						},
+						{
+							"listen": "test",
+							"script": {
+								"exec": [
+									"pm.test(\"Response status is 200\", function(){\r",
+									"    pm.response.to.have.status(200);\r",
+									"    pm.response.to.have.status(\"OK\");\r",
+									"});\r",
+									"\r",
+									"pm.test(\"Response time is less than 1s\", function () {\r",
+									"    pm.expect(pm.response.responseTime).to.be.below(1000);\r",
+									"});\r",
+									"\r",
+									"// pm.test(\"Respnse body has properties name, job, id, createdAt\", function(){\r",
+									"\r",
+									"// });"
+								],
+								"type": "text/javascript"
+							}
+						}
+					],
+					"request": {
+						"method": "POST",
+						"header": [],
+						"body": {
+							"mode": "raw",
+							"raw": "{\r\n    \"email\": \"{{email}}\",\r\n    \"password\": \"{{password}}\"\r\n}\r\n",
+							"options": {
+								"raw": {
+									"language": "json"
+								}
+							}
+						},
+						"url": {
+							"raw": "{{url}}/api/login",
+							"host": [
+								"{{url}}"
+							],
+							"path": [
+								"api",
+								"login"
+							]
+						}
+					},
+					"response": []
+				},
+				{
+					"name": "Login - unsuccessful",
+					"event": [
+						{
+							"listen": "prerequest",
+							"script": {
+								"exec": [
+									"function password (length)\r",
+									"{\r",
+									"    var chars = \"abcdefghijklmnopqrstuvwxyz\";\r",
+									"    var randomName = \"\";\r",
+									"    \r",
+									"    for(var i = 0; i < length; i++)\r",
+									"    {\r",
+									"        randomName += chars[Math.floor(Math.random() * chars.length)];\r",
+									"      \r",
+									"    }\r",
+									"\r",
+									"    return randomName;\r",
+									"    \r",
+									"}\r",
+									"\r",
+									"function email() {\r",
+									"    var users = [\"george.bluth@reqres.in\", \"janet.weaver@reqres.in\", \"emma.wong@reqres.in\", \"eve.holt@reqres.in\", \"charles.morris@reqres.in\", \"tracey.ramos@reqres.in\", \"michael.lawson@reqres.in\", \"lindsay.ferguson@reqres.in\", \"tobias.funke@reqres.in\", \"byron.fields@reqres.in\", \"george.edwards@reqres.in\", \"rachel.howell@reqres.in\"];\r",
+									"    var user = \"\";\r",
+									"\r",
+									"    for (var i = 0; i < users.length; i++) {\r",
+									"        user = users[Math.floor(Math.random() * users.length)];\r",
+									"    }\r",
+									"\r",
+									"    return user;\r",
+									"\r",
+									"}\r",
+									"\r",
+									"var email = email();\r",
+									"pm.collectionVariables.set(\"email\",email);\r",
+									"\r",
+									"var password = password(7);\r",
+									"pm.collectionVariables.set(\"password\", password);\r",
+									"\r",
+									"\r",
+									""
+								],
+								"type": "text/javascript"
+							}
+						},
+						{
+							"listen": "test",
+							"script": {
+								"exec": [
+									"pm.test(\"Response status is 400\", function(){\r",
+									"    pm.response.to.have.status(400);\r",
+									"    pm.response.to.have.status(\"Bad Request\");\r",
+									"\r",
+									"});\r",
+									"\r",
+									"pm.test(\"Response time is less than 1s\", function () {\r",
+									"    pm.expect(pm.response.responseTime).to.be.below(1000);\r",
+									"});\r",
+									"pm.test(\"Response body has 'Missing' error message\", function () {\r",
+									"    pm.expect(pm.response.text()).to.include(\"Missing\");\r",
+									"});"
+								],
+								"type": "text/javascript"
+							}
+						}
+					],
+					"request": {
+						"method": "POST",
+						"header": [],
+						"body": {
+							"mode": "raw",
+							"raw": "{\r\n    \"email\": \"{{email}}\"\r\n    // \"password\": \"{{password}}\"\r\n\r\n}\r\n",
+							"options": {
+								"raw": {
+									"language": "json"
+								}
+							}
+						},
+						"url": {
+							"raw": "{{url}}/api/register",
+							"host": [
+								"{{url}}"
+							],
+							"path": [
+								"api",
+								"register"
+							]
+						}
+					},
+					"response": []
+				}
+			]
+		},
+		{
+			"name": "PUT",
+			"item": [
+				{
+					"name": "Update",
+					"event": [
+						{
+							"listen": "prerequest",
+							"script": {
+								"exec": [
+									"function randName (length)\r",
+									"{\r",
+									"    var chars = \"abcdefghijklmnopqrstuvwxyz\";\r",
+									"    var randomString = \"\";\r",
+									"    \r",
+									"    for(var i = 0; i < length; i++)\r",
+									"    {\r",
+									"        randomString += chars[Math.floor(Math.random() * chars.length)];\r",
+									"    }\r",
+									"\r",
+									"    var firstLetter = randomString.charAt(0).toUpperCase();\r",
+									"    return firstLetter + randomString.slice(1);\r",
+									"} \r",
+									"\r",
+									"function randJob()\r",
+									"{\r",
+									"    var jobs = [\"Engineer\",\"Manager\",\"Analyst\",\"Designer\",\"Developer\"];\r",
+									"    var randomJob = \"\";\r",
+									"\r",
+									"    for(var i=0; i < jobs.length; i++)\r",
+									"    {\r",
+									"        randJob = jobs[Math.floor(Math.random()*jobs.length)];\r",
+									"    }\r",
+									"    return randJob;\r",
+									"}\r",
+									"var name = randName(7);\r",
+									"pm.collectionVariables.set(\"name\",name);\r",
+									"\r",
+									"var job = randJob();\r",
+									"pm.collectionVariables.set(\"job\", job);\r",
+									"\r",
+									"\r",
+									""
+								],
+								"type": "text/javascript"
+							}
+						},
+						{
+							"listen": "test",
+							"script": {
+								"exec": [
+									"pm.test(\"Response status is 200\", function(){\r",
+									"    pm.response.to.have.status(200);\r",
+									"    pm.response.to.have.status(\"OK\");\r",
+									"});\r",
+									"\r",
+									"pm.test(\"Response time is less than 1s\", function () {\r",
+									"    pm.expect(pm.response.responseTime).to.be.below(1000);\r",
+									"});\r",
+									"\r",
+									"pm.test(\"Respnse body has properties name, job, id, createdAt\", function(){\r",
+									"    var responseBody = pm.response.json();\r",
+									"\r",
+									"    pm.expect(responseBody).to.have.property(\"name\");\r",
+									"    pm.expect(responseBody).to.have.property(\"job\");\r",
+									"    pm.expect(responseBody).to.have.property(\"updatedAt\");\r",
+									"\r",
+									"});"
+								],
+								"type": "text/javascript"
+							}
+						}
+					],
+					"request": {
+						"method": "PUT",
+						"header": [],
+						"body": {
+							"mode": "raw",
+							"raw": "{\r\n    \"name\": \"{{name}}\",\r\n    \"job\": \"{{job}}\"\r\n}\r\n",
+							"options": {
+								"raw": {
+									"language": "json"
+								}
+							}
+						},
+						"url": {
+							"raw": "{{url}}/api/users/23",
+							"host": [
+								"{{url}}"
+							],
+							"path": [
+								"api",
+								"users",
+								"23"
+							]
+						}
+					},
+					"response": []
+				}
+			]
+		},
+		{
+			"name": "PATCH",
+			"item": [
+				{
+					"name": "Update",
+					"event": [
+						{
+							"listen": "prerequest",
+							"script": {
+								"exec": [
+									"function randName (length)\r",
+									"{\r",
+									"    var chars = \"abcdefghijklmnopqrstuvwxyz\";\r",
+									"    var randomString = \"\";\r",
+									"    \r",
+									"    for(var i = 0; i < length; i++)\r",
+									"    {\r",
+									"        randomString += chars[Math.floor(Math.random() * chars.length)];\r",
+									"    }\r",
+									"\r",
+									"    var firstLetter = randomString.charAt(0).toUpperCase();\r",
+									"    return firstLetter + randomString.slice(1);\r",
+									"} \r",
+									"\r",
+									"function randJob()\r",
+									"{\r",
+									"    var jobs = [\"Engineer\",\"Manager\",\"Analyst\",\"Designer\",\"Developer\"];\r",
+									"    var randomJob = \"\";\r",
+									"\r",
+									"    for(var i=0; i < jobs.length; i++)\r",
+									"    {\r",
+									"        randJob = jobs[Math.floor(Math.random()*jobs.length)];\r",
+									"    }\r",
+									"    return randJob;\r",
+									"}\r",
+									"var name = randName(7);\r",
+									"pm.collectionVariables.set(\"name\",name);\r",
+									"\r",
+									"var job = randJob();\r",
+									"pm.collectionVariables.set(\"job\", job);\r",
+									"\r",
+									"\r",
+									""
+								],
+								"type": "text/javascript"
+							}
+						},
+						{
+							"listen": "test",
+							"script": {
+								"exec": [
+									"pm.test(\"Response status is 200\", function(){\r",
+									"    pm.response.to.have.status(200);\r",
+									"    pm.response.to.have.status(\"OK\");\r",
+									"});\r",
+									"\r",
+									"pm.test(\"Response time is less than 1s\", function () {\r",
+									"    pm.expect(pm.response.responseTime).to.be.below(1000);\r",
+									"});\r",
+									"\r",
+									"pm.test(\"Respnse body has properties name, job, id, createdAt\", function(){\r",
+									"    var responseBody = pm.response.json();\r",
+									"\r",
+									"    pm.expect(responseBody).to.have.property(\"name\");\r",
+									"    pm.expect(responseBody).to.have.property(\"job\");\r",
+									"    pm.expect(responseBody).to.have.property(\"updatedAt\");\r",
+									"\r",
+									"});"
+								],
+								"type": "text/javascript"
+							}
+						}
+					],
+					"request": {
+						"method": "PATCH",
+						"header": [],
+						"body": {
+							"mode": "raw",
+							"raw": "{\r\n    \"name\": \"{{name}}\",\r\n    \"job\": \"{{job}}\"\r\n}\r\n",
+							"options": {
+								"raw": {
+									"language": "json"
+								}
+							}
+						},
+						"url": {
+							"raw": "{{url}}/api/users/23",
+							"host": [
+								"{{url}}"
+							],
+							"path": [
+								"api",
+								"users",
+								"23"
+							]
+						}
+					},
+					"response": []
+				}
+			]
+		},
+		{
+			"name": "DELETE",
+			"item": [
+				{
+					"name": "Delete",
+					"event": [
+						{
+							"listen": "prerequest",
+							"script": {
+								"exec": [
+									""
+								],
+								"type": "text/javascript"
+							}
+						},
+						{
+							"listen": "test",
+							"script": {
+								"exec": [
+									"pm.test(\"Response status is 204\", function(){\r",
+									"    pm.response.to.have.status(204);\r",
+									"    pm.response.to.have.status(\"No Content\");\r",
+									"});\r",
+									"\r",
+									"pm.test(\"Response time is less than 1s\", function () {\r",
+									"    pm.expect(pm.response.responseTime).to.be.below(1000);\r",
+									"});\r",
+									""
+								],
+								"type": "text/javascript"
+							}
+						}
+					],
+					"request": {
+						"method": "DELETE",
+						"header": [],
+						"body": {
+							"mode": "raw",
+							"raw": "",
+							"options": {
+								"raw": {
+									"language": "json"
+								}
+							}
+						},
+						"url": {
+							"raw": "{{url}}/api/users/2",
+							"host": [
+								"{{url}}"
+							],
+							"path": [
+								"api",
+								"users",
+								"2"
+							]
+						}
+					},
+					"response": []
+				}
+			]
+		}
+	],
+	"variable": [
+		{
+			"key": "name",
+			"value": ""
+		},
+		{
+			"key": "job",
+			"value": ""
+		},
+		{
+			"key": "email",
+			"value": ""
+		},
+		{
+			"key": "password",
+			"value": ""
+		}
+	]
+}

@@ -1,0 +1,1111 @@
+{
+	"info": {
+		"_postman_id": "155759ff-c486-4c01-bd89-43a3b0d15a08",
+		"name": "GET and PUT",
+		"schema": "https://schema.getpostman.com/json/collection/v2.1.0/collection.json",
+		"_exporter_id": "27454725"
+	},
+	"item": [
+		{
+			"name": "GET",
+			"item": [
+				{
+					"name": "GET all trainers",
+					"event": [
+						{
+							"listen": "test",
+							"script": {
+								"exec": [
+									"\r",
+									"pm.test(\"Response time should be max 1sec\", function () {\r",
+									"    pm.expect(pm.response.responseTime).to.be.below(1000);\r",
+									"});\r",
+									"\r",
+									"pm.test(\"Response body is a valid JSON\", function(){\r",
+									"    pm.response.to.be.ok;\r",
+									"    pm.response.to.be.json;\r",
+									"});\r",
+									"\r",
+									"pm.test(\"Response body has expected keys\", function () {\r",
+									"    pm.response.to.have.jsonBody('users');\r",
+									"    pm.response.to.have.jsonBody('count');\r",
+									"\r",
+									"});\r",
+									"\r",
+									"// Parse the response body to a JSON object\r",
+									"var responseBody = pm.response.json();\r",
+									"\r",
+									"// Get the users array from the response body\r",
+									"var users = responseBody.users;\r",
+									"\r",
+									"// Iterate over each user in the array\r",
+									"pm.test(\"Users should have properties id, fname, and lname\", function () {\r",
+									"\r",
+									"    for (var i = 0; i < users.length; i++) {\r",
+									"        var user = users[i];\r",
+									"        \r",
+									"        // Check if id, fname, and lname exist for each user\r",
+									"            pm.expect(user).to.have.property('id');\r",
+									"            pm.expect(user).to.have.property('fname');\r",
+									"            pm.expect(user).to.have.property('lname');\r",
+									"\r",
+									"    };\r",
+									"});\r",
+									"\r",
+									"pm.test(\"Response body has the expected values\", function() {\r",
+									"\r",
+									"    // Assert that the response body has the expected values\r",
+									"    pm.expect(responseBody.users).to.have.length(2);\r",
+									"    pm.expect(responseBody.users[0].id).to.eql(1);\r",
+									"    pm.expect(responseBody.users[0].fname).to.eql(\"Michael\");\r",
+									"    pm.expect(responseBody.users[0].lname).to.eql(\"Choi\");\r",
+									"    pm.expect(responseBody.users[1].id).to.eql(2);\r",
+									"    pm.expect(responseBody.users[1].fname).to.eql(\"Karen\");\r",
+									"    pm.expect(responseBody.users[1].lname).to.eql(\"Igcasan\");\r",
+									"    pm.expect(responseBody.count).to.eql(2);\r",
+									"});\r",
+									"\r",
+									""
+								],
+								"type": "text/javascript"
+							}
+						}
+					],
+					"protocolProfileBehavior": {
+						"disableBodyPruning": true,
+						"disabledSystemHeaders": {}
+					},
+					"request": {
+						"method": "GET",
+						"header": [],
+						"body": {
+							"mode": "raw",
+							"raw": "{\r\n    \"users\": [\r\n        {\r\n            \"id\": 1,\r\n            \"fname\": \"Michael\",\r\n            \"lname\": \"Choi\"\r\n        },\r\n        {\r\n            \"id\": 2,\r\n            \"fname\": \"Karen\",\r\n            \"lname\": \"Igcasan\"\r\n        }\r\n    ],\r\n    \"count\": 2\r\n}",
+							"options": {
+								"raw": {
+									"language": "javascript"
+								}
+							}
+						},
+						"url": {
+							"raw": "{{url}}",
+							"host": [
+								"{{url}}"
+							]
+						}
+					},
+					"response": []
+				},
+				{
+					"name": "fname=Michael",
+					"event": [
+						{
+							"listen": "test",
+							"script": {
+								"exec": [
+									"pm.test(\"Response time is less than 1s\", function () {\r",
+									"    pm.expect(pm.response.responseTime).to.be.below(1000);\r",
+									"});\r",
+									"\r",
+									"\r",
+									"pm.test(\"Response body has expected properties\", function () {\r",
+									"    pm.response.to.have.jsonBody('users');\r",
+									"    pm.response.to.have.jsonBody('count');\r",
+									"\r",
+									"});\r",
+									"\r",
+									"pm.test(\"Response body is a valid JSON\", function(){\r",
+									"    pm.response.to.be.ok;\r",
+									"    pm.response.to.be.json;\r",
+									"});\r",
+									"\r",
+									"pm.test(\"Response body contains the expected values for user#1\", function () {\r",
+									"  var users = pm.response.json().users;\r",
+									"  pm.expect(users).to.have.length(1);\r",
+									"\r",
+									"  var user = users[0];\r",
+									"  pm.expect(user.id).to.eql(1);\r",
+									"  pm.expect(user.fname).to.eql(\"Michael\");\r",
+									"  pm.expect(user.lname).to.eql(\"Choi\");\r",
+									"  pm.expect(pm.response.json().count).to.eql(1);\r",
+									"});\r",
+									"\r",
+									""
+								],
+								"type": "text/javascript"
+							}
+						}
+					],
+					"request": {
+						"method": "GET",
+						"header": [],
+						"url": {
+							"raw": "{{url}}?fname=Michael",
+							"host": [
+								"{{url}}"
+							],
+							"query": [
+								{
+									"key": "fname",
+									"value": "Michael"
+								}
+							]
+						}
+					},
+					"response": []
+				},
+				{
+					"name": "lname=Choi",
+					"event": [
+						{
+							"listen": "test",
+							"script": {
+								"exec": [
+									"pm.test(\"Response time is less than 1s\", function () {\r",
+									"    pm.expect(pm.response.responseTime).to.be.below(1000);\r",
+									"});\r",
+									"\r",
+									"\r",
+									"pm.test(\"Response body has expected keys\", function () {\r",
+									"    pm.response.to.have.jsonBody('users');\r",
+									"    pm.response.to.have.jsonBody('count');\r",
+									"\r",
+									"});\r",
+									"\r",
+									"pm.test(\"Content-Type is present\", function () {\r",
+									"    pm.response.to.have.header(\"Content-Type\");\r",
+									"});\r",
+									"\r",
+									"pm.test(\"Response body contains the expected values for user#1\", function () {\r",
+									"  var users = pm.response.json().users;\r",
+									"  pm.expect(users).to.have.length(1);\r",
+									"\r",
+									"  var user = users[0];\r",
+									"  pm.expect(user.id).to.eql(1);\r",
+									"  pm.expect(user.fname).to.eql(\"Michael\");\r",
+									"  pm.expect(user.lname).to.eql(\"Choi\");\r",
+									"  pm.expect(pm.response.json().count).to.eql(1);\r",
+									"});\r",
+									"\r",
+									"\r",
+									""
+								],
+								"type": "text/javascript"
+							}
+						}
+					],
+					"request": {
+						"method": "GET",
+						"header": [],
+						"url": {
+							"raw": "{{url}}?lname=Choi",
+							"host": [
+								"{{url}}"
+							],
+							"query": [
+								{
+									"key": "lname",
+									"value": "Choi"
+								}
+							]
+						}
+					},
+					"response": []
+				},
+				{
+					"name": "fname=Michael&lname=Choi",
+					"event": [
+						{
+							"listen": "test",
+							"script": {
+								"exec": [
+									"pm.test(\"Response time is less than 1s\", function () {\r",
+									"    pm.expect(pm.response.responseTime).to.be.below(1000);\r",
+									"});\r",
+									"\r",
+									"\r",
+									"pm.test(\"Response body has expected keys\", function () {\r",
+									"    pm.response.to.have.jsonBody('users');\r",
+									"    pm.response.to.have.jsonBody('count');\r",
+									"\r",
+									"});\r",
+									"\r",
+									"pm.test(\"Response body is a valid JSON\", function(){\r",
+									"    pm.response.to.be.ok;\r",
+									"    pm.response.to.be.json;\r",
+									"});\r",
+									"\r",
+									"pm.test(\"Response body contains the expected values for user#1\", function () {\r",
+									"  var users = pm.response.json().users;\r",
+									"  pm.expect(users).to.have.length(1);\r",
+									"\r",
+									"  var user = users[0];\r",
+									"  pm.expect(user.id).to.eql(1);\r",
+									"  pm.expect(user.fname).to.eql(\"Michael\");\r",
+									"  pm.expect(user.lname).to.eql(\"Choi\");\r",
+									"  pm.expect(pm.response.json().count).to.eql(1);\r",
+									"});\r",
+									"\r",
+									""
+								],
+								"type": "text/javascript"
+							}
+						}
+					],
+					"request": {
+						"method": "GET",
+						"header": [],
+						"url": {
+							"raw": "{{url}}?fname=Michael&lname=Choi",
+							"host": [
+								"{{url}}"
+							],
+							"query": [
+								{
+									"key": "fname",
+									"value": "Michael"
+								},
+								{
+									"key": "lname",
+									"value": "Choi"
+								}
+							]
+						}
+					},
+					"response": []
+				},
+				{
+					"name": "fname=Karen",
+					"event": [
+						{
+							"listen": "test",
+							"script": {
+								"exec": [
+									"pm.test(\"Response time is less than 1s\", function () {\r",
+									"    pm.expect(pm.response.responseTime).to.be.below(1000);\r",
+									"});\r",
+									"\r",
+									"\r",
+									"pm.test(\"Response body has expected keys\", function () {\r",
+									"    pm.response.to.have.jsonBody('users');\r",
+									"    pm.response.to.have.jsonBody('count');\r",
+									"\r",
+									"});\r",
+									"\r",
+									"pm.test(\"Response body is a valid JSON\", function(){\r",
+									"    pm.response.to.be.ok;\r",
+									"    pm.response.to.be.json;\r",
+									"});\r",
+									"\r",
+									"pm.test(\"Response body contains the expected values for only user#2\", function () {\r",
+									"  var users = pm.response.json().users;\r",
+									"  pm.expect(users).to.have.length(1);\r",
+									"\r",
+									"  var user = users[0];\r",
+									"  pm.expect(user.id).to.eql(2);\r",
+									"  pm.expect(user.fname).to.eql(\"Karen\");\r",
+									"  pm.expect(user.lname).to.eql(\"Igcasan\");\r",
+									"  pm.expect(pm.response.json().count).to.eql(1);\r",
+									"});\r",
+									"\r",
+									""
+								],
+								"type": "text/javascript"
+							}
+						}
+					],
+					"request": {
+						"method": "GET",
+						"header": [],
+						"url": {
+							"raw": "{{url}}?fname=Karen",
+							"host": [
+								"{{url}}"
+							],
+							"query": [
+								{
+									"key": "fname",
+									"value": "Karen"
+								}
+							]
+						}
+					},
+					"response": []
+				},
+				{
+					"name": "lname=Igcasan",
+					"event": [
+						{
+							"listen": "test",
+							"script": {
+								"exec": [
+									"pm.test(\"Response time is less than 1s\", function () {\r",
+									"    pm.expect(pm.response.responseTime).to.be.below(1000);\r",
+									"});\r",
+									"\r",
+									"\r",
+									"pm.test(\"Response body has expected properties\", function () {\r",
+									"    pm.response.to.have.jsonBody('users');\r",
+									"    pm.response.to.have.jsonBody('count');\r",
+									"\r",
+									"});\r",
+									"\r",
+									"pm.test(\"Response body is a valid JSON\", function(){\r",
+									"    pm.response.to.be.ok;\r",
+									"    pm.response.to.be.json;\r",
+									"});\r",
+									"\r",
+									"pm.test(\"Response body contains the expected values for user#2\", function () {\r",
+									"  var users = pm.response.json().users;\r",
+									"  pm.expect(users).to.have.length(1);\r",
+									"\r",
+									"  var user = users[0];\r",
+									"  pm.expect(user.id).to.eql(2);\r",
+									"  pm.expect(user.fname).to.eql(\"Karen\");\r",
+									"  pm.expect(user.lname).to.eql(\"Igcasan\");\r",
+									"  pm.expect(pm.response.json().count).to.eql(1);\r",
+									"});\r",
+									"\r",
+									""
+								],
+								"type": "text/javascript"
+							}
+						}
+					],
+					"request": {
+						"method": "GET",
+						"header": [],
+						"url": {
+							"raw": "{{url}}?lname=Igcasan",
+							"host": [
+								"{{url}}"
+							],
+							"query": [
+								{
+									"key": "lname",
+									"value": "Igcasan"
+								}
+							]
+						}
+					},
+					"response": []
+				},
+				{
+					"name": "fname=Karen&lname=Igcasan",
+					"event": [
+						{
+							"listen": "test",
+							"script": {
+								"exec": [
+									"pm.test(\"Response time is less than 1s\", function () {\r",
+									"    pm.expect(pm.response.responseTime).to.be.below(1000);\r",
+									"});\r",
+									"\r",
+									"\r",
+									"pm.test(\"Response body has expected properties\", function () {\r",
+									"    pm.response.to.have.jsonBody('users');\r",
+									"    pm.response.to.have.jsonBody('count');\r",
+									"\r",
+									"});\r",
+									"\r",
+									"pm.test(\"Response body is a valid JSON\", function(){\r",
+									"    pm.response.to.be.ok;\r",
+									"    pm.response.to.be.json;\r",
+									"});\r",
+									"\r",
+									"pm.test(\"Response body contains the expected values for user#2\", function () {\r",
+									"  var users = pm.response.json().users;\r",
+									"  pm.expect(users).to.have.length(1);\r",
+									"\r",
+									"  var user = users[0];\r",
+									"  pm.expect(user.id).to.eql(2);\r",
+									"  pm.expect(user.fname).to.eql(\"Karen\");\r",
+									"  pm.expect(user.lname).to.eql(\"Igcasan\");\r",
+									"  pm.expect(pm.response.json().count).to.eql(1);\r",
+									"});\r",
+									"\r",
+									""
+								],
+								"type": "text/javascript"
+							}
+						}
+					],
+					"request": {
+						"method": "GET",
+						"header": [],
+						"url": {
+							"raw": "{{url}}?fname=Karen&lname=Igcasan",
+							"host": [
+								"{{url}}"
+							],
+							"query": [
+								{
+									"key": "fname",
+									"value": "Karen"
+								},
+								{
+									"key": "lname",
+									"value": "Igcasan"
+								}
+							]
+						}
+					},
+					"response": []
+				},
+				{
+					"name": "fname=John",
+					"event": [
+						{
+							"listen": "test",
+							"script": {
+								"exec": [
+									"pm.test(\"Response time is less than 1s\", function () {\r",
+									"    pm.expect(pm.response.responseTime).to.be.below(1000);\r",
+									"});\r",
+									"\r",
+									"pm.test(\"Status code is 400 Bad Request\", function () {\r",
+									"    pm.expect(error).toBeDefined();\r",
+									"    pm.expect(response.status).toBe(401);\r",
+									"});\r",
+									"\r",
+									"pm.test(\"Response body has message: 'Request was not matched'\", function () {\r",
+									"    try {\r",
+									"        var responseBody = JSON.parse(pm.response.text());\r",
+									"        \r",
+									"        pm.expect(responseBody).to.have.property(\"message\", \"Request was not matched\");\r",
+									"        pm.expect(responseBody.users).to.have.lengthOf(0);\r",
+									"        pm.expect(responseBody.count).to.equal(0);\r",
+									"    } catch (error) {\r",
+									"        console.error(\"Error parsing response body as JSON:\", error);\r",
+									"        throw error;\r",
+									"    }\r",
+									"});"
+								],
+								"type": "text/javascript"
+							}
+						}
+					],
+					"request": {
+						"method": "GET",
+						"header": [],
+						"url": {
+							"raw": "{{url}}?fname=John",
+							"host": [
+								"{{url}}"
+							],
+							"query": [
+								{
+									"key": "fname",
+									"value": "John"
+								}
+							]
+						}
+					},
+					"response": []
+				},
+				{
+					"name": "Authorization header",
+					"event": [
+						{
+							"listen": "test",
+							"script": {
+								"exec": [
+									"pm.test(\"Response time is less than 1s\", function () {\r",
+									"    pm.expect(pm.response.responseTime).to.be.below(1000);\r",
+									"});\r",
+									"\r",
+									"pm.test(\"Status code is 400 Bad Request\", function () {\r",
+									"    pm.response.to.have.status(400);\r",
+									"});\r",
+									"\r",
+									"pm.test(\"Response body has message: 'Request was not matched'\", function () {\r",
+									"    pm.expect(pm.response.text()).to.include(\"Request was not matched\");\r",
+									"    pm.expect(pm.response.json().users).to.have.lengthOf(0);\r",
+									"    pm.expect(pm.response.json().count).to.equal(0);\r",
+									"});"
+								],
+								"type": "text/javascript"
+							}
+						}
+					],
+					"request": {
+						"auth": {
+							"type": "bearer",
+							"bearer": [
+								{
+									"key": "token",
+									"value": "1234567890",
+									"type": "string"
+								}
+							]
+						},
+						"method": "GET",
+						"header": [],
+						"url": {
+							"raw": "{{url}}",
+							"host": [
+								"{{url}}"
+							]
+						}
+					},
+					"response": []
+				}
+			]
+		},
+		{
+			"name": "PUT",
+			"item": [
+				{
+					"name": "update user",
+					"event": [
+						{
+							"listen": "test",
+							"script": {
+								"exec": [
+									"//Assert that the response is less than 1sec\r",
+									"pm.test(\"Response time is less than 1s\", function () {\r",
+									"    pm.expect(pm.response.responseTime).to.be.below(1000);\r",
+									"});\r",
+									"\r",
+									"pm.test(\"Response body has the message 'Successfully updated existing trainer\", function () {\r",
+									"    var jsonData = pm.response.json();\r",
+									"    pm.expect(jsonData.message).to.eql(\"Successfully updated existing trainer.\");\r",
+									"});"
+								],
+								"type": "text/javascript"
+							}
+						}
+					],
+					"request": {
+						"method": "PUT",
+						"header": [],
+						"body": {
+							"mode": "raw",
+							"raw": "{\r\n  \"id\": 2,\r\n  \"fname\": \"Karen Marie\",\r\n  \"lname\": \"Igcasan\"\r\n}",
+							"options": {
+								"raw": {
+									"language": "json"
+								}
+							}
+						},
+						"url": {
+							"raw": "{{url}}",
+							"host": [
+								"{{url}}"
+							]
+						}
+					},
+					"response": []
+				},
+				{
+					"name": "Duplicate user",
+					"event": [
+						{
+							"listen": "test",
+							"script": {
+								"exec": [
+									"pm.test(\"Status code is 201\", function () {\r",
+									"    pm.response.to.have.status(201);\r",
+									"});\r",
+									"\r",
+									"//Assert that the response is less than 1sec\r",
+									"pm.test(\"Response time is less than 1s\", function () {\r",
+									"    pm.expect(pm.response.responseTime).to.be.below(1000);\r",
+									"});\r",
+									"\r",
+									"pm.test(\"Response body has the message 'Successfully created new trainer.'\", function () {\r",
+									"    var jsonData = pm.response.json();\r",
+									"    pm.expect(jsonData.message).to.eql(\"Successfully created new trainer.\");\r",
+									"    pm.expect(jsonData.id).to.eql(\"Successfully created new trainer.\");\r",
+									"\r",
+									"});"
+								],
+								"type": "text/javascript"
+							}
+						},
+						{
+							"listen": "prerequest",
+							"script": {
+								"exec": [
+									"//Assert numeric id\r",
+									"const trainer_id = Math.round(Math.random()*10);  \r",
+									"pm.collectionVariables.set(\"trainer_id\",trainer_id);"
+								],
+								"type": "text/javascript"
+							}
+						}
+					],
+					"request": {
+						"method": "PUT",
+						"header": [],
+						"body": {
+							"mode": "raw",
+							"raw": "{\r\n  \"id\": {{trainer_id}},\r\n  \"fname\": \"Karen\",\r\n  \"lname\": \"Igcasan\"\r\n}",
+							"options": {
+								"raw": {
+									"language": "json"
+								}
+							}
+						},
+						"url": {
+							"raw": "{{url}}",
+							"host": [
+								"{{url}}"
+							]
+						}
+					},
+					"response": []
+				},
+				{
+					"name": "new user",
+					"event": [
+						{
+							"listen": "test",
+							"script": {
+								"exec": [
+									"pm.test(\"Status code is 201 Created\", function () {\r",
+									"    pm.response.to.have.status(201);\r",
+									"});\r",
+									"\r",
+									"pm.test(\"Response time is less than 1s\", function () {\r",
+									"    pm.expect(pm.response.responseTime).to.be.below(1000);\r",
+									"});\r",
+									"\r",
+									"pm.test(\"Response body contains expected data\", function () {\r",
+									"  var expectedData = {\r",
+									"    \"message\": \"Successfully created new trainer.\",\r",
+									"    \"id\": pm.collectionVariables.get(trainer_id)\r",
+									"  };\r",
+									"  pm.response.body.to.deep.equal(expectedData);\r",
+									"});\r",
+									""
+								],
+								"type": "text/javascript"
+							}
+						},
+						{
+							"listen": "prerequest",
+							"script": {
+								"exec": [
+									"\r",
+									"const trainer_id = Math.round(Math.random()*9 +3) ; \r",
+									"pm.collectionVariables.set(\"trainer_id\",trainer_id);\r",
+									"\r",
+									"function randName (length)\r",
+									"{\r",
+									"    var chars = \"abcdefghijklmnopqrstuvwxyz\";\r",
+									"    var randomString = \"\";\r",
+									"    \r",
+									"    for(var i = 0; i < length; i++)\r",
+									"    {\r",
+									"        randomString += chars[Math.floor(Math.random() * chars.length)];\r",
+									"    }\r",
+									"\r",
+									"    var firstLetter = randomString.charAt(0).toUpperCase();\r",
+									"    return firstLetter + randomString.slice(1);\r",
+									"} \r",
+									"const trainer_fname = randName(6);\r",
+									"pm.collectionVariables.set(\"trainer_fname\",trainer_fname);\r",
+									"\r",
+									"const trainer_lname = randName(6);\r",
+									"pm.collectionVariables.set(\"trainer_lname\",trainer_lname);\r",
+									"\r",
+									""
+								],
+								"type": "text/javascript"
+							}
+						}
+					],
+					"request": {
+						"method": "PUT",
+						"header": [],
+						"body": {
+							"mode": "raw",
+							"raw": "{\r\n  \"id\": {{trainer_id}},\r\n  \"fname\": {{trainer_fname}},\r\n  \"lname\": {{trainer_lname}}\r\n}",
+							"options": {
+								"raw": {
+									"language": "json"
+								}
+							}
+						},
+						"url": {
+							"raw": "{{url}}",
+							"host": [
+								"{{url}}"
+							]
+						}
+					},
+					"response": []
+				},
+				{
+					"name": "invalid body",
+					"event": [
+						{
+							"listen": "test",
+							"script": {
+								"exec": [
+									"pm.test(\"Status code is 400, Bad Request\", function () {\r",
+									"    pm.response.to.have.status(400);\r",
+									"});\r",
+									"\r",
+									"pm.test(\"Response time is less than 1s\", function () {\r",
+									"    pm.expect(pm.response.responseTime).to.be.below(1000);\r",
+									"});\r",
+									"\r",
+									""
+								],
+								"type": "text/javascript"
+							}
+						},
+						{
+							"listen": "prerequest",
+							"script": {
+								"exec": [
+									"\r",
+									"//Assert alphanumeric id\r",
+									"const trainer_id = Math.random().toString(36).substring(12) || \r",
+									"\"z\"; \r",
+									"pm.collectionVariables.set(\"trainer_id\",trainer_id);\r",
+									"\r",
+									"//Assert alphanumeric first name\r",
+									"const trainer_fname = Math.random().toString(36).substring(10); \r",
+									"pm.collectionVariables.set(\"trainer_fname\",trainer_fname);\r",
+									"\r",
+									"//Assert alphanumeric last name\r",
+									"const trainer_lname = Math.random().toString(36).substring(6);\r",
+									"pm.collectionVariables.set(\"trainer_lname\",trainer_lname);"
+								],
+								"type": "text/javascript"
+							}
+						}
+					],
+					"request": {
+						"method": "PUT",
+						"header": [],
+						"body": {
+							"mode": "raw",
+							"raw": "{\r\n  \"id\": {{trainer_id}},\r\n  \"fname\": {{trainer_fname}},\r\n  \"lname\": {{trainer_lname}}\r\n}",
+							"options": {
+								"raw": {
+									"language": "json"
+								}
+							}
+						},
+						"url": {
+							"raw": "{{url}}",
+							"host": [
+								"{{url}}"
+							]
+						}
+					},
+					"response": []
+				},
+				{
+					"name": "missing ID",
+					"event": [
+						{
+							"listen": "test",
+							"script": {
+								"exec": [
+									"pm.test(\"Status code is 400, Bad Request\", function () {\r",
+									"    pm.response.to.have.status(400);\r",
+									"});\r",
+									"\r",
+									"pm.test(\"Response time is less than 1s\", function () {\r",
+									"    pm.expect(pm.response.responseTime).to.be.below(1000);\r",
+									"});\r",
+									"\r",
+									""
+								],
+								"type": "text/javascript"
+							}
+						},
+						{
+							"listen": "prerequest",
+							"script": {
+								"exec": [
+									"\r",
+									"//Assert alphanumeric first name\r",
+									"const trainer_fname = Math.random().toString(36).substring(10); \r",
+									"pm.collectionVariables.set(\"trainer_fname\",trainer_fname);\r",
+									"\r",
+									"//Assert alphanumeric last name\r",
+									"const trainer_lname = Math.random().toString(36).substring(6);\r",
+									"pm.collectionVariables.set(\"trainer_lname\",trainer_lname);"
+								],
+								"type": "text/javascript"
+							}
+						}
+					],
+					"request": {
+						"method": "PUT",
+						"header": [],
+						"body": {
+							"mode": "raw",
+							"raw": "{\r\n  \"fname\": {{trainer_fname}},\r\n  \"lname\": {{trainer_lname}}\r\n}",
+							"options": {
+								"raw": {
+									"language": "json"
+								}
+							}
+						},
+						"url": {
+							"raw": "{{url}}",
+							"host": [
+								"{{url}}"
+							]
+						}
+					},
+					"response": []
+				},
+				{
+					"name": "valid ID, invalid fname, invalid lname",
+					"event": [
+						{
+							"listen": "test",
+							"script": {
+								"exec": [
+									"pm.test(\"Status code is 400, Bad Request\", function () {\r",
+									"    pm.response.to.have.status(400);\r",
+									"});\r",
+									"\r",
+									"pm.test(\"Response time is less than 1s\", function () {\r",
+									"    pm.expect(pm.response.responseTime).to.be.below(1000);\r",
+									"});\r",
+									"\r",
+									""
+								],
+								"type": "text/javascript"
+							}
+						},
+						{
+							"listen": "prerequest",
+							"script": {
+								"exec": [
+									"\r",
+									"//Assert numeric id\r",
+									"const trainer_id = Math.round(Math.random()*10);  \r",
+									"pm.collectionVariables.set(\"trainer_id\",trainer_id);\r",
+									"\r",
+									"//Assert alphanumeric first name\r",
+									"const trainer_fname = Math.random().toString(36).substring(6); \r",
+									"pm.collectionVariables.set(\"trainer_fname\",trainer_fname);\r",
+									"\r",
+									"//Assert alphanumeric last name\r",
+									"const trainer_lname = Math.random().toString(36).substring(6);  \r",
+									"pm.collectionVariables.set(\"trainer_lname\",trainer_lname);"
+								],
+								"type": "text/javascript"
+							}
+						}
+					],
+					"request": {
+						"method": "PUT",
+						"header": [],
+						"body": {
+							"mode": "raw",
+							"raw": "{\r\n  \"id\": {{trainer_id}},\r\n  \"fname\": {{trainer_fname}},\r\n  \"lname\": {{trainer_lname}}\r\n}",
+							"options": {
+								"raw": {
+									"language": "json"
+								}
+							}
+						},
+						"url": {
+							"raw": "{{url}}",
+							"host": [
+								"{{url}}"
+							]
+						}
+					},
+					"response": []
+				},
+				{
+					"name": "valid ID, valid fname, invalid lname",
+					"event": [
+						{
+							"listen": "test",
+							"script": {
+								"exec": [
+									"pm.test(\"Status code is 400, Bad Request\", function () {\r",
+									"    pm.response.to.have.status(400);\r",
+									"});\r",
+									"\r",
+									"pm.test(\"Response time is less than 1s\", function () {\r",
+									"    pm.expect(pm.response.responseTime).to.be.below(1000);\r",
+									"});\r",
+									"\r",
+									""
+								],
+								"type": "text/javascript"
+							}
+						},
+						{
+							"listen": "prerequest",
+							"script": {
+								"exec": [
+									"//Assert numeric id\r",
+									"const trainer_id = Math.round(Math.random()*10);  \r",
+									"pm.collectionVariables.set(\"trainer_id\",trainer_id);\r",
+									"\r",
+									"//Assert alphabet first name\r",
+									"function randName (length)\r",
+									"{\r",
+									"    var chars = \"abcdefghijklmnopqrstuvwxyz\";\r",
+									"    var randomString = \"\";\r",
+									"    \r",
+									"    for(var i = 0; i < length; i++)\r",
+									"    {\r",
+									"        randomString += chars[Math.floor(Math.random() * chars.length)];\r",
+									"    }\r",
+									"\r",
+									"    return randomString\r",
+									"} \r",
+									"const trainer_fname = randName(5);\r",
+									"pm.collectionVariables.set(\"trainer_fname\",trainer_fname);\r",
+									"\r",
+									"\r",
+									"//Assert alphanumeric last name\r",
+									"const trainer_lname = Math.random().toString(36).substring(6);\r",
+									"pm.collectionVariables.set(\"trainer_lname\",trainer_lname);"
+								],
+								"type": "text/javascript"
+							}
+						}
+					],
+					"request": {
+						"method": "PUT",
+						"header": [],
+						"body": {
+							"mode": "raw",
+							"raw": "{\r\n  \"id\": {{trainer_id}},\r\n  \"fname\": {{trainer_fname}},\r\n  \"lname\": {{trainer_lname}}\r\n}",
+							"options": {
+								"raw": {
+									"language": "json"
+								}
+							}
+						},
+						"url": {
+							"raw": "{{url}}",
+							"host": [
+								"{{url}}"
+							]
+						}
+					},
+					"response": []
+				},
+				{
+					"name": "invalid ID, invalid fname, valid lname",
+					"event": [
+						{
+							"listen": "test",
+							"script": {
+								"exec": [
+									"pm.test(\"Status code is 400, Bad Request\", function () {\r",
+									"    pm.response.to.have.status(400);\r",
+									"});\r",
+									"\r",
+									"pm.test(\"Response time is less than 1s\", function () {\r",
+									"    pm.expect(pm.response.responseTime).to.be.below(1000);\r",
+									"});\r",
+									"\r",
+									""
+								],
+								"type": "text/javascript"
+							}
+						},
+						{
+							"listen": "prerequest",
+							"script": {
+								"exec": [
+									"\r",
+									"//Assert alphanumeric id\r",
+									"const trainer_id = Math.random().toString(36).substring(12) || \r",
+									"\"z\"; \r",
+									"pm.collectionVariables.set(\"trainer_id\",trainer_id);\r",
+									"\r",
+									"//Assert alphanumeric first name\r",
+									"const trainer_fname = Math.random().toString(36).substring(6); \r",
+									"pm.collectionVariables.set(\"trainer_fname\",trainer_fname);\r",
+									"\r",
+									"//Assert alphabet last name\r",
+									"function randName (length)\r",
+									"{\r",
+									"    var chars = \"abcdefghijklmnopqrstuvwxyz\";\r",
+									"    var randomString = \"\";\r",
+									"    \r",
+									"    for(var i = 0; i < length; i++)\r",
+									"    {\r",
+									"        randomString += chars[Math.floor(Math.random() * chars.length)];\r",
+									"    }\r",
+									"\r",
+									"    return randomString\r",
+									"} \r",
+									"const trainer_lname = randName(6);\r",
+									"pm.collectionVariables.set(\"trainer_lname\",trainer_lname);"
+								],
+								"type": "text/javascript"
+							}
+						}
+					],
+					"request": {
+						"method": "PUT",
+						"header": [],
+						"body": {
+							"mode": "raw",
+							"raw": "{\r\n  \"id\": {{trainer_id}},\r\n  \"fname\": {{trainer_fname}},\r\n  \"lname\": {{trainer_lname}}\r\n}",
+							"options": {
+								"raw": {
+									"language": "json"
+								}
+							}
+						},
+						"url": {
+							"raw": "{{url}}",
+							"host": [
+								"{{url}}"
+							]
+						}
+					},
+					"response": []
+				}
+			]
+		}
+	],
+	"event": [
+		{
+			"listen": "prerequest",
+			"script": {
+				"type": "text/javascript",
+				"exec": [
+					""
+				]
+			}
+		},
+		{
+			"listen": "test",
+			"script": {
+				"type": "text/javascript",
+				"exec": [
+					"pm.test(\"Status code is 200\", function () {",
+					"    pm.response.to.have.status(200);",
+					"});"
+				]
+			}
+		}
+	],
+	"variable": [
+		{
+			"key": "trainer_id",
+			"value": ""
+		},
+		{
+			"key": "trainer_fname",
+			"value": ""
+		},
+		{
+			"key": "trainer_lname",
+			"value": ""
+		}
+	]
+}
