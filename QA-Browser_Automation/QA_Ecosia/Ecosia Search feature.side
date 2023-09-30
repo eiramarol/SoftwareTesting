@@ -1,0 +1,452 @@
+{
+  "id": "87d3a946-0558-46f5-9742-2e216594cd50",
+  "version": "2.0",
+  "name": "Ecosia Search feature",
+  "url": "https://www.ecosia.org/?c=en",
+  "tests": [{
+    "id": "27f997d9-208f-4a08-afd9-6423b061e425",
+    "name": "TC-01",
+    "commands": [{
+      "id": "6eba367d-cc51-42a3-a44a-d59492dee95c",
+      "comment": "Open the website https://www.ecosia.org/?c=en ",
+      "command": "open",
+      "target": "https://www.ecosia.org/?c=en",
+      "targets": [],
+      "value": "   "
+    }, {
+      "id": "2e2c2c44-bd7b-4c85-b498-f22eab6b814b",
+      "comment": "",
+      "command": "//setWindowSize",
+      "target": "1650x900",
+      "targets": [],
+      "value": ""
+    }, {
+      "id": "66c2fc5c-6ce2-43f5-bfc2-aad81ca892c5",
+      "comment": "Wait for logo to be visible",
+      "command": "waitForElementVisible",
+      "target": "css=.main-header__logo",
+      "targets": [],
+      "value": "30000"
+    }, {
+      "id": "f11e4443-b687-47b5-843b-2f7ff2330a46",
+      "comment": "Assert logo is visible.",
+      "command": "assertElementPresent",
+      "target": "css=.main-header__logo",
+      "targets": [
+        ["css=.index-header__logo > path", "css:finder"]
+      ],
+      "value": ""
+    }, {
+      "id": "a3d19a83-a614-4e01-b0e1-b27527862ab1",
+      "comment": "wait for search bar to be visible",
+      "command": "waitForElementVisible",
+      "target": "name=q",
+      "targets": [
+        ["name=q", "name"],
+        ["css=.search-form__input", "css:finder"],
+        ["xpath=//input[@name='q']", "xpath:attributes"],
+        ["xpath=//div[@id='__layout']/div/div/header/div/form/div/div/div/input", "xpath:idRelative"],
+        ["xpath=//div/div/div/input", "xpath:position"]
+      ],
+      "value": "10000"
+    }, {
+      "id": "b5b0afe2-dbe4-43e3-8ba6-3f37299e096d",
+      "comment": "Assert search bar to be visible",
+      "command": "assertElementPresent",
+      "target": "name=q",
+      "targets": [
+        ["name=q", "name"],
+        ["css=.search-form__input", "css:finder"],
+        ["xpath=//input[@name='q']", "xpath:attributes"],
+        ["xpath=//div[@id='__layout']/div/div/header/div/form/div/div/div/input", "xpath:idRelative"],
+        ["xpath=//div/div/div/input", "xpath:position"]
+      ],
+      "value": ""
+    }, {
+      "id": "be8da8f5-8725-4342-912d-4998c4da8e67",
+      "comment": "Wait for heading to be visible",
+      "command": "waitForElementVisible",
+      "target": "css=.above-fold-section__heading",
+      "targets": [
+        ["css=.above-fold-section__heading", "css:finder"],
+        ["xpath=//div[@id='__layout']/div/section/div/div/h1", "xpath:idRelative"],
+        ["xpath=//h1", "xpath:position"],
+        ["xpath=//h1[contains(.,'A better planet with every search')]", "xpath:innerText"]
+      ],
+      "value": "10000"
+    }, {
+      "id": "ce5cf269-28cc-434c-ba58-32255b166ab5",
+      "comment": "Assert text \"A better planet with every search\" to be visible.",
+      "command": "assertText",
+      "target": "css=.above-fold-section__heading",
+      "targets": [
+        ["css=.above-fold-section__heading", "css:finder"],
+        ["xpath=//div[@id='__layout']/div/section/div/div/h1", "xpath:idRelative"],
+        ["xpath=//h1", "xpath:position"],
+        ["xpath=//h1[contains(.,'A better planet with every search')]", "xpath:innerText"]
+      ],
+      "value": "A better planet with every search"
+    }, {
+      "id": "20f76aa3-54f9-4699-be96-9930dd011442",
+      "comment": "Close browser",
+      "command": "close",
+      "target": "",
+      "targets": [],
+      "value": ""
+    }]
+  }, {
+    "id": "57f7bdb2-4a54-4750-b2cb-57d4865eabc5",
+    "name": "TC-02",
+    "commands": [{
+      "id": "ebd08fba-b632-4b74-8b61-201edcc98320",
+      "comment": "Open the website https://www.ecosia.org/?c=en ",
+      "command": "open",
+      "target": "https://www.ecosia.org/?c=en",
+      "targets": [],
+      "value": "   "
+    }, {
+      "id": "72db94c8-1dd6-49d3-88a4-241b6837cda9",
+      "comment": "",
+      "command": "//setWindowSize",
+      "target": "1650x900",
+      "targets": [],
+      "value": ""
+    }, {
+      "id": "edf0187e-fc35-4d21-9b7b-b72f250d0342",
+      "comment": "wait for search bar to be visible",
+      "command": "waitForElementVisible",
+      "target": "name=q",
+      "targets": [
+        ["name=q", "name"],
+        ["css=.search-form__input", "css:finder"],
+        ["xpath=//input[@name='q']", "xpath:attributes"],
+        ["xpath=//div[@id='__layout']/div/div/header/div/form/div/div/div/input", "xpath:idRelative"],
+        ["xpath=//div/div/div/input", "xpath:position"]
+      ],
+      "value": "10000"
+    }, {
+      "id": "7117b501-edda-40cf-8341-de5dbb1ec0e9",
+      "comment": "Click the search icon",
+      "command": "click",
+      "target": "name=q",
+      "targets": [],
+      "value": ""
+    }, {
+      "id": "605f2655-6b4c-41f4-8f55-119c8fbecc38",
+      "comment": "Search with Valid Keyword \"sustainable energy\"",
+      "command": "type",
+      "target": "name=q",
+      "targets": [],
+      "value": "sustainable energy"
+    }, {
+      "id": "666f91f3-729e-495c-b857-b2f4469d176a",
+      "comment": "click search icon",
+      "command": "click",
+      "target": "xpath=//form[@data-test-id=\"main-header-search-form\"]//button[@data-test-id=\"search-form-submit\"]",
+      "targets": [],
+      "value": ""
+    }, {
+      "id": "cf06fccb-55f9-45ba-9852-1d461ec60101",
+      "comment": "Wait for results to be visible",
+      "command": "waitForElementVisible",
+      "target": "xpath=//div[@data-test-id=\"mainline-result-web\"]",
+      "targets": [],
+      "value": "30000"
+    }, {
+      "id": "da4c1be5-df07-429e-9b4b-08b3115274ca",
+      "comment": "Assert that \"sustainable energy\" appears in the search results",
+      "command": "assertElementPresent",
+      "target": "xpath=//div[@data-test-id=\"mainline-result-web\"]//*[contains(.,\"sustainable energy\")]",
+      "targets": [],
+      "value": ""
+    }, {
+      "id": "42c71a7a-f4d3-4abb-9ccf-fc607c447063",
+      "comment": "Close browser",
+      "command": "close",
+      "target": "",
+      "targets": [],
+      "value": ""
+    }]
+  }, {
+    "id": "0999fda2-118b-4ead-ad10-5dfe3feef458",
+    "name": "TC-03",
+    "commands": [{
+      "id": "fc075773-b24e-4bae-99a0-3fd41efadc3d",
+      "comment": "Open the website https://www.ecosia.org/?c=en ",
+      "command": "open",
+      "target": "https://www.ecosia.org/?c=en",
+      "targets": [],
+      "value": "   "
+    }, {
+      "id": "c815e63d-7608-465f-a74f-8fc77bceb094",
+      "comment": "",
+      "command": "//setWindowSize",
+      "target": "1650x900",
+      "targets": [],
+      "value": ""
+    }, {
+      "id": "8c5a9bc6-a73f-4100-ac1c-bcdcb4c1886e",
+      "comment": "wait for search bar to be visible",
+      "command": "waitForElementVisible",
+      "target": "name=q",
+      "targets": [
+        ["name=q", "name"],
+        ["css=.search-form__input", "css:finder"],
+        ["xpath=//input[@name='q']", "xpath:attributes"],
+        ["xpath=//div[@id='__layout']/div/div/header/div/form/div/div/div/input", "xpath:idRelative"],
+        ["xpath=//div/div/div/input", "xpath:position"]
+      ],
+      "value": "10000"
+    }, {
+      "id": "3520689e-f8d0-48c2-8815-52967ac707bf",
+      "comment": "Click the search bar to type",
+      "command": "click",
+      "target": "name=q",
+      "targets": [],
+      "value": "envir"
+    }, {
+      "id": "2b6169db-334f-4046-b19c-53658feb9ccd",
+      "comment": "Type the keyword \"envir\"",
+      "command": "type",
+      "target": "name=q",
+      "targets": [],
+      "value": "envir"
+    }, {
+      "id": "74997443-b97a-4fbd-9add-3d27f269e6a9",
+      "comment": "Wait for \"environment\"-related autocomplete suggestions to be visible.",
+      "command": "waitForElementVisible",
+      "target": "xpath=//form[@data-test-id=\"main-header-search-form\"]//ul[@id=\"search-form-suggestion-list\"]",
+      "targets": [],
+      "value": "30000"
+    }, {
+      "id": "201775d0-9a27-4f6f-bf09-d75ad4b1d6e6",
+      "comment": "Assert autocomplete to display \"environment\"-related suggestion.",
+      "command": "assertElementPresent",
+      "target": "xpath=//form[@data-test-id=\"main-header-search-form\"]//li[contains(.,\"envir\")]",
+      "targets": [],
+      "value": ""
+    }, {
+      "id": "60c54dc0-6dcd-4615-9d5f-91989cd75c0c",
+      "comment": "Close browser",
+      "command": "close",
+      "target": "",
+      "targets": [],
+      "value": ""
+    }]
+  }, {
+    "id": "2a6ba83a-b49a-43e8-9c14-fce8e6e02164",
+    "name": "TC-04",
+    "commands": [{
+      "id": "59cb1ec7-1f73-49e2-899d-4058f386284d",
+      "comment": "Open the website https://www.ecosia.org/?c=en ",
+      "command": "open",
+      "target": "https://www.ecosia.org/?c=en",
+      "targets": [],
+      "value": "   "
+    }, {
+      "id": "aacedafa-448d-421a-b9ea-07cd9bee8fea",
+      "comment": "",
+      "command": "//setWindowSize",
+      "target": "1650x900",
+      "targets": [],
+      "value": ""
+    }, {
+      "id": "5f890508-2352-417a-b24a-1b94c36c7bfd",
+      "comment": "wait for search bar to be visible",
+      "command": "waitForElementVisible",
+      "target": "name=q",
+      "targets": [
+        ["name=q", "name"],
+        ["css=.search-form__input", "css:finder"],
+        ["xpath=//input[@name='q']", "xpath:attributes"],
+        ["xpath=//div[@id='__layout']/div/div/header/div/form/div/div/div/input", "xpath:idRelative"],
+        ["xpath=//div/div/div/input", "xpath:position"]
+      ],
+      "value": "10000"
+    }, {
+      "id": "a89449fc-3927-4105-8e84-4c6690971581",
+      "comment": "Type \"!@#$%\\n\" in the search bar ",
+      "command": "type",
+      "target": "name=q",
+      "targets": [],
+      "value": "!@#$%\\n"
+    }, {
+      "id": "a5c52161-c805-4cb8-90e1-7a868fc46a05",
+      "comment": "Click the search icon to submit",
+      "command": "click",
+      "target": "xpath=//form[@data-test-id=\"main-header-search-form\"]//button[@data-test-id=\"search-form-submit\"]",
+      "targets": [],
+      "value": ""
+    }, {
+      "id": "96d50014-16ad-4cb0-8f73-b72a76dbc727",
+      "comment": "Wait for results to be visible",
+      "command": "waitForElementVisible",
+      "target": "xpath=//div[@data-test-id=\"mainline-result-web\"]",
+      "targets": [],
+      "value": "30000"
+    }, {
+      "id": "817a69ee-c3c6-4e0c-928a-165bd5c5a055",
+      "comment": "Assert \"!@#$%\" is still displayed on the search bar.",
+      "command": "assertValue",
+      "target": "xpath=//form[@data-test-id=\"main-header-search-form\"]//input[@data-test-id=\"search-form-input\"]",
+      "targets": [],
+      "value": "!@#$%"
+    }, {
+      "id": "f0e54643-d478-48fd-b948-2a9ed466e7a0",
+      "comment": "Assert that there are no displayed search results.",
+      "command": "assertElementNotPresent",
+      "target": "xpath=//div[@data-test-id=\"mainline-result-web\"]//article",
+      "targets": [],
+      "value": "30000"
+    }, {
+      "id": "2bec7d38-8b36-41e1-9fe9-2b803c3c153f",
+      "comment": "Close browser",
+      "command": "close",
+      "target": "",
+      "targets": [],
+      "value": ""
+    }]
+  }, {
+    "id": "bf1a9fad-9c45-4b29-844a-87a836cc1f09",
+    "name": "TC-05",
+    "commands": [{
+      "id": "c56a407b-44ab-44e9-bfe6-9abdaa58de5e",
+      "comment": "Open the website https://www.ecosia.org/?c=en ",
+      "command": "open",
+      "target": "https://www.ecosia.org/?c=en",
+      "targets": [],
+      "value": "   "
+    }, {
+      "id": "8f432848-a827-42df-a5a4-bcc2e40552fc",
+      "comment": "",
+      "command": "//setWindowSize",
+      "target": "1650x900",
+      "targets": [],
+      "value": ""
+    }, {
+      "id": "36b982b4-0038-489b-b828-759003df93fa",
+      "comment": "wait for search bar to be visible",
+      "command": "waitForElementVisible",
+      "target": "name=q",
+      "targets": [
+        ["name=q", "name"],
+        ["css=.search-form__input", "css:finder"],
+        ["xpath=//input[@name='q']", "xpath:attributes"],
+        ["xpath=//div[@id='__layout']/div/div/header/div/form/div/div/div/input", "xpath:idRelative"],
+        ["xpath=//div/div/div/input", "xpath:position"]
+      ],
+      "value": "10000"
+    }, {
+      "id": "d6b295c2-76db-4296-b0c2-3217d5abd890",
+      "comment": "Type 100 characters in the search bar.",
+      "command": "type",
+      "target": "name=q",
+      "targets": [],
+      "value": "aPWAsLYjdIQSIzMrOuKqXyFEDCsUqMogpDIZDbC3trA0R7vpVERms9zvTbo3CcA6nyPmDZnLyrQUTYPf1hnClGaiczFdekmjp50Y\\n"
+    }, {
+      "id": "224c794d-85c0-4ab0-9d34-2caa9aea50e5",
+      "comment": "Click the search icon to submit",
+      "command": "click",
+      "target": "xpath=//form[@data-test-id=\"main-header-search-form\"]//button[@data-test-id=\"search-form-submit\"]",
+      "targets": [],
+      "value": ""
+    }, {
+      "id": "51a0131f-1081-4288-8bc3-dcfe70a2153e",
+      "comment": "Wait for results to be visible",
+      "command": "waitForElementVisible",
+      "target": "xpath=//div[@data-test-id=\"mainline-result-web\"]",
+      "targets": [],
+      "value": "30000"
+    }, {
+      "id": "89b0eb44-a635-4f94-bfe6-4e4efe3d3977",
+      "comment": "Assert 100 characters to still displayed on the search bar.",
+      "command": "assertValue",
+      "target": "xpath=//form[@data-test-id=\"main-header-search-form\"]//input",
+      "targets": [],
+      "value": "aPWAsLYjdIQSIzMrOuKqXyFEDCsUqMogpDIZDbC3trA0R7vpVERms9zvTbo3CcA6nyPmDZnLyrQUTYPf1hnClGaiczFdekmjp50Y"
+    }, {
+      "id": "8ba5d4ea-49f1-4175-b0e9-551dc0e5201d",
+      "comment": "",
+      "command": "assertNotText",
+      "target": "xpath=//*[contains(.,\"aPWAsLYjdIQSIzMrOuKqXyFEDCsUqMogpDIZDbC3trA0R7vpVERms9zvTbo3CcA6nyPmDZnLyrQUTYPf1hnClGaiczFdekmjp50Y\")]",
+      "targets": [],
+      "value": ""
+    }, {
+      "id": "482ab283-5631-4834-ae49-7a153c3505b8",
+      "comment": "Assert that there are no displayed search results.",
+      "command": "assertElementNotPresent",
+      "target": "xpath=//div[@data-test-id=\"mainline-result-web\"]//article",
+      "targets": [],
+      "value": "30000"
+    }, {
+      "id": "6ac6875c-213a-4540-9486-fb4ff0c3c1bd",
+      "comment": "",
+      "command": "close",
+      "target": "",
+      "targets": [],
+      "value": ""
+    }]
+  }, {
+    "id": "63bf1ca1-76a9-42f3-bad1-b4c21e68f2d4",
+    "name": "TC-06",
+    "commands": [{
+      "id": "d685b597-08e3-4faf-82e8-10ceb7202952",
+      "comment": "Open the website https://www.ecosia.org/?c=en ",
+      "command": "open",
+      "target": "https://www.ecosia.org/?c=en",
+      "targets": [],
+      "value": "   "
+    }, {
+      "id": "7bd9afb2-8cfe-41ba-bb10-f9deb6b50b87",
+      "comment": "",
+      "command": "//setWindowSize",
+      "target": "1650x900",
+      "targets": [],
+      "value": ""
+    }, {
+      "id": "ed9a4627-d580-4d16-8aaa-7ffd213a8535",
+      "comment": "wait for search bar to be visible",
+      "command": "waitForElementVisible",
+      "target": "name=q",
+      "targets": [
+        ["name=q", "name"],
+        ["css=.search-form__input", "css:finder"],
+        ["xpath=//input[@name='q']", "xpath:attributes"],
+        ["xpath=//div[@id='__layout']/div/div/header/div/form/div/div/div/input", "xpath:idRelative"],
+        ["xpath=//div/div/div/input", "xpath:position"]
+      ],
+      "value": "10000"
+    }, {
+      "id": "92f68d6f-6ab1-4b02-a77d-0572508e5f27",
+      "comment": "Click the search icon to submit",
+      "command": "click",
+      "target": "xpath=//form[@data-test-id=\"main-header-search-form\"]//button[@data-test-id=\"search-form-submit\"]",
+      "targets": [],
+      "value": ""
+    }, {
+      "id": "83f49396-3525-44f9-b791-068c17beae34",
+      "comment": "Assert the search will not proceed.",
+      "command": "assertElementNotPresent",
+      "target": "xpath=//div[@data-test-id=\"mainline-result-web\"]",
+      "targets": [],
+      "value": "30000"
+    }, {
+      "id": "76016fb4-1663-43d5-a453-7e58d6eca611",
+      "comment": "Close browser",
+      "command": "close",
+      "target": "",
+      "targets": [],
+      "value": ""
+    }]
+  }],
+  "suites": [{
+    "id": "69750433-5eb1-426a-9123-f0726549839f",
+    "name": "Default Suite",
+    "persistSession": false,
+    "parallel": false,
+    "timeout": 300,
+    "tests": ["27f997d9-208f-4a08-afd9-6423b061e425"]
+  }],
+  "urls": ["https://www.ecosia.org/?c=en"],
+  "plugins": []
+}
