@@ -1,0 +1,168 @@
+{
+  "id": "8b996440-fb89-4030-9efc-3f20dd59ab7b",
+  "version": "2.0",
+  "name": "Instragram",
+  "url": "https://www.instagram.com",
+  "tests": [
+    {
+      "id": "5badda73-3230-4747-b60e-442eda5bba7c",
+      "name": "Login",
+      "commands": [
+        {
+          "id": "96a4c666-5e00-47b1-a8ae-cce4292afc4c",
+          "comment": "",
+          "command": "open",
+          "target": "/",
+          "targets": [],
+          "value": ""
+        },
+        {
+          "id": "9fd0be75-b01e-4875-a17e-24bdd96ffd07",
+          "comment": "",
+          "command": "setWindowSize",
+          "target": "2000x912",
+          "targets": [],
+          "value": ""
+        },
+        {
+          "id": "a310bd72-fcb0-4e4f-b393-b321528dadd5",
+          "comment": "",
+          "command": "click",
+          "target": "name=username",
+          "targets": [
+            [
+              "name=username",
+              "name"
+            ],
+            [
+              "css=.focus-visible",
+              "css:finder"
+            ],
+            [
+              "xpath=//input[@name='username']",
+              "xpath:attributes"
+            ],
+            [
+              "xpath=//form[@id='loginForm']/div/div/div/label/input",
+              "xpath:idRelative"
+            ],
+            [
+              "xpath=//input",
+              "xpath:position"
+            ]
+          ],
+          "value": ""
+        },
+        {
+          "id": "48017b52-6dc4-47c5-acda-a12a9beb9a4f",
+          "comment": "",
+          "command": "type",
+          "target": "name=username",
+          "targets": [
+            [
+              "name=username",
+              "name"
+            ],
+            [
+              "css=.focus-visible",
+              "css:finder"
+            ],
+            [
+              "xpath=//input[@name='username']",
+              "xpath:attributes"
+            ],
+            [
+              "xpath=//form[@id='loginForm']/div/div/div/label/input",
+              "xpath:idRelative"
+            ],
+            [
+              "xpath=//input",
+              "xpath:position"
+            ]
+          ],
+          "value": "backsideHungary@gmail.com"
+        },
+        {
+          "id": "0a69b796-4875-4bbb-adce-ea66003408fa",
+          "comment": "",
+          "command": "click",
+          "target": "name=password",
+          "targets": [
+            [
+              "name=password",
+              "name"
+            ],
+            [
+              "css=.focus-visible",
+              "css:finder"
+            ],
+            [
+              "xpath=//input[@name='password']",
+              "xpath:attributes"
+            ],
+            [
+              "xpath=//form[@id='loginForm']/div/div[2]/div/label/input",
+              "xpath:idRelative"
+            ],
+            [
+              "xpath=//div[2]/div/label/input",
+              "xpath:position"
+            ]
+          ],
+          "value": ""
+        },
+        {
+          "id": "cc82946c-331e-49b8-9bb4-b7837b94fa5d",
+          "comment": "",
+          "command": "type",
+          "target": "name=password",
+          "targets": [
+            [
+              "name=password",
+              "name"
+            ],
+            [
+              "css=.focus-visible",
+              "css:finder"
+            ],
+            [
+              "xpath=//input[@name='password']",
+              "xpath:attributes"
+            ],
+            [
+              "xpath=//form[@id='loginForm']/div/div[2]/div/label/input",
+              "xpath:idRelative"
+            ],
+            [
+              "xpath=//div[2]/div/label/input",
+              "xpath:position"
+            ]
+          ],
+          "value": "$FC5SnS!EdQtHKF"
+        },
+        {
+          "command": "click",
+          "target": "xpath=//*[contains(.,\"Login\")]",
+          "value": "",
+          "id": "b461539b-2607-407b-a837-04e25a11e468"
+        }
+      ]
+    }
+  ],
+  "suites": [
+    {
+      "id": "04ab2a1a-e109-47fa-9590-23cf63cf0670",
+      "name": "Default Suite",
+      "persistSession": false,
+      "parallel": false,
+      "timeout": 300,
+      "tests": [
+        "5badda73-3230-4747-b60e-442eda5bba7c"
+      ]
+    }
+  ],
+  "urls": [
+    "https://www.instagram.com/"
+  ],
+  "plugins": []
+}

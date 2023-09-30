@@ -1,0 +1,22 @@
+{
+  "name": "qa_instagram",
+  "version": "1.0.0",
+  "description": "",
+  "main": "run-tests.js",
+  "directories": {
+    "test": "test"
+  },
+  "scripts": {
+    "test": "echo \"Error: no test specified\" && exit 1"
+  },
+  "author": "Lora Saranillo",
+  "license": "ISC",
+  "dependencies": {
+    "chai": "^4.3.7",
+    "jasmine": "^5.1.0",
+    "selenium-webdriver": "^4.11.1"
+  },
+  "devDependencies": {
+    "mocha": "^10.2.0"
+  }
+}

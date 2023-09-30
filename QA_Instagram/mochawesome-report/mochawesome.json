@@ -1,0 +1,685 @@
+{
+  "stats": {
+    "suites": 8,
+    "tests": 8,
+    "passes": 6,
+    "pending": 0,
+    "failures": 2,
+    "start": "2023-08-14T02:37:26.437Z",
+    "end": "2023-08-14T02:37:53.332Z",
+    "duration": 26895,
+    "testsRegistered": 8,
+    "passPercent": 75,
+    "pendingPercent": 0,
+    "other": 0,
+    "hasOther": false,
+    "skipped": 0,
+    "hasSkipped": false
+  },
+  "results": [
+    {
+      "uuid": "aca9add0-e391-4885-bcc5-92142776036e",
+      "title": "",
+      "fullFile": "",
+      "file": "",
+      "beforeHooks": [],
+      "afterHooks": [],
+      "tests": [],
+      "suites": [
+        {
+          "uuid": "85bf9aae-b324-4ac4-ac4d-bcc534a7cf35",
+          "title": "1verifyLogin",
+          "fullFile": "C:\\Users\\Lora Saranillo\\OneDrive\\hackerhero\\QA_Instagram\\test\\1verifyLogin.spec.js",
+          "file": "\\test\\1verifyLogin.spec.js",
+          "beforeHooks": [
+            {
+              "title": "\"before each\" hook in \"1verifyLogin\"",
+              "fullTitle": "1verifyLogin \"before each\" hook in \"1verifyLogin\"",
+              "timedOut": false,
+              "duration": 1062,
+              "state": null,
+              "speed": null,
+              "pass": false,
+              "fail": false,
+              "pending": false,
+              "context": null,
+              "code": "driver = await new Builder().forBrowser('chrome').build()\nvars = {}",
+              "err": {},
+              "uuid": "f7c35af1-5c08-46a6-bb9a-a99cac8f8088",
+              "parentUUID": "85bf9aae-b324-4ac4-ac4d-bcc534a7cf35",
+              "isHook": true,
+              "skipped": false
+            }
+          ],
+          "afterHooks": [
+            {
+              "title": "\"after each\" hook in \"1verifyLogin\"",
+              "fullTitle": "1verifyLogin \"after each\" hook in \"1verifyLogin\"",
+              "timedOut": false,
+              "duration": 82,
+              "state": null,
+              "speed": null,
+              "pass": false,
+              "fail": false,
+              "pending": false,
+              "context": null,
+              "code": "await driver.quit();",
+              "err": {},
+              "uuid": "7c94c9d0-0813-4c24-b595-3dc64ca4d5c7",
+              "parentUUID": "85bf9aae-b324-4ac4-ac4d-bcc534a7cf35",
+              "isHook": true,
+              "skipped": false
+            }
+          ],
+          "tests": [
+            {
+              "title": "1verifyLogin",
+              "fullTitle": "1verifyLogin 1verifyLogin",
+              "timedOut": false,
+              "duration": 6012,
+              "state": "passed",
+              "speed": "slow",
+              "pass": true,
+              "fail": false,
+              "pending": false,
+              "context": null,
+              "code": "await driver.get(\"https://www.instagram.com/\")\nawait driver.manage().window().setRect({ width: 1650, height: 900 })\nawait driver.wait(until.elementLocated(By.css('[name=\"username\"]')), 10000);\nawait driver.findElement(By.name(\"username\")).click()\nawait driver.findElement(By.name(\"username\")).sendKeys(username)\nawait driver.findElement(By.name(\"password\")).click()\nawait driver.findElement(By.name(\"password\")).sendKeys(password)\nawait driver.findElement(By.xpath(\"//*[@id=\\\"loginForm\\\"]//button[contains(.,\\\"Log in\\\")]\")).click()\nawait driver.wait(until.elementLocated(By.xpath(\"//div[@class=\\\"x1n2onr6\\\"]//span[contains(.,\\\"More\\\")]\")), 10000);\nawait driver.findElement(By.xpath(\"//div[@class=\\\"x1n2onr6\\\"]//span[contains(.,\\\"More\\\")]\")).click()\nawait driver.wait(until.elementLocated(By.xpath(\"//div[@class=\\\"x1n2onr6\\\"]//span[contains(.,\\\"More\\\")]\")), 10000);\nawait driver.findElement(By.xpath(\"//div//span[contains(.,\\\"Log out\\\")]\")).click()",
+              "err": {},
+              "uuid": "d5cf0499-af3e-4497-9419-a3c5a986974f",
+              "parentUUID": "85bf9aae-b324-4ac4-ac4d-bcc534a7cf35",
+              "isHook": false,
+              "skipped": false
+            }
+          ],
+          "suites": [],
+          "passes": [
+            "d5cf0499-af3e-4497-9419-a3c5a986974f"
+          ],
+          "failures": [],
+          "pending": [],
+          "skipped": [],
+          "duration": 6012,
+          "root": false,
+          "rootEmpty": false,
+          "_timeout": 30000
+        },
+        {
+          "uuid": "5961c19b-eacc-4893-bc13-2aeacf847020",
+          "title": "2verify_Email_and_pw_Labels",
+          "fullFile": "C:\\Users\\Lora Saranillo\\OneDrive\\hackerhero\\QA_Instagram\\test\\2verifyEmailandpwLabels.spec.js",
+          "file": "\\test\\2verifyEmailandpwLabels.spec.js",
+          "beforeHooks": [
+            {
+              "title": "\"before each\" hook in \"2verify_Email_and_pw_Labels\"",
+              "fullTitle": "2verify_Email_and_pw_Labels \"before each\" hook in \"2verify_Email_and_pw_Labels\"",
+              "timedOut": false,
+              "duration": 1112,
+              "state": null,
+              "speed": null,
+              "pass": false,
+              "fail": false,
+              "pending": false,
+              "context": null,
+              "code": "driver = await new Builder().forBrowser('chrome').build()\nvars = {}",
+              "err": {},
+              "uuid": "fa5ad1c7-eb39-47e2-bc4c-f2dfa2e267f0",
+              "parentUUID": "5961c19b-eacc-4893-bc13-2aeacf847020",
+              "isHook": true,
+              "skipped": false
+            }
+          ],
+          "afterHooks": [
+            {
+              "title": "\"after each\" hook in \"2verify_Email_and_pw_Labels\"",
+              "fullTitle": "2verify_Email_and_pw_Labels \"after each\" hook in \"2verify_Email_and_pw_Labels\"",
+              "timedOut": false,
+              "duration": 78,
+              "state": null,
+              "speed": null,
+              "pass": false,
+              "fail": false,
+              "pending": false,
+              "context": null,
+              "code": "await driver.quit();",
+              "err": {},
+              "uuid": "c3d9d547-b914-4fd6-b739-bdaf60e6e5d3",
+              "parentUUID": "5961c19b-eacc-4893-bc13-2aeacf847020",
+              "isHook": true,
+              "skipped": false
+            }
+          ],
+          "tests": [
+            {
+              "title": "2verify_Email_and_pw_Labels",
+              "fullTitle": "2verify_Email_and_pw_Labels 2verify_Email_and_pw_Labels",
+              "timedOut": false,
+              "duration": 1045,
+              "state": "passed",
+              "speed": "slow",
+              "pass": true,
+              "fail": false,
+              "pending": false,
+              "context": null,
+              "code": "await driver.get(\"https://www.instagram.com/\")\nawait driver.manage().window().setRect({ width: 1650, height: 900 })\nawait driver.wait(until.elementLocated(By.css('[name=\"username\"]')), 10000);\nawait driver.wait(until.elementIsVisible(await driver.findElement(By.xpath(\"//form[@id=\\\"loginForm\\\"]//label//span[contains(.,\\\"Phone number, username, or email\\\")]\"))), 30000)\n{\n  const elements = await driver.findElements(By.xpath(\"//form[@id=\\\"loginForm\\\"]//label//span[contains(.,\\\"Phone number, username, or email\\\")]\"))\n  assert(elements.length)\n}\n{\n  const elements = await driver.findElements(By.xpath(\"//form[@id=\\\"loginForm\\\"]//span[contains(.,\\\"Password\\\")]\"))\n  assert(elements.length)\n}",
+              "err": {},
+              "uuid": "bdca46a7-f0cc-4c3e-a834-7e8e4fb035db",
+              "parentUUID": "5961c19b-eacc-4893-bc13-2aeacf847020",
+              "isHook": false,
+              "skipped": false
+            }
+          ],
+          "suites": [],
+          "passes": [
+            "bdca46a7-f0cc-4c3e-a834-7e8e4fb035db"
+          ],
+          "failures": [],
+          "pending": [],
+          "skipped": [],
+          "duration": 1045,
+          "root": false,
+          "rootEmpty": false,
+          "_timeout": 30000
+        },
+        {
+          "uuid": "5bd71cb2-e626-4a34-b49c-5126f4f7f45a",
+          "title": "3verify_invalidEmail_error",
+          "fullFile": "C:\\Users\\Lora Saranillo\\OneDrive\\hackerhero\\QA_Instagram\\test\\3verifyinvalidEmailerror.spec.js",
+          "file": "\\test\\3verifyinvalidEmailerror.spec.js",
+          "beforeHooks": [
+            {
+              "title": "\"before each\" hook in \"3verify_invalidEmail_error\"",
+              "fullTitle": "3verify_invalidEmail_error \"before each\" hook in \"3verify_invalidEmail_error\"",
+              "timedOut": false,
+              "duration": 1074,
+              "state": null,
+              "speed": null,
+              "pass": false,
+              "fail": false,
+              "pending": false,
+              "context": null,
+              "code": "driver = await new Builder().forBrowser('chrome').build()\nvars = {}",
+              "err": {},
+              "uuid": "d163af43-0c86-477b-8818-a32b6e2f8dea",
+              "parentUUID": "5bd71cb2-e626-4a34-b49c-5126f4f7f45a",
+              "isHook": true,
+              "skipped": false
+            }
+          ],
+          "afterHooks": [
+            {
+              "title": "\"after each\" hook in \"3verify_invalidEmail_error\"",
+              "fullTitle": "3verify_invalidEmail_error \"after each\" hook in \"3verify_invalidEmail_error\"",
+              "timedOut": false,
+              "duration": 81,
+              "state": null,
+              "speed": null,
+              "pass": false,
+              "fail": false,
+              "pending": false,
+              "context": null,
+              "code": "await driver.quit();",
+              "err": {},
+              "uuid": "a138f1b0-e826-4bba-b349-a405947ae0e7",
+              "parentUUID": "5bd71cb2-e626-4a34-b49c-5126f4f7f45a",
+              "isHook": true,
+              "skipped": false
+            }
+          ],
+          "tests": [
+            {
+              "title": "3verify_invalidEmail_error",
+              "fullTitle": "3verify_invalidEmail_error 3verify_invalidEmail_error",
+              "timedOut": false,
+              "duration": 2200,
+              "state": "failed",
+              "speed": null,
+              "pass": false,
+              "fail": true,
+              "pending": false,
+              "context": null,
+              "code": "await driver.get(\"https://www.instagram.com/\")\nawait driver.manage().window().setRect({ width: 1650, height: 900 })\nawait driver.wait(until.elementLocated(By.css('[name=\"username\"]')), 10000);\nawait driver.findElement(By.name(\"username\")).click()\nawait driver.findElement(By.name(\"username\")).sendKeys(username)\nawait driver.findElement(By.name(\"password\")).click()\nawait driver.findElement(By.name(\"password\")).sendKeys(password)\nawait driver.findElement(By.xpath(\"//*[@id=\\\"loginForm\\\"]//button[contains(.,\\\"Log in\\\")]\")).click()\n\nconst errorMessageElement = await driver.wait(until.elementLocated(By.xpath(\"//p[@id=\\\"slfErrorAlert\\\"]\")), 10000);\nconst errorMessage = await errorMessageElement.getText();\nconst expectedErrorMessage = \"Sorry, your username was incorrect. Please double-check your username.\";\nassert.strictEqual(errorMessage, expectedErrorMessage);",
+              "err": {
+                "message": "AssertionError: Expected values to be strictly equal:\n+ actual - expected\n\n+ 'Sorry, your password was incorrect. Please double-check your password.'\n- 'Sorry, your username was incorrect. Please double-check your username.'\n               ^",
+                "estack": "AssertionError [ERR_ASSERTION]: Expected values to be strictly equal:\n+ actual - expected\n\n+ 'Sorry, your password was incorrect. Please double-check your password.'\n- 'Sorry, your username was incorrect. Please double-check your username.'\n               ^\n    at Context.<anonymous> (test\\3verifyinvalidEmailerror.spec.js:30:12)\n    at process.processTicksAndRejections (node:internal/process/task_queues:95:5)",
+                "diff": "- Sorry, your password was incorrect. Please double-check your password.\n+ Sorry, your username was incorrect. Please double-check your username.\n"
+              },
+              "uuid": "1f7ac92d-b001-454b-bb5f-2f7a73e206d3",
+              "parentUUID": "5bd71cb2-e626-4a34-b49c-5126f4f7f45a",
+              "isHook": false,
+              "skipped": false
+            }
+          ],
+          "suites": [],
+          "passes": [],
+          "failures": [
+            "1f7ac92d-b001-454b-bb5f-2f7a73e206d3"
+          ],
+          "pending": [],
+          "skipped": [],
+          "duration": 2200,
+          "root": false,
+          "rootEmpty": false,
+          "_timeout": 30000
+        },
+        {
+          "uuid": "5af514bf-c133-4305-b26b-a253c4e77e65",
+          "title": "4verify_validEmail_invalidpw_error",
+          "fullFile": "C:\\Users\\Lora Saranillo\\OneDrive\\hackerhero\\QA_Instagram\\test\\4verifyvalidEmailinvalidpwerror.spec.js",
+          "file": "\\test\\4verifyvalidEmailinvalidpwerror.spec.js",
+          "beforeHooks": [
+            {
+              "title": "\"before each\" hook in \"4verify_validEmail_invalidpw_error\"",
+              "fullTitle": "4verify_validEmail_invalidpw_error \"before each\" hook in \"4verify_validEmail_invalidpw_error\"",
+              "timedOut": false,
+              "duration": 1097,
+              "state": null,
+              "speed": null,
+              "pass": false,
+              "fail": false,
+              "pending": false,
+              "context": null,
+              "code": "driver = await new Builder().forBrowser('chrome').build()\nvars = {}",
+              "err": {},
+              "uuid": "898ee2ec-2338-448d-a111-61f7aa4023d5",
+              "parentUUID": "5af514bf-c133-4305-b26b-a253c4e77e65",
+              "isHook": true,
+              "skipped": false
+            }
+          ],
+          "afterHooks": [
+            {
+              "title": "\"after each\" hook in \"4verify_validEmail_invalidpw_error\"",
+              "fullTitle": "4verify_validEmail_invalidpw_error \"after each\" hook in \"4verify_validEmail_invalidpw_error\"",
+              "timedOut": false,
+              "duration": 72,
+              "state": null,
+              "speed": null,
+              "pass": false,
+              "fail": false,
+              "pending": false,
+              "context": null,
+              "code": "await driver.quit();",
+              "err": {},
+              "uuid": "58a97a30-96f2-41ea-a7c0-0c3ec8875f8c",
+              "parentUUID": "5af514bf-c133-4305-b26b-a253c4e77e65",
+              "isHook": true,
+              "skipped": false
+            }
+          ],
+          "tests": [
+            {
+              "title": "4verify_validEmail_invalidpw_error",
+              "fullTitle": "4verify_validEmail_invalidpw_error 4verify_validEmail_invalidpw_error",
+              "timedOut": false,
+              "duration": 2175,
+              "state": "passed",
+              "speed": "slow",
+              "pass": true,
+              "fail": false,
+              "pending": false,
+              "context": null,
+              "code": "await driver.get(\"https://www.instagram.com/\")\nawait driver.manage().window().setRect({ width: 1650, height: 900 })\nawait driver.wait(until.elementLocated(By.css('[name=\"username\"]')), 10000);\nawait driver.findElement(By.name(\"username\")).click()\nawait driver.findElement(By.name(\"username\")).sendKeys(username)\nawait driver.findElement(By.name(\"password\")).click()\nawait driver.findElement(By.name(\"password\")).sendKeys(password)\nawait driver.findElement(By.xpath(\"//*[@id=\\\"loginForm\\\"]//button[contains(.,\\\"Log in\\\")]\")).click()\nconst errorMessageElement = await driver.wait(until.elementLocated(By.xpath(\"//p[@id=\\\"slfErrorAlert\\\"]\")), 10000);\nconst errorMessage = await errorMessageElement.getText();\nconsole.log(\"ERROR MESSAGE:\",errorMessage);\nconst expectedErrorMessage = \"Sorry, your password was incorrect. Please double-check your password.\";\nassert.equal(errorMessage,expectedErrorMessage);",
+              "err": {},
+              "uuid": "95cd5101-cce9-4e4e-9ebd-dc86eebd1cbc",
+              "parentUUID": "5af514bf-c133-4305-b26b-a253c4e77e65",
+              "isHook": false,
+              "skipped": false
+            }
+          ],
+          "suites": [],
+          "passes": [
+            "95cd5101-cce9-4e4e-9ebd-dc86eebd1cbc"
+          ],
+          "failures": [],
+          "pending": [],
+          "skipped": [],
+          "duration": 2175,
+          "root": false,
+          "rootEmpty": false,
+          "_timeout": 30000
+        },
+        {
+          "uuid": "82469e46-c702-4d49-a7bc-2b27cc84262a",
+          "title": "5Verify_empty_email_field",
+          "fullFile": "C:\\Users\\Lora Saranillo\\OneDrive\\hackerhero\\QA_Instagram\\test\\5Verifyemptyemailfield.spec.js",
+          "file": "\\test\\5Verifyemptyemailfield.spec.js",
+          "beforeHooks": [
+            {
+              "title": "\"before each\" hook in \"5Verify_empty_email_field\"",
+              "fullTitle": "5Verify_empty_email_field \"before each\" hook in \"5Verify_empty_email_field\"",
+              "timedOut": false,
+              "duration": 1075,
+              "state": null,
+              "speed": null,
+              "pass": false,
+              "fail": false,
+              "pending": false,
+              "context": null,
+              "code": "driver = await new Builder().forBrowser('chrome').build()\nvars = {}",
+              "err": {},
+              "uuid": "173852ac-cf4a-4d09-ae12-048234417178",
+              "parentUUID": "82469e46-c702-4d49-a7bc-2b27cc84262a",
+              "isHook": true,
+              "skipped": false
+            }
+          ],
+          "afterHooks": [
+            {
+              "title": "\"after each\" hook in \"5Verify_empty_email_field\"",
+              "fullTitle": "5Verify_empty_email_field \"after each\" hook in \"5Verify_empty_email_field\"",
+              "timedOut": false,
+              "duration": 81,
+              "state": null,
+              "speed": null,
+              "pass": false,
+              "fail": false,
+              "pending": false,
+              "context": null,
+              "code": "await driver.quit();",
+              "err": {},
+              "uuid": "9b61374f-62ef-4f51-8680-3bd34b08a48f",
+              "parentUUID": "82469e46-c702-4d49-a7bc-2b27cc84262a",
+              "isHook": true,
+              "skipped": false
+            }
+          ],
+          "tests": [
+            {
+              "title": "5Verify_empty_email_field",
+              "fullTitle": "5Verify_empty_email_field 5Verify_empty_email_field",
+              "timedOut": false,
+              "duration": 1152,
+              "state": "passed",
+              "speed": "slow",
+              "pass": true,
+              "fail": false,
+              "pending": false,
+              "context": null,
+              "code": "await driver.get(\"https://www.instagram.com/\")\nawait driver.manage().window().setRect({ width: 1650, height: 900 })\nawait driver.wait(until.elementLocated(By.css('[name=\"username\"]')), 10000);\nawait driver.findElement(By.name(\"username\")).click()\nawait driver.findElement(By.name(\"password\")).click()\nawait driver.findElement(By.name(\"password\")).sendKeys(\"$FC5SnS!EdQtHKF\")\n{\n  const elements = await driver.findElements(By.xpath(\"//*[@id=\\\"loginForm\\\"]//button[@disabled]\"))\n  assert(elements.length)\n}",
+              "err": {},
+              "uuid": "17d8efa6-933b-445f-af12-17631486c94c",
+              "parentUUID": "82469e46-c702-4d49-a7bc-2b27cc84262a",
+              "isHook": false,
+              "skipped": false
+            }
+          ],
+          "suites": [],
+          "passes": [
+            "17d8efa6-933b-445f-af12-17631486c94c"
+          ],
+          "failures": [],
+          "pending": [],
+          "skipped": [],
+          "duration": 1152,
+          "root": false,
+          "rootEmpty": false,
+          "_timeout": 30000
+        },
+        {
+          "uuid": "f7f279f3-d52c-4ce9-bfe4-19c578926ad3",
+          "title": "6Verify_empty_password_field",
+          "fullFile": "C:\\Users\\Lora Saranillo\\OneDrive\\hackerhero\\QA_Instagram\\test\\6Verifyemptypasswordfield.spec.js",
+          "file": "\\test\\6Verifyemptypasswordfield.spec.js",
+          "beforeHooks": [
+            {
+              "title": "\"before each\" hook in \"6Verify_empty_password_field\"",
+              "fullTitle": "6Verify_empty_password_field \"before each\" hook in \"6Verify_empty_password_field\"",
+              "timedOut": false,
+              "duration": 1063,
+              "state": null,
+              "speed": null,
+              "pass": false,
+              "fail": false,
+              "pending": false,
+              "context": null,
+              "code": "driver = await new Builder().forBrowser('chrome').build()\nvars = {}",
+              "err": {},
+              "uuid": "5b08d553-9727-4af5-b989-ecd68b8cffa9",
+              "parentUUID": "f7f279f3-d52c-4ce9-bfe4-19c578926ad3",
+              "isHook": true,
+              "skipped": false
+            }
+          ],
+          "afterHooks": [
+            {
+              "title": "\"after each\" hook in \"6Verify_empty_password_field\"",
+              "fullTitle": "6Verify_empty_password_field \"after each\" hook in \"6Verify_empty_password_field\"",
+              "timedOut": false,
+              "duration": 82,
+              "state": null,
+              "speed": null,
+              "pass": false,
+              "fail": false,
+              "pending": false,
+              "context": null,
+              "code": "await driver.quit();",
+              "err": {},
+              "uuid": "dd9fabd7-27a7-427a-9ad5-396389c218fc",
+              "parentUUID": "f7f279f3-d52c-4ce9-bfe4-19c578926ad3",
+              "isHook": true,
+              "skipped": false
+            }
+          ],
+          "tests": [
+            {
+              "title": "6Verify_empty_password_field",
+              "fullTitle": "6Verify_empty_password_field 6Verify_empty_password_field",
+              "timedOut": false,
+              "duration": 1498,
+              "state": "passed",
+              "speed": "slow",
+              "pass": true,
+              "fail": false,
+              "pending": false,
+              "context": null,
+              "code": "await driver.get(\"https://www.instagram.com/\")\nawait driver.manage().window().setRect({ width: 1650, height: 900 })\nawait driver.wait(until.elementLocated(By.css('[name=\"username\"]')), 10000);\nawait driver.findElement(By.name(\"username\")).click()\nawait driver.findElement(By.name(\"username\")).sendKeys(\"backsideHungary@gmail.com\")\nawait driver.findElement(By.name(\"password\")).click()\n{\n  const elements = await driver.findElements(By.xpath(\"//*[@id=\\\"loginForm\\\"]//button[@disabled]\"))\n  assert(elements.length)\n}",
+              "err": {},
+              "uuid": "754dde4f-0300-4c96-aa09-6ddcf85c1fbe",
+              "parentUUID": "f7f279f3-d52c-4ce9-bfe4-19c578926ad3",
+              "isHook": false,
+              "skipped": false
+            }
+          ],
+          "suites": [],
+          "passes": [
+            "754dde4f-0300-4c96-aa09-6ddcf85c1fbe"
+          ],
+          "failures": [],
+          "pending": [],
+          "skipped": [],
+          "duration": 1498,
+          "root": false,
+          "rootEmpty": false,
+          "_timeout": 30000
+        },
+        {
+          "uuid": "ae43c2fc-a918-4b96-ad04-7db41ac71e34",
+          "title": "7Invalid_emailAddressFormat",
+          "fullFile": "C:\\Users\\Lora Saranillo\\OneDrive\\hackerhero\\QA_Instagram\\test\\7InvalidemailAddressFormat.spec.js",
+          "file": "\\test\\7InvalidemailAddressFormat.spec.js",
+          "beforeHooks": [
+            {
+              "title": "\"before each\" hook in \"7Invalid_emailAddressFormat\"",
+              "fullTitle": "7Invalid_emailAddressFormat \"before each\" hook in \"7Invalid_emailAddressFormat\"",
+              "timedOut": false,
+              "duration": 1107,
+              "state": null,
+              "speed": null,
+              "pass": false,
+              "fail": false,
+              "pending": false,
+              "context": null,
+              "code": "driver = await new Builder().forBrowser('chrome').build()\nvars = {}",
+              "err": {},
+              "uuid": "7df3f5d6-a972-42a1-82bc-ae35bc1bba88",
+              "parentUUID": "ae43c2fc-a918-4b96-ad04-7db41ac71e34",
+              "isHook": true,
+              "skipped": false
+            }
+          ],
+          "afterHooks": [
+            {
+              "title": "\"after each\" hook in \"7Invalid_emailAddressFormat\"",
+              "fullTitle": "7Invalid_emailAddressFormat \"after each\" hook in \"7Invalid_emailAddressFormat\"",
+              "timedOut": false,
+              "duration": 83,
+              "state": null,
+              "speed": null,
+              "pass": false,
+              "fail": false,
+              "pending": false,
+              "context": null,
+              "code": "await driver.quit();",
+              "err": {},
+              "uuid": "3e8210e2-045a-4352-b540-f4f83b11b807",
+              "parentUUID": "ae43c2fc-a918-4b96-ad04-7db41ac71e34",
+              "isHook": true,
+              "skipped": false
+            }
+          ],
+          "tests": [
+            {
+              "title": "7Invalid_emailAddressFormat",
+              "fullTitle": "7Invalid_emailAddressFormat 7Invalid_emailAddressFormat",
+              "timedOut": false,
+              "duration": 1870,
+              "state": "failed",
+              "speed": null,
+              "pass": false,
+              "fail": true,
+              "pending": false,
+              "context": null,
+              "code": "await driver.get(\"https://www.instagram.com/\")\nawait driver.manage().window().setRect({ width: 1650, height: 900 })\nawait driver.wait(until.elementLocated(By.css('[name=\"username\"]')), 10000);\nawait driver.findElement(By.name(\"username\")).click()\nawait driver.findElement(By.name(\"username\")).sendKeys(\"backsideHungary@gmail\")\nawait driver.findElement(By.name(\"password\")).click()\nawait driver.findElement(By.name(\"password\")).sendKeys(\"$FC5SnS!EdQtHKF\")\nawait driver.findElement(By.xpath(\"//*[@id=\\\"loginForm\\\"]//button[contains(.,\\\"Log in\\\")]\")).click()\nconst errorMessageElement = await driver.wait(until.elementLocated(By.xpath(\"//p[@id=\\\"slfErrorAlert\\\"]\")), 10000);\nconst errorMessage = await errorMessageElement.getText();\nconst expectedErrorMessage = \"Sorry, your username was incorrect. Please double-check your username.\";\nassert.strictEqual(errorMessage, expectedErrorMessage);",
+              "err": {
+                "message": "AssertionError: Expected values to be strictly equal:\n+ actual - expected\n\n+ 'Sorry, your password was incorrect. Please double-check your password.'\n- 'Sorry, your username was incorrect. Please double-check your username.'\n               ^",
+                "estack": "AssertionError [ERR_ASSERTION]: Expected values to be strictly equal:\n+ actual - expected\n\n+ 'Sorry, your password was incorrect. Please double-check your password.'\n- 'Sorry, your username was incorrect. Please double-check your username.'\n               ^\n    at Context.<anonymous> (test\\7InvalidemailAddressFormat.spec.js:29:12)\n    at process.processTicksAndRejections (node:internal/process/task_queues:95:5)",
+                "diff": "- Sorry, your password was incorrect. Please double-check your password.\n+ Sorry, your username was incorrect. Please double-check your username.\n"
+              },
+              "uuid": "118376d0-9d08-4abf-b0f0-77f5c76ad4ec",
+              "parentUUID": "ae43c2fc-a918-4b96-ad04-7db41ac71e34",
+              "isHook": false,
+              "skipped": false
+            }
+          ],
+          "suites": [],
+          "passes": [],
+          "failures": [
+            "118376d0-9d08-4abf-b0f0-77f5c76ad4ec"
+          ],
+          "pending": [],
+          "skipped": [],
+          "duration": 1870,
+          "root": false,
+          "rootEmpty": false,
+          "_timeout": 30000
+        },
+        {
+          "uuid": "6cbbdda7-9ae9-47aa-9b71-a4bcce907534",
+          "title": "8verify_toggle_showhide_pw",
+          "fullFile": "C:\\Users\\Lora Saranillo\\OneDrive\\hackerhero\\QA_Instagram\\test\\8verifytoggleshowhidepw.spec.js",
+          "file": "\\test\\8verifytoggleshowhidepw.spec.js",
+          "beforeHooks": [
+            {
+              "title": "\"before each\" hook in \"8verify_toggle_showhide_pw\"",
+              "fullTitle": "8verify_toggle_showhide_pw \"before each\" hook in \"8verify_toggle_showhide_pw\"",
+              "timedOut": false,
+              "duration": 1062,
+              "state": null,
+              "speed": null,
+              "pass": false,
+              "fail": false,
+              "pending": false,
+              "context": null,
+              "code": "driver = await new Builder().forBrowser('chrome').build()\nvars = {}",
+              "err": {},
+              "uuid": "7ed3273f-9f68-430c-8cd4-0b1918ac3f53",
+              "parentUUID": "6cbbdda7-9ae9-47aa-9b71-a4bcce907534",
+              "isHook": true,
+              "skipped": false
+            }
+          ],
+          "afterHooks": [
+            {
+              "title": "\"after each\" hook in \"8verify_toggle_showhide_pw\"",
+              "fullTitle": "8verify_toggle_showhide_pw \"after each\" hook in \"8verify_toggle_showhide_pw\"",
+              "timedOut": false,
+              "duration": 80,
+              "state": null,
+              "speed": null,
+              "pass": false,
+              "fail": false,
+              "pending": false,
+              "context": null,
+              "code": "await driver.quit();",
+              "err": {},
+              "uuid": "d4117cf0-d346-460b-827c-8506d286f32a",
+              "parentUUID": "6cbbdda7-9ae9-47aa-9b71-a4bcce907534",
+              "isHook": true,
+              "skipped": false
+            }
+          ],
+          "tests": [
+            {
+              "title": "8verify_toggle_showhide_pw",
+              "fullTitle": "8verify_toggle_showhide_pw 8verify_toggle_showhide_pw",
+              "timedOut": false,
+              "duration": 1637,
+              "state": "passed",
+              "speed": "slow",
+              "pass": true,
+              "fail": false,
+              "pending": false,
+              "context": null,
+              "code": "await driver.get(\"https://www.instagram.com/\")\nawait driver.manage().window().setRect({ width: 1650, height: 900 })\nawait driver.wait(until.elementLocated(By.css('[name=\"username\"]')), 10000);\nawait driver.findElement(By.name(\"username\")).click()\nawait driver.findElement(By.name(\"username\")).sendKeys(username)\nawait driver.findElement(By.name(\"password\")).click()\nawait driver.findElement(By.name(\"password\")).sendKeys(password)\nawait driver.findElement(By.xpath(\"//*[@id=\\\"loginForm\\\"]//button[contains(.,\\\"Log in\\\")]\")).click()\nawait driver.wait(until.elementIsVisible(await driver.findElement(By.xpath(\"//button[@type=\\\"button\\\" and contains(.,\\\"Show\\\")]\"))),30000)\nawait driver.findElement(By.xpath(\"//button[@type=\\\"button\\\" and contains(.,\\\"Show\\\")]\")).click()\nawait driver.wait(until.elementIsVisible(await driver.findElement(By.xpath(\"//button[@type=\\\"button\\\" and contains(.,\\\"Hide\\\")]\"))),30000)\nawait driver.findElement(By.xpath(\"//button[@type=\\\"button\\\" and contains(.,\\\"Hide\\\")]\")).click()",
+              "err": {},
+              "uuid": "4dfab0bd-b5da-4f24-b563-c8ac1d14b639",
+              "parentUUID": "6cbbdda7-9ae9-47aa-9b71-a4bcce907534",
+              "isHook": false,
+              "skipped": false
+            }
+          ],
+          "suites": [],
+          "passes": [
+            "4dfab0bd-b5da-4f24-b563-c8ac1d14b639"
+          ],
+          "failures": [],
+          "pending": [],
+          "skipped": [],
+          "duration": 1637,
+          "root": false,
+          "rootEmpty": false,
+          "_timeout": 30000
+        }
+      ],
+      "passes": [],
+      "failures": [],
+      "pending": [],
+      "skipped": [],
+      "duration": 0,
+      "root": true,
+      "rootEmpty": true,
+      "_timeout": 0
+    }
+  ],
+  "meta": {
+    "mocha": {
+      "version": "10.2.0"
+    },
+    "mochawesome": {
+      "options": {
+        "quiet": false,
+        "reportFilename": "mochawesome",
+        "saveHtml": true,
+        "saveJson": true,
+        "consoleReporter": "spec",
+        "useInlineDiffs": false,
+        "code": true
+      },
+      "version": "7.1.3"
+    },
+    "marge": {
+      "options": null,
+      "version": "6.2.0"
+    }
+  }
+}
