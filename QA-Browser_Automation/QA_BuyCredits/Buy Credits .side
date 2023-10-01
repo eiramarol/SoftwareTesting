@@ -1,0 +1,1166 @@
+{
+  "id": "27af942b-13bc-4c54-9f2b-375cb114fc60",
+  "version": "2.0",
+  "name": "Buy Credits ",
+  "url": "https://www.hackerhero.com/",
+  "tests": [{
+    "id": "6b67de23-f51a-4f2c-a7ac-c932d524e4f2",
+    "name": "2_Verify Payment Form Navigation",
+    "commands": [{
+      "id": "e493fbf2-85fc-4e30-be7a-e9f349258113",
+      "comment": "",
+      "command": "run",
+      "target": "Buy Credits",
+      "targets": [],
+      "value": ""
+    }, {
+      "id": "2c7b604e-ffdf-43d3-a061-f1b3d2bff866",
+      "comment": "Go with the \"4  Credits\" option and click buy.",
+      "command": "click",
+      "target": "linkText=Buy",
+      "targets": [
+        ["linkText=Buy", "linkText"],
+        ["css=li:nth-child(1) > a:nth-child(5)", "css:finder"],
+        ["xpath=//a[contains(text(),'Buy')]", "xpath:link"],
+        ["xpath=//div[@id='wrapper']/section/ul/li/a", "xpath:idRelative"],
+        ["xpath=//a[contains(@href, '/payment/buy-credit/?credit=4')]", "xpath:href"],
+        ["xpath=//section/ul/li/a", "xpath:position"],
+        ["xpath=//a[contains(.,'Buy')]", "xpath:innerText"]
+      ],
+      "value": ""
+    }, {
+      "id": "0ea5168a-cc23-488c-b0c6-295435312754",
+      "comment": "",
+      "command": "assertText",
+      "target": "css=.payment_details:nth-child(3) > span:nth-child(2)",
+      "targets": [
+        ["css=.payment_details:nth-child(3) > span:nth-child(2)", "css:finder"],
+        ["xpath=//form[@id='card_payment']/p[2]/span[2]", "xpath:idRelative"],
+        ["xpath=//p[2]/span[2]", "xpath:position"],
+        ["xpath=//span[contains(.,'4 Credits')]", "xpath:innerText"]
+      ],
+      "value": "4 Credits"
+    }, {
+      "id": "0c16a938-94d1-4503-b64c-eeb852a6c612",
+      "comment": "Click Back",
+      "command": "click",
+      "target": "css=.previous_page > span",
+      "targets": [
+        ["css=.previous_page > span", "css:finder"],
+        ["xpath=//section[@id='payment_section']/a/span", "xpath:idRelative"],
+        ["xpath=//section/a/span", "xpath:position"]
+      ],
+      "value": ""
+    }, {
+      "id": "29342780-5afe-417e-80e9-be7654047a3f",
+      "comment": "Go with the \"10 Credits\" option and click buy.",
+      "command": "click",
+      "target": "css=li:nth-child(2) > a:nth-child(5)",
+      "targets": [
+        ["css=li:nth-child(2) > a:nth-child(5)", "css:finder"],
+        ["xpath=(//a[contains(text(),'Buy')])[2]", "xpath:link"],
+        ["xpath=//div[@id='wrapper']/section/ul/li[2]/a", "xpath:idRelative"],
+        ["xpath=//a[contains(@href, '/payment/buy-credit/?credit=10')]", "xpath:href"],
+        ["xpath=//section/ul/li[2]/a", "xpath:position"]
+      ],
+      "value": ""
+    }, {
+      "id": "60ae5107-2b5f-4926-8eeb-edb39fb95627",
+      "comment": "",
+      "command": "assertText",
+      "target": "css=.payment_details:nth-child(3) > span:nth-child(2)",
+      "targets": [],
+      "value": "10 Credits"
+    }, {
+      "id": "e47d62c0-1480-42c6-a042-e186b7884641",
+      "comment": "Click Back",
+      "command": "click",
+      "target": "css=.previous_page > span",
+      "targets": [
+        ["css=.previous_page > span", "css:finder"],
+        ["xpath=//section[@id='payment_section']/a/span", "xpath:idRelative"],
+        ["xpath=//section/a/span", "xpath:position"]
+      ],
+      "value": ""
+    }, {
+      "id": "e06fcb5d-97a7-4917-8b48-9837a42371c4",
+      "comment": "Go with the \"30 Credits\" option and click buy.",
+      "command": "click",
+      "target": "css=li:nth-child(3) > a",
+      "targets": [
+        ["css=li:nth-child(3) > a", "css:finder"],
+        ["xpath=(//a[contains(text(),'Buy')])[3]", "xpath:link"],
+        ["xpath=//div[@id='wrapper']/section/ul/li[3]/a", "xpath:idRelative"],
+        ["xpath=//a[contains(@href, '/payment/buy-credit/?credit=30')]", "xpath:href"],
+        ["xpath=//li[3]/a", "xpath:position"]
+      ],
+      "value": ""
+    }, {
+      "id": "c79216f2-8cc3-4a0c-aeb8-ef53f7d9f350",
+      "comment": "",
+      "command": "waitForText",
+      "target": "css=h4:nth-child(1)",
+      "targets": [
+        ["css=h4:nth-child(1)", "css:finder"],
+        ["xpath=//form[@id='card_payment']/h4", "xpath:idRelative"],
+        ["xpath=//h4", "xpath:position"],
+        ["xpath=//h4[contains(.,'Payment Details')]", "xpath:innerText"]
+      ],
+      "value": "Payment Details"
+    }, {
+      "id": "cabf1774-aaf6-4176-95e3-70cbd4d299b4",
+      "comment": "",
+      "command": "verifyText",
+      "target": "css=h4:nth-child(1)",
+      "targets": [
+        ["css=h4:nth-child(1)", "css:finder"],
+        ["xpath=//form[@id='card_payment']/h4", "xpath:idRelative"],
+        ["xpath=//h4", "xpath:position"],
+        ["xpath=//h4[contains(.,'Payment Details')]", "xpath:innerText"]
+      ],
+      "value": "Payment Details"
+    }, {
+      "id": "fc693eb4-e5f7-4419-a1bd-0427dc7fbf91",
+      "comment": "",
+      "command": "assertText",
+      "target": "css=.payment_details:nth-child(2) > span:nth-child(2)",
+      "targets": [
+        ["css=.payment_details:nth-child(2) > span:nth-child(2)", "css:finder"],
+        ["xpath=//form[@id='card_payment']/p/span[2]", "xpath:idRelative"],
+        ["xpath=//p/span[2]", "xpath:position"],
+        ["xpath=//span[contains(.,'24.99 USD')]", "xpath:innerText"]
+      ],
+      "value": "24.99 USD"
+    }, {
+      "id": "e1d25dac-4e93-4697-9474-8906b2c19bd3",
+      "comment": "",
+      "command": "assertText",
+      "target": "css=.payment_details:nth-child(3) > span:nth-child(2)",
+      "targets": [
+        ["css=.payment_details:nth-child(3) > span:nth-child(2)", "css:finder"],
+        ["xpath=//form[@id='card_payment']/p[2]/span[2]", "xpath:idRelative"],
+        ["xpath=//p[2]/span[2]", "xpath:position"],
+        ["xpath=//span[contains(.,'30 Credits')]", "xpath:innerText"]
+      ],
+      "value": "30 Credits"
+    }, {
+      "id": "60268f16-a291-4738-a6c7-b3f02dc12863",
+      "comment": "Click Back",
+      "command": "click",
+      "target": "css=.previous_page > span",
+      "targets": [
+        ["css=.previous_page > span", "css:finder"],
+        ["xpath=//section[@id='payment_section']/a/span", "xpath:idRelative"],
+        ["xpath=//section/a/span", "xpath:position"]
+      ],
+      "value": ""
+    }, {
+      "id": "85c55456-0056-4693-aa47-c32bc160d188",
+      "comment": "Go with the \"100 Credits\" option and click buy.",
+      "command": "click",
+      "target": "css=li:nth-child(4) > a",
+      "targets": [
+        ["css=li:nth-child(4) > a", "css:finder"],
+        ["xpath=(//a[contains(text(),'Buy')])[4]", "xpath:link"],
+        ["xpath=//div[@id='wrapper']/section/ul/li[4]/a", "xpath:idRelative"],
+        ["xpath=//a[contains(@href, '/payment/buy-credit/?credit=100')]", "xpath:href"],
+        ["xpath=//li[4]/a", "xpath:position"]
+      ],
+      "value": ""
+    }, {
+      "id": "79133ea4-7630-45cb-a2cb-8f14965f431e",
+      "comment": "",
+      "command": "assertText",
+      "target": "css=.payment_details:nth-child(2) > span:nth-child(2)",
+      "targets": [
+        ["css=.payment_details:nth-child(2) > span:nth-child(2)", "css:finder"],
+        ["xpath=//form[@id='card_payment']/p/span[2]", "xpath:idRelative"],
+        ["xpath=//p/span[2]", "xpath:position"],
+        ["xpath=//span[contains(.,'24.99 USD')]", "xpath:innerText"]
+      ],
+      "value": "79.99 USD"
+    }, {
+      "id": "613f535a-0015-4d22-b4e5-1fad97fac153",
+      "comment": "",
+      "command": "assertText",
+      "target": "css=.payment_details:nth-child(3) > span:nth-child(2)",
+      "targets": [],
+      "value": "100 Credits"
+    }, {
+      "id": "a047c376-8ba3-424f-bddf-dddbcdb83ed0",
+      "comment": "Click Back",
+      "command": "click",
+      "target": "css=.previous_page > span",
+      "targets": [
+        ["css=.previous_page > span", "css:finder"],
+        ["xpath=//section[@id='payment_section']/a/span", "xpath:idRelative"],
+        ["xpath=//section/a/span", "xpath:position"]
+      ],
+      "value": ""
+    }, {
+      "id": "c7e43f41-d6ea-406d-98fa-b61854766391",
+      "comment": "",
+      "command": "close",
+      "target": "",
+      "targets": [],
+      "value": ""
+    }]
+  }, {
+    "id": "8d96fb0c-7a92-44c9-9e08-070082759bf0",
+    "name": "1_Verify Credit Options Display",
+    "commands": [{
+      "id": "de242b24-4288-4b81-824d-bc9f50345428",
+      "comment": "",
+      "command": "run",
+      "target": "Buy Credits",
+      "targets": [],
+      "value": ""
+    }, {
+      "id": "999e27f7-584d-4198-87ed-7b86b88bf8b5",
+      "comment": "",
+      "command": "waitForElementPresent",
+      "target": "css=h1",
+      "targets": [
+        ["css=h1", "css:finder"],
+        ["xpath=//div[@id='wrapper']/section/h1", "xpath:idRelative"],
+        ["xpath=//h1", "xpath:position"],
+        ["xpath=//h1[contains(.,'Buy Credits')]", "xpath:innerText"]
+      ],
+      "value": "30000"
+    }, {
+      "id": "8b79a0bf-4143-421d-a336-ef1515cb8d44",
+      "comment": "",
+      "command": "verifyText",
+      "target": "css=li:nth-child(1) > h3",
+      "targets": [
+        ["css=li:nth-child(1) > h3", "css:finder"],
+        ["xpath=//div[@id='wrapper']/section/ul/li/h3", "xpath:idRelative"],
+        ["xpath=//h3", "xpath:position"],
+        ["xpath=//h3[contains(.,'4 credits')]", "xpath:innerText"]
+      ],
+      "value": "4 credits"
+    }, {
+      "id": "7b846ac6-01b7-4259-9d4e-d16957515f01",
+      "comment": "",
+      "command": "verifyText",
+      "target": "css=li:nth-child(2) > h3",
+      "targets": [
+        ["css=li:nth-child(2) > h3", "css:finder"],
+        ["xpath=//div[@id='wrapper']/section/ul/li[2]/h3", "xpath:idRelative"],
+        ["xpath=//li[2]/h3", "xpath:position"],
+        ["xpath=//h3[contains(.,'10 credits')]", "xpath:innerText"]
+      ],
+      "value": "10 credits"
+    }, {
+      "id": "3d1d6058-56aa-4847-92ba-f5e962b0a32c",
+      "comment": "",
+      "command": "verifyText",
+      "target": "css=li:nth-child(3) > h3",
+      "targets": [
+        ["css=li:nth-child(3) > h3", "css:finder"],
+        ["xpath=//div[@id='wrapper']/section/ul/li[3]/h3", "xpath:idRelative"],
+        ["xpath=//li[3]/h3", "xpath:position"],
+        ["xpath=//h3[contains(.,'30 credits')]", "xpath:innerText"]
+      ],
+      "value": "30 credits"
+    }, {
+      "id": "8bde612f-2608-4f7f-b38d-3352ca5540e4",
+      "comment": "",
+      "command": "verifyText",
+      "target": "css=li:nth-child(4) > h3",
+      "targets": [
+        ["css=li:nth-child(4) > h3", "css:finder"],
+        ["xpath=//div[@id='wrapper']/section/ul/li[4]/h3", "xpath:idRelative"],
+        ["xpath=//li[4]/h3", "xpath:position"],
+        ["xpath=//h3[contains(.,'100 credits')]", "xpath:innerText"]
+      ],
+      "value": "100 credits"
+    }, {
+      "id": "8e983b60-210a-4095-8c32-49c1d17f9588",
+      "comment": "",
+      "command": "close",
+      "target": "",
+      "targets": [],
+      "value": ""
+    }]
+  }, {
+    "id": "8f190ef8-e666-44a2-b4a7-e77e344a5a85",
+    "name": "3_Verify invalid Card Holder Name",
+    "commands": [{
+      "id": "34336ff7-412a-4a77-b0a2-e6f60690630b",
+      "comment": "",
+      "command": "run",
+      "target": "Buy Credits",
+      "targets": [],
+      "value": ""
+    }, {
+      "id": "d8b9c505-18ee-47f4-8e31-5d035675b083",
+      "comment": "Go with the \"100 Credits\" option and click buy.",
+      "command": "click",
+      "target": "css=li:nth-child(4) > a",
+      "targets": [
+        ["css=li:nth-child(4) > a", "css:finder"],
+        ["xpath=(//a[contains(text(),'Buy')])[4]", "xpath:link"],
+        ["xpath=//div[@id='wrapper']/section/ul/li[4]/a", "xpath:idRelative"],
+        ["xpath=//a[contains(@href, '/payment/buy-credit/?credit=100')]", "xpath:href"],
+        ["xpath=//li[4]/a", "xpath:position"]
+      ],
+      "value": ""
+    }, {
+      "id": "66253475-4425-4857-8338-c0728c78f562",
+      "comment": "",
+      "command": "assertText",
+      "target": "css=.payment_details:nth-child(2) > span:nth-child(2)",
+      "targets": [
+        ["css=.payment_details:nth-child(2) > span:nth-child(2)", "css:finder"],
+        ["xpath=//form[@id='card_payment']/p/span[2]", "xpath:idRelative"],
+        ["xpath=//p/span[2]", "xpath:position"],
+        ["xpath=//span[contains(.,'24.99 USD')]", "xpath:innerText"]
+      ],
+      "value": "79.99 USD"
+    }, {
+      "id": "6ab3d55f-832b-4af4-b81e-315019fb8113",
+      "comment": "",
+      "command": "assertText",
+      "target": "css=.payment_details:nth-child(3) > span:nth-child(2)",
+      "targets": [],
+      "value": "100 Credits"
+    }, {
+      "id": "265b1b3c-e638-436a-8d0e-24d4f46dc597",
+      "comment": "",
+      "command": "run",
+      "target": "Invalid Name input",
+      "targets": [],
+      "value": ""
+    }, {
+      "id": "ffe1b81b-8fca-45f8-8a78-5549153c95f0",
+      "comment": "",
+      "command": "run",
+      "target": "input Details",
+      "targets": [],
+      "value": ""
+    }, {
+      "id": "b53671ae-72e3-43c3-a646-2719ae78f23e",
+      "comment": "",
+      "command": "selectFrame",
+      "target": "relative=parent",
+      "targets": [
+        ["relative=parent"]
+      ],
+      "value": ""
+    }, {
+      "id": "ed712b64-ebe8-4a16-9843-d1b2c69d7670",
+      "comment": "",
+      "command": "click",
+      "target": "id=complete_transaction",
+      "targets": [
+        ["id=complete_transaction", "id"],
+        ["css=#complete_transaction", "css:finder"],
+        ["xpath=//button[@id='complete_transaction']", "xpath:attributes"],
+        ["xpath=//div[@id='accept_terms_condition_block']/button", "xpath:idRelative"],
+        ["xpath=//div[4]/button", "xpath:position"],
+        ["xpath=//button[contains(.,'Complete Transaction')]", "xpath:innerText"]
+      ],
+      "value": ""
+    }, {
+      "id": "abaddedd-f0e9-4098-8f30-a5d485654a6a",
+      "comment": "",
+      "command": "waitForElementPresent",
+      "target": "css=h3:nth-child(3)",
+      "targets": [
+        ["css=h3:nth-child(3)", "css:finder"],
+        ["xpath=//div[@id='warning_wrapper']/h3", "xpath:idRelative"],
+        ["xpath=//div/h3", "xpath:position"],
+        ["xpath=//h3[contains(.,'Oops!')]", "xpath:innerText"]
+      ],
+      "value": "30000"
+    }, {
+      "id": "03894339-88f0-4f2d-850a-b4409ba5971b",
+      "comment": "",
+      "command": "waitForText",
+      "target": "css=#warning_wrapper > p:nth-child(4)",
+      "targets": [
+        ["css=#warning_wrapper > p:nth-child(4)", "css:finder"],
+        ["xpath=//div[@id='warning_wrapper']/p", "xpath:idRelative"],
+        ["xpath=//div[6]/div/div/div/p", "xpath:position"],
+        ["xpath=//p[contains(.,'We apologize for the inconvenience. We encountered an internal error or misconfiguration and was unable to complete your request.')]", "xpath:innerText"]
+      ],
+      "value": "The user receives an error message indicating invalid credit card information.\\n"
+    }, {
+      "id": "9553a5d2-3d84-453f-91f8-4b733e101821",
+      "comment": "",
+      "command": "close",
+      "target": "",
+      "targets": [],
+      "value": ""
+    }]
+  }, {
+    "id": "045658ae-065b-4bc3-8aeb-ddd76ce7e445",
+    "name": "valid input",
+    "commands": [{
+      "id": "7303a5aa-a533-4319-b98d-d616c4f9e69e",
+      "comment": "",
+      "command": "store",
+      "target": "549627004519 6762",
+      "targets": [],
+      "value": "cardNumber"
+    }, {
+      "id": "83c9395a-f530-443c-86c5-b1f07d0f79ba",
+      "comment": "",
+      "command": "store",
+      "target": "11 / 24",
+      "targets": [],
+      "value": "expDate"
+    }, {
+      "id": "c9aed2a5-896d-4391-9b79-f2409cbe7062",
+      "comment": "",
+      "command": "store",
+      "target": "799",
+      "targets": [],
+      "value": "cvc"
+    }, {
+      "id": "28e827eb-daa2-4b58-b08e-5376f862b94f",
+      "comment": "",
+      "command": "store",
+      "target": "Marie Lora Angelica Saranillo",
+      "targets": [],
+      "value": "cardHolderName"
+    }]
+  }, {
+    "id": "1d313e6e-49e7-417a-9d67-839691d8964a",
+    "name": "input Details",
+    "commands": [{
+      "id": "890d6dda-d313-4f67-a237-e2ac64cd020b",
+      "comment": "",
+      "command": "//waitForElementPresent",
+      "target": "css=h1",
+      "targets": [],
+      "value": "30000"
+    }, {
+      "id": "43f2fb74-a12f-4103-91db-69662243a9ff",
+      "comment": "",
+      "command": "//click",
+      "target": "css=li:nth-child(4) > a",
+      "targets": [],
+      "value": ""
+    }, {
+      "id": "99bbee0f-55ba-42dc-8bf7-18b56f8ac30b",
+      "comment": "",
+      "command": "click",
+      "target": "id=card_holder_name",
+      "targets": [
+        ["id=card_holder_name", "id"],
+        ["name=card_holder_name", "name"],
+        ["css=#card_holder_name", "css:finder"],
+        ["xpath=//input[@id='card_holder_name']", "xpath:attributes"],
+        ["xpath=//div[@id='card_holder_block']/input", "xpath:idRelative"],
+        ["xpath=//div/input", "xpath:position"]
+      ],
+      "value": ""
+    }, {
+      "id": "3ebe0c58-7d04-4fa6-b301-0ef81353e09f",
+      "comment": "",
+      "command": "type",
+      "target": "id=card_holder_name",
+      "targets": [
+        ["id=card_holder_name", "id"],
+        ["name=card_holder_name", "name"],
+        ["css=#card_holder_name", "css:finder"],
+        ["xpath=//input[@id='card_holder_name']", "xpath:attributes"],
+        ["xpath=//div[@id='card_holder_block']/input", "xpath:idRelative"],
+        ["xpath=//div/input", "xpath:position"]
+      ],
+      "value": "${cardHolderName}"
+    }, {
+      "id": "a6b84afc-dd84-477b-822f-e6ccf6f9e196",
+      "comment": "",
+      "command": "selectFrame",
+      "target": "index=2",
+      "targets": [
+        ["index=2"]
+      ],
+      "value": ""
+    }, {
+      "id": "608a1363-7690-4814-ae92-8f07783ba40f",
+      "comment": "",
+      "command": "click",
+      "target": "css=.CardField",
+      "targets": [
+        ["css=.CardField", "css:finder"],
+        ["xpath=//div[@id='root']/form/div", "xpath:idRelative"],
+        ["xpath=//form/div", "xpath:position"]
+      ],
+      "value": ""
+    }, {
+      "id": "b7cab619-adbf-4bab-9edb-86a2d6fb075e",
+      "comment": "",
+      "command": "//selectFrame",
+      "target": "index=2",
+      "targets": [],
+      "value": ""
+    }, {
+      "id": "16db70d3-b235-4cd1-8d26-6a17f2104be5",
+      "comment": "",
+      "command": "//assertEditable",
+      "target": "name=cardnumber",
+      "targets": [],
+      "value": ""
+    }, {
+      "id": "6adcfd37-008b-4e8c-a2a5-9a2040d7abad",
+      "comment": "",
+      "command": "click",
+      "target": "name=cardnumber",
+      "targets": [],
+      "value": ""
+    }, {
+      "id": "fa285467-855e-4b8a-8eee-cdb2ace49232",
+      "comment": "",
+      "command": "type",
+      "target": "name=cardnumber",
+      "targets": [
+        ["name=cardnumber", "name"],
+        ["css=.InputContainer > .is-complete", "css:finder"],
+        ["xpath=//input[@name='cardnumber']", "xpath:attributes"],
+        ["xpath=//div[@id='root']/form/div/div[2]/span/span[2]/div/div[2]/span/input", "xpath:idRelative"],
+        ["xpath=//span/input", "xpath:position"]
+      ],
+      "value": "${cardNumber}"
+    }, {
+      "id": "87cbe299-45ea-41dc-b60a-c1fdfe427bc2",
+      "comment": "",
+      "command": "click",
+      "target": "name=exp-date",
+      "targets": [
+        ["name=exp-date", "name"],
+        ["css=.CardField-expiry .InputElement", "css:finder"],
+        ["xpath=//input[@name='exp-date']", "xpath:attributes"],
+        ["xpath=//div[@id='root']/form/div/div[2]/span[2]/span/span/span/input", "xpath:idRelative"],
+        ["xpath=//span/span/input", "xpath:position"]
+      ],
+      "value": ""
+    }, {
+      "id": "965a587f-3d85-486d-ba76-94c388ea057a",
+      "comment": "",
+      "command": "type",
+      "target": "name=exp-date",
+      "targets": [
+        ["name=exp-date", "name"],
+        ["css=span > .InputContainer > .is-complete", "css:finder"],
+        ["xpath=//input[@name='exp-date']", "xpath:attributes"],
+        ["xpath=//div[@id='root']/form/div/div[2]/span[2]/span/span/span/input", "xpath:idRelative"],
+        ["xpath=//span/span/input", "xpath:position"]
+      ],
+      "value": "${expDate}"
+    }, {
+      "id": "654ad373-2f8f-4577-be60-b4be9cf8bed8",
+      "comment": "",
+      "command": "click",
+      "target": "name=cvc",
+      "targets": [
+        ["linkText=Reload", "linkText"],
+        ["css=.reload_btn", "css:finder"],
+        ["xpath=//a[contains(text(),'Reload')]", "xpath:link"],
+        ["xpath=//a[@onclick='history.go(0);']", "xpath:attributes"],
+        ["xpath=//div[@id='warning_btn']/a", "xpath:idRelative"],
+        ["xpath=//a[contains(@href, '#')]", "xpath:href"],
+        ["xpath=//div[6]/div/div/div/div/a", "xpath:position"],
+        ["xpath=//a[contains(.,'Reload')]", "xpath:innerText"]
+      ],
+      "value": ""
+    }, {
+      "id": "504714a0-95b9-4f60-8fba-4fd2eee45e1a",
+      "comment": "",
+      "command": "type",
+      "target": "name=cvc",
+      "targets": [
+        ["name=cvc", "name"],
+        ["css=.CardField-cvc .InputElement", "css:finder"],
+        ["xpath=//input[@name='cvc']", "xpath:attributes"],
+        ["xpath=//div[@id='root']/form/div/div[2]/span[2]/span[2]/span/span/input", "xpath:idRelative"],
+        ["xpath=//span[2]/span/span/input", "xpath:position"]
+      ],
+      "value": "${cvc}"
+    }]
+  }, {
+    "id": "8bc52e61-3b83-4793-83b4-bfb530f2626c",
+    "name": "Invalid Name input",
+    "commands": [{
+      "id": "99f5217c-823c-4085-8523-e4b37cd3b20b",
+      "comment": "",
+      "command": "store",
+      "target": "549627004519 6762",
+      "targets": [],
+      "value": "cardNumber"
+    }, {
+      "id": "ff1154d9-de38-4f49-be5c-e35fe4035406",
+      "comment": "",
+      "command": "store",
+      "target": "11 / 24",
+      "targets": [],
+      "value": "expDate"
+    }, {
+      "id": "e9ceb00d-0db5-41e4-b1bb-664f9fee76a4",
+      "comment": "",
+      "command": "store",
+      "target": "799",
+      "targets": [],
+      "value": "cvc"
+    }, {
+      "id": "cca5a0a9-e8ea-4e44-8d5e-9b8998c26b7f",
+      "comment": "",
+      "command": "store",
+      "target": "Henderson Upton",
+      "targets": [],
+      "value": "cardHolderName"
+    }]
+  }, {
+    "id": "09714b66-9826-466e-98e4-cdb1300c2528",
+    "name": "Buy Credits",
+    "commands": [{
+      "id": "3de0b3bc-df83-404c-8eff-f128478827c3",
+      "comment": "",
+      "command": "open",
+      "target": "/",
+      "targets": [],
+      "value": ""
+    }, {
+      "id": "8f85988a-c887-4c21-ab28-61343869ff60",
+      "comment": "In the top-right corner, click on your name.",
+      "command": "click",
+      "target": "css=.header_hero_name",
+      "targets": [
+        ["css=.header_hero_name", "css:finder"],
+        ["xpath=//div[@id='navbarSupportedContent']/ul/li[2]/button/span[2]", "xpath:idRelative"],
+        ["xpath=//span[2]", "xpath:position"],
+        ["xpath=//span[contains(.,'Oiryz')]", "xpath:innerText"]
+      ],
+      "value": ""
+    }, {
+      "id": "7972558f-d446-47ed-85ff-9f895f1407be",
+      "comment": "Choose \"Buy Credits.\"",
+      "command": "click",
+      "target": "css=.dropdown-item:nth-child(2)",
+      "targets": [
+        ["css=.dropdown-item:nth-child(2)", "css:finder"],
+        ["xpath=//div[@id='navbarSupportedContent']/ul/li[2]/div[2]/a[2]", "xpath:idRelative"],
+        ["xpath=//a[contains(@href, '/credits')]", "xpath:href"],
+        ["xpath=//a[2]", "xpath:position"]
+      ],
+      "value": ""
+    }]
+  }, {
+    "id": "038d6ecb-a412-4145-b25c-190893f468fd",
+    "name": "4_Verify Blank Credit Card Information (1)",
+    "commands": [{
+      "id": "fdf85ee9-ad5e-438d-946d-5d894f2f26cb",
+      "comment": "",
+      "command": "run",
+      "target": "Buy Credits",
+      "targets": [],
+      "value": ""
+    }, {
+      "id": "a9f759f5-a818-4d5a-a38f-9ac8af68f31b",
+      "comment": "Go with the \"10 Credits\" option and click buy.",
+      "command": "click",
+      "target": "css=li:nth-child(2) > a:nth-child(5)",
+      "targets": [
+        ["css=li:nth-child(2) > a:nth-child(5)", "css:finder"],
+        ["xpath=(//a[contains(text(),'Buy')])[2]", "xpath:link"],
+        ["xpath=//div[@id='wrapper']/section/ul/li[2]/a", "xpath:idRelative"],
+        ["xpath=//a[contains(@href, '/payment/buy-credit/?credit=10')]", "xpath:href"],
+        ["xpath=//section/ul/li[2]/a", "xpath:position"]
+      ],
+      "value": ""
+    }, {
+      "id": "9127ba47-f59c-447f-8c9b-28d0b020e6d2",
+      "comment": "",
+      "command": "assertText",
+      "target": "css=.payment_details:nth-child(2) > span:nth-child(2)",
+      "targets": [
+        ["css=.payment_details:nth-child(2) > span:nth-child(2)", "css:finder"],
+        ["xpath=//form[@id='card_payment']/p/span[2]", "xpath:idRelative"],
+        ["xpath=//p/span[2]", "xpath:position"],
+        ["xpath=//span[contains(.,'24.99 USD')]", "xpath:innerText"]
+      ],
+      "value": "9.99 USD"
+    }, {
+      "id": "7a612357-887d-4aa0-bdc3-8f5bc811dd91",
+      "comment": "",
+      "command": "assertText",
+      "target": "css=.payment_details:nth-child(3) > span:nth-child(2)",
+      "targets": [],
+      "value": "10 Credits"
+    }, {
+      "id": "596bf809-8087-4a3c-bfc6-b413649b1d41",
+      "comment": "",
+      "command": "//waitForElementPresent",
+      "target": "css=h1",
+      "targets": [],
+      "value": "30000"
+    }, {
+      "id": "a816bb48-d19c-4fbb-a17f-78bbed0a7b6d",
+      "comment": "",
+      "command": "click",
+      "target": "id=card_holder_name",
+      "targets": [
+        ["id=card_holder_name", "id"],
+        ["name=card_holder_name", "name"],
+        ["css=#card_holder_name", "css:finder"],
+        ["xpath=//input[@id='card_holder_name']", "xpath:attributes"],
+        ["xpath=//div[@id='card_holder_block']/input", "xpath:idRelative"],
+        ["xpath=//div/input", "xpath:position"]
+      ],
+      "value": ""
+    }, {
+      "id": "f1f7df28-5e28-4fdb-86a4-be3d946946b1",
+      "comment": "",
+      "command": "type",
+      "target": "id=card_holder_name",
+      "targets": [
+        ["id=card_holder_name", "id"],
+        ["name=card_holder_name", "name"],
+        ["css=#card_holder_name", "css:finder"],
+        ["xpath=//input[@id='card_holder_name']", "xpath:attributes"],
+        ["xpath=//div[@id='card_holder_block']/input", "xpath:idRelative"],
+        ["xpath=//div/input", "xpath:position"]
+      ],
+      "value": ""
+    }, {
+      "id": "2d2e1f52-29bc-498a-9a32-1050924d3876",
+      "comment": "",
+      "command": "selectFrame",
+      "target": "index=2",
+      "targets": [
+        ["index=2"]
+      ],
+      "value": ""
+    }, {
+      "id": "6f9e73a6-a4c3-4d4a-8ae9-04a73d4c4339",
+      "comment": "",
+      "command": "click",
+      "target": "css=.CardField",
+      "targets": [
+        ["css=.CardField", "css:finder"],
+        ["xpath=//div[@id='root']/form/div", "xpath:idRelative"],
+        ["xpath=//form/div", "xpath:position"]
+      ],
+      "value": ""
+    }, {
+      "id": "ac9a2e11-2223-43eb-b05e-d62c6d1dd3f1",
+      "comment": "",
+      "command": "//selectFrame",
+      "target": "index=2",
+      "targets": [],
+      "value": ""
+    }, {
+      "id": "dcfeb7e6-4f54-4f41-9102-37fb237553c6",
+      "comment": "",
+      "command": "//assertEditable",
+      "target": "name=cardnumber",
+      "targets": [],
+      "value": ""
+    }, {
+      "id": "7c3c507d-ad35-4c68-a286-021a5a5803a2",
+      "comment": "",
+      "command": "click",
+      "target": "name=cardnumber",
+      "targets": [],
+      "value": ""
+    }, {
+      "id": "b5c869eb-15c4-4254-90b4-22897c06eb1e",
+      "comment": "",
+      "command": "type",
+      "target": "name=cardnumber",
+      "targets": [
+        ["name=cardnumber", "name"],
+        ["css=.InputContainer > .is-complete", "css:finder"],
+        ["xpath=//input[@name='cardnumber']", "xpath:attributes"],
+        ["xpath=//div[@id='root']/form/div/div[2]/span/span[2]/div/div[2]/span/input", "xpath:idRelative"],
+        ["xpath=//span/input", "xpath:position"]
+      ],
+      "value": ""
+    }, {
+      "id": "addc777b-8db2-45fb-9b69-af64af998639",
+      "comment": "",
+      "command": "click",
+      "target": "name=exp-date",
+      "targets": [
+        ["name=exp-date", "name"],
+        ["css=.CardField-expiry .InputElement", "css:finder"],
+        ["xpath=//input[@name='exp-date']", "xpath:attributes"],
+        ["xpath=//div[@id='root']/form/div/div[2]/span[2]/span/span/span/input", "xpath:idRelative"],
+        ["xpath=//span/span/input", "xpath:position"]
+      ],
+      "value": ""
+    }, {
+      "id": "04a2c611-31e8-4e5c-b660-87eb7fe48858",
+      "comment": "",
+      "command": "type",
+      "target": "name=exp-date",
+      "targets": [
+        ["name=exp-date", "name"],
+        ["css=span > .InputContainer > .is-complete", "css:finder"],
+        ["xpath=//input[@name='exp-date']", "xpath:attributes"],
+        ["xpath=//div[@id='root']/form/div/div[2]/span[2]/span/span/span/input", "xpath:idRelative"],
+        ["xpath=//span/span/input", "xpath:position"]
+      ],
+      "value": ""
+    }, {
+      "id": "9601ead8-afb0-48f0-a2c4-59718212420c",
+      "comment": "",
+      "command": "click",
+      "target": "name=cvc",
+      "targets": [
+        ["linkText=Reload", "linkText"],
+        ["css=.reload_btn", "css:finder"],
+        ["xpath=//a[contains(text(),'Reload')]", "xpath:link"],
+        ["xpath=//a[@onclick='history.go(0);']", "xpath:attributes"],
+        ["xpath=//div[@id='warning_btn']/a", "xpath:idRelative"],
+        ["xpath=//a[contains(@href, '#')]", "xpath:href"],
+        ["xpath=//div[6]/div/div/div/div/a", "xpath:position"],
+        ["xpath=//a[contains(.,'Reload')]", "xpath:innerText"]
+      ],
+      "value": ""
+    }, {
+      "id": "8e2fa6ac-cff7-4dd7-bfdf-177c0bfcd4d3",
+      "comment": "",
+      "command": "type",
+      "target": "name=cvc",
+      "targets": [
+        ["name=cvc", "name"],
+        ["css=.CardField-cvc .InputElement", "css:finder"],
+        ["xpath=//input[@name='cvc']", "xpath:attributes"],
+        ["xpath=//div[@id='root']/form/div/div[2]/span[2]/span[2]/span/span/input", "xpath:idRelative"],
+        ["xpath=//span[2]/span/span/input", "xpath:position"]
+      ],
+      "value": ""
+    }, {
+      "id": "6ab7719a-c2e7-47f1-9240-9a95aa86745c",
+      "comment": "",
+      "command": "selectFrame",
+      "target": "relative=parent",
+      "targets": [
+        ["relative=parent"]
+      ],
+      "value": ""
+    }, {
+      "id": "02ae6091-7e9a-48c7-991a-df6dcf624b52",
+      "comment": "",
+      "command": "click",
+      "target": "id=complete_transaction",
+      "targets": [
+        ["id=complete_transaction", "id"],
+        ["css=#complete_transaction", "css:finder"],
+        ["xpath=//button[@id='complete_transaction']", "xpath:attributes"],
+        ["xpath=//div[@id='accept_terms_condition_block']/button", "xpath:idRelative"],
+        ["xpath=//div[4]/button", "xpath:position"],
+        ["xpath=//button[contains(.,'Complete Transaction')]", "xpath:innerText"]
+      ],
+      "value": ""
+    }, {
+      "id": "42739a0f-b270-46ed-93b2-2965af294561",
+      "comment": "",
+      "command": "assertText",
+      "target": "css=#warning_wrapper > p:nth-child(4)",
+      "targets": [],
+      "value": "User receives an error message or prompt that credit card information fields cannot be empty.\\n"
+    }, {
+      "id": "3062e24d-4f7d-454d-8f6f-6a7e0f931b44",
+      "comment": "",
+      "command": "close",
+      "target": "",
+      "targets": [],
+      "value": ""
+    }]
+  }, {
+    "id": "ed7a2291-89f2-4f6c-8f04-219fb863db70",
+    "name": "Invalid Card Number Input",
+    "commands": [{
+      "id": "f4370108-0bd5-4966-ba2a-c49fa2ada76f",
+      "comment": "",
+      "command": "store",
+      "target": "4162965318672912 08/25 858",
+      "targets": [],
+      "value": "cardNumber"
+    }, {
+      "id": "161888a8-cd75-4871-9339-ab4b883b1e98",
+      "comment": "",
+      "command": "store",
+      "target": "11 / 24",
+      "targets": [],
+      "value": "expDate"
+    }, {
+      "id": "3d6b5214-10e2-4a6f-a6d2-23f209ce7457",
+      "comment": "",
+      "command": "store",
+      "target": "799",
+      "targets": [],
+      "value": "cvc"
+    }, {
+      "id": "fc0e5edf-c74c-49b6-9306-d85afca7d3d0",
+      "comment": "",
+      "command": "store",
+      "target": "Marie Lora Angelica Saranillo",
+      "targets": [],
+      "value": "cardHolderName"
+    }]
+  }, {
+    "id": "91597375-acc5-46b6-a6ba-899fc6b52e70",
+    "name": "5_Verify Invalid Credit Card Number",
+    "commands": [{
+      "id": "f6bc1e26-9429-47e1-bcb0-87c827b5117c",
+      "comment": "",
+      "command": "run",
+      "target": "Buy Credits",
+      "targets": [],
+      "value": ""
+    }, {
+      "id": "723c7c03-4f7a-4309-a02a-54a2d2635439",
+      "comment": "Go with the \"4  Credits\" option and click buy.",
+      "command": "click",
+      "target": "linkText=Buy",
+      "targets": [
+        ["linkText=Buy", "linkText"],
+        ["css=li:nth-child(1) > a:nth-child(5)", "css:finder"],
+        ["xpath=//a[contains(text(),'Buy')]", "xpath:link"],
+        ["xpath=//div[@id='wrapper']/section/ul/li/a", "xpath:idRelative"],
+        ["xpath=//a[contains(@href, '/payment/buy-credit/?credit=4')]", "xpath:href"],
+        ["xpath=//section/ul/li/a", "xpath:position"],
+        ["xpath=//a[contains(.,'Buy')]", "xpath:innerText"]
+      ],
+      "value": ""
+    }, {
+      "id": "de0f6058-a0c8-4239-a537-03c4e33cd271",
+      "comment": "",
+      "command": "waitForText",
+      "target": "css=h4:nth-child(1)",
+      "targets": [
+        ["css=h4:nth-child(1)", "css:finder"],
+        ["xpath=//form[@id='card_payment']/h4", "xpath:idRelative"],
+        ["xpath=//h4", "xpath:position"],
+        ["xpath=//h4[contains(.,'Payment Details')]", "xpath:innerText"]
+      ],
+      "value": "Payment Details"
+    }, {
+      "id": "6af232b4-a3c2-4f96-8e1f-8120b9412de5",
+      "comment": "",
+      "command": "assertText",
+      "target": "css=.payment_details:nth-child(2) > span:nth-child(2)",
+      "targets": [
+        ["css=.payment_details:nth-child(2) > span:nth-child(2)", "css:finder"],
+        ["xpath=//form[@id='card_payment']/p/span[2]", "xpath:idRelative"],
+        ["xpath=//p/span[2]", "xpath:position"],
+        ["xpath=//span[contains(.,'4.99 USD')]", "xpath:innerText"]
+      ],
+      "value": "4.99 USD"
+    }, {
+      "id": "6723e351-d7ab-43bb-bc0e-9a42bd1aa7ad",
+      "comment": "",
+      "command": "assertText",
+      "target": "css=.payment_details:nth-child(3) > span:nth-child(2)",
+      "targets": [
+        ["css=.payment_details:nth-child(3) > span:nth-child(2)", "css:finder"],
+        ["xpath=//form[@id='card_payment']/p[2]/span[2]", "xpath:idRelative"],
+        ["xpath=//p[2]/span[2]", "xpath:position"],
+        ["xpath=//span[contains(.,'4 Credits')]", "xpath:innerText"]
+      ],
+      "value": "4 Credits"
+    }, {
+      "id": "d284e266-fab5-4c70-87a2-369675d30747",
+      "comment": "",
+      "command": "run",
+      "target": "Invalid Card Number Input",
+      "targets": [],
+      "value": ""
+    }, {
+      "id": "9e12e9f3-dccb-4b60-9f43-bce764da1fb9",
+      "comment": "",
+      "command": "run",
+      "target": "input Details",
+      "targets": [],
+      "value": ""
+    }, {
+      "id": "adc5e67a-6bb1-4198-9e2c-efca16f501d4",
+      "comment": "",
+      "command": "selectFrame",
+      "target": "relative=parent",
+      "targets": [
+        ["relative=parent"]
+      ],
+      "value": ""
+    }, {
+      "id": "fff94374-93fb-4428-b18e-f2558bd595f1",
+      "comment": "",
+      "command": "click",
+      "target": "id=complete_transaction",
+      "targets": [
+        ["id=complete_transaction", "id"],
+        ["css=#complete_transaction", "css:finder"],
+        ["xpath=//button[@id='complete_transaction']", "xpath:attributes"],
+        ["xpath=//div[@id='accept_terms_condition_block']/button", "xpath:idRelative"],
+        ["xpath=//div[4]/button", "xpath:position"],
+        ["xpath=//button[contains(.,'Complete Transaction')]", "xpath:innerText"]
+      ],
+      "value": ""
+    }, {
+      "id": "a8ed966a-a264-4ddf-8d36-4e7b8f315774",
+      "comment": "",
+      "command": "waitForElementPresent",
+      "target": "css=h3:nth-child(3)",
+      "targets": [
+        ["css=h3:nth-child(3)", "css:finder"],
+        ["xpath=//div[@id='warning_wrapper']/h3", "xpath:idRelative"],
+        ["xpath=//div/h3", "xpath:position"],
+        ["xpath=//h3[contains(.,'Oops!')]", "xpath:innerText"]
+      ],
+      "value": "30000"
+    }, {
+      "id": "543af977-b7b8-4281-aaca-8d3289d460ac",
+      "comment": "",
+      "command": "waitForText",
+      "target": "css=#warning_wrapper > p:nth-child(4)",
+      "targets": [
+        ["css=#warning_wrapper > p:nth-child(4)", "css:finder"],
+        ["xpath=//div[@id='warning_wrapper']/p", "xpath:idRelative"],
+        ["xpath=//div[6]/div/div/div/p", "xpath:position"],
+        ["xpath=//p[contains(.,'We apologize for the inconvenience. We encountered an internal error or misconfiguration and was unable to complete your request.')]", "xpath:innerText"]
+      ],
+      "value": "The user receives an error message indicating invalid credit card information.\\n"
+    }, {
+      "id": "99ebcece-3099-4a97-83db-b7321d9dc699",
+      "comment": "",
+      "command": "//close",
+      "target": "",
+      "targets": [],
+      "value": ""
+    }]
+  }, {
+    "id": "4f0511d6-e072-4700-ab5c-0706a907c5cc",
+    "name": "6_Verify Insufficient Funds Warning",
+    "commands": [{
+      "id": "7f12fbd7-65cc-4a88-9904-ea838bfaf23a",
+      "comment": "",
+      "command": "run",
+      "target": "Buy Credits",
+      "targets": [],
+      "value": ""
+    }, {
+      "id": "6028d62c-9e4f-4ad6-9acf-26abe123fdde",
+      "comment": "Go with the \"100 Credits\" option and click buy.",
+      "command": "click",
+      "target": "css=li:nth-child(4) > a",
+      "targets": [
+        ["css=li:nth-child(4) > a", "css:finder"],
+        ["xpath=(//a[contains(text(),'Buy')])[4]", "xpath:link"],
+        ["xpath=//div[@id='wrapper']/section/ul/li[4]/a", "xpath:idRelative"],
+        ["xpath=//a[contains(@href, '/payment/buy-credit/?credit=100')]", "xpath:href"],
+        ["xpath=//li[4]/a", "xpath:position"]
+      ],
+      "value": ""
+    }, {
+      "id": "23844fe4-37c9-41a3-9eb3-2688e7b5c913",
+      "comment": "",
+      "command": "assertText",
+      "target": "css=.payment_details:nth-child(2) > span:nth-child(2)",
+      "targets": [
+        ["css=.payment_details:nth-child(2) > span:nth-child(2)", "css:finder"],
+        ["xpath=//form[@id='card_payment']/p/span[2]", "xpath:idRelative"],
+        ["xpath=//p/span[2]", "xpath:position"],
+        ["xpath=//span[contains(.,'24.99 USD')]", "xpath:innerText"]
+      ],
+      "value": "79.99 USD"
+    }, {
+      "id": "295e37fb-8b3e-42c4-b84f-594e8a2675bc",
+      "comment": "",
+      "command": "assertText",
+      "target": "css=.payment_details:nth-child(3) > span:nth-child(2)",
+      "targets": [],
+      "value": "100 Credits"
+    }, {
+      "id": "bc337ca2-393f-4761-a9a7-797431940e4b",
+      "comment": "",
+      "command": "run",
+      "target": "valid input",
+      "targets": [],
+      "value": ""
+    }, {
+      "id": "85e479fc-ef4e-46cb-8c03-95359c9a3275",
+      "comment": "",
+      "command": "run",
+      "target": "input Details",
+      "targets": [],
+      "value": ""
+    }, {
+      "id": "f080bee1-5fca-461a-941c-e3cc9df4495d",
+      "comment": "",
+      "command": "selectFrame",
+      "target": "relative=parent",
+      "targets": [
+        ["relative=parent"]
+      ],
+      "value": ""
+    }, {
+      "id": "99007e8c-6c51-4bd6-b833-11121ff12231",
+      "comment": "",
+      "command": "click",
+      "target": "id=complete_transaction",
+      "targets": [
+        ["id=complete_transaction", "id"],
+        ["css=#complete_transaction", "css:finder"],
+        ["xpath=//button[@id='complete_transaction']", "xpath:attributes"],
+        ["xpath=//div[@id='accept_terms_condition_block']/button", "xpath:idRelative"],
+        ["xpath=//div[4]/button", "xpath:position"],
+        ["xpath=//button[contains(.,'Complete Transaction')]", "xpath:innerText"]
+      ],
+      "value": ""
+    }, {
+      "id": "753e7e62-c596-429c-83f6-884f422f8e0e",
+      "comment": "",
+      "command": "waitForElementPresent",
+      "target": "css=h3:nth-child(3)",
+      "targets": [
+        ["css=h3:nth-child(3)", "css:finder"],
+        ["xpath=//div[@id='warning_wrapper']/h3", "xpath:idRelative"],
+        ["xpath=//div/h3", "xpath:position"],
+        ["xpath=//h3[contains(.,'Oops!')]", "xpath:innerText"]
+      ],
+      "value": "30000"
+    }, {
+      "id": "d630f05e-ae9c-48ea-99ee-474f19237905",
+      "comment": "",
+      "command": "waitForText",
+      "target": "css=#warning_wrapper > p:nth-child(4)",
+      "targets": [
+        ["css=#warning_wrapper > p:nth-child(4)", "css:finder"],
+        ["xpath=//div[@id='warning_wrapper']/p", "xpath:idRelative"],
+        ["xpath=//div[6]/div/div/div/p", "xpath:position"],
+        ["xpath=//p[contains(.,'We apologize for the inconvenience. We encountered an internal error or misconfiguration and was unable to complete your request.')]", "xpath:innerText"]
+      ],
+      "value": "User receives an error message indicating that there's insufficients funds.\\n"
+    }, {
+      "id": "4648cc04-1075-4a24-abda-1e46d07ed1f4",
+      "comment": "",
+      "command": "close",
+      "target": "",
+      "targets": [],
+      "value": ""
+    }]
+  }],
+  "suites": [{
+    "id": "89db359e-edd8-441a-aad8-e2a86c1a28be",
+    "name": "Default Suite",
+    "persistSession": false,
+    "parallel": false,
+    "timeout": 300,
+    "tests": []
+  }, {
+    "id": "1417dd71-22b0-4ba7-9080-5b0d775203d6",
+    "name": "Buy Credits",
+    "persistSession": false,
+    "parallel": false,
+    "timeout": 300,
+    "tests": ["8d96fb0c-7a92-44c9-9e08-070082759bf0", "6b67de23-f51a-4f2c-a7ac-c932d524e4f2", "8f190ef8-e666-44a2-b4a7-e77e344a5a85", "038d6ecb-a412-4145-b25c-190893f468fd", "91597375-acc5-46b6-a6ba-899fc6b52e70", "4f0511d6-e072-4700-ab5c-0706a907c5cc"]
+  }],
+  "urls": ["https://www.hackerhero.com/"],
+  "plugins": []
+}
