@@ -1,0 +1,870 @@
+{
+  "stats": {
+    "suites": 12,
+    "tests": 25,
+    "passes": 1,
+    "pending": 0,
+    "failures": 24,
+    "start": "2023-10-19T04:40:19.653Z",
+    "end": "2023-10-19T04:40:19.698Z",
+    "duration": 45,
+    "testsRegistered": 25,
+    "passPercent": 4,
+    "pendingPercent": 0,
+    "other": 0,
+    "hasOther": false,
+    "skipped": 0,
+    "hasSkipped": false
+  },
+  "results": [
+    {
+      "uuid": "10065601-bfa4-4783-90d4-5d173b3b34a3",
+      "title": "",
+      "fullFile": "",
+      "file": "",
+      "beforeHooks": [],
+      "afterHooks": [],
+      "tests": [],
+      "suites": [
+        {
+          "uuid": "464568f3-ae00-4bd2-9f21-2a4703f91990",
+          "title": "Unit Tests",
+          "fullFile": "C:\\Users\\Lora Saranillo\\OneDrive\\Documents\\GitHub\\SoftwareTesting\\boilerplate-mochachai-main\\tests\\1_unit-tests.js",
+          "file": "\\tests\\1_unit-tests.js",
+          "beforeHooks": [],
+          "afterHooks": [],
+          "tests": [],
+          "suites": [
+            {
+              "uuid": "9d338179-7681-4cdc-9e11-a877fb427c96",
+              "title": "Basic Assertions",
+              "fullFile": "C:\\Users\\Lora Saranillo\\OneDrive\\Documents\\GitHub\\SoftwareTesting\\boilerplate-mochachai-main\\tests\\1_unit-tests.js",
+              "file": "\\tests\\1_unit-tests.js",
+              "beforeHooks": [],
+              "afterHooks": [],
+              "tests": [
+                {
+                  "title": "#isNull, #isNotNull",
+                  "fullTitle": "Unit Tests Basic Assertions #isNull, #isNotNull",
+                  "timedOut": false,
+                  "duration": 0,
+                  "state": "passed",
+                  "speed": "fast",
+                  "pass": true,
+                  "fail": false,
+                  "pending": false,
+                  "context": null,
+                  "code": "assert.isNull(null, 'This is an optional error description - e.g. null is null');\nassert.isNotNull(1, '1 is not null');",
+                  "err": {},
+                  "uuid": "0edba1e9-78da-4598-8059-39bff54a02b4",
+                  "parentUUID": "9d338179-7681-4cdc-9e11-a877fb427c96",
+                  "isHook": false,
+                  "skipped": false
+                },
+                {
+                  "title": "#isDefined, #isUndefined",
+                  "fullTitle": "Unit Tests Basic Assertions #isDefined, #isUndefined",
+                  "timedOut": false,
+                  "duration": 0,
+                  "state": "failed",
+                  "speed": null,
+                  "pass": false,
+                  "fail": true,
+                  "pending": false,
+                  "context": null,
+                  "code": "assert.fail(null, 'null is not undefined');\nassert.fail(undefined, 'undefined IS undefined');\nassert.fail('hello', 'A string is not undefined');",
+                  "err": {
+                    "message": "AssertionError: assert.fail()",
+                    "estack": "AssertionError: assert.fail()\n    at Context.<anonymous> (tests\\1_unit-tests.js:14:14)\n    at process.processImmediate (node:internal/timers:478:21)",
+                    "diff": null
+                  },
+                  "uuid": "48f5c262-d5b4-41e2-b787-ec1a43a6a31f",
+                  "parentUUID": "9d338179-7681-4cdc-9e11-a877fb427c96",
+                  "isHook": false,
+                  "skipped": false
+                },
+                {
+                  "title": "#isOk, #isNotOk",
+                  "fullTitle": "Unit Tests Basic Assertions #isOk, #isNotOk",
+                  "timedOut": false,
+                  "duration": 0,
+                  "state": "failed",
+                  "speed": null,
+                  "pass": false,
+                  "fail": true,
+                  "pending": false,
+                  "context": null,
+                  "code": "assert.fail(null, 'null is falsey');\nassert.fail(\"I'm truthy\", 'A string is truthy');\nassert.fail(true, 'true is truthy');",
+                  "err": {
+                    "message": "AssertionError: assert.fail()",
+                    "estack": "AssertionError: assert.fail()\n    at Context.<anonymous> (tests\\1_unit-tests.js:20:14)\n    at process.processImmediate (node:internal/timers:478:21)",
+                    "diff": null
+                  },
+                  "uuid": "5a86c60f-b9d5-41aa-a9ec-c54e56c3768e",
+                  "parentUUID": "9d338179-7681-4cdc-9e11-a877fb427c96",
+                  "isHook": false,
+                  "skipped": false
+                },
+                {
+                  "title": "#isTrue, #isNotTrue",
+                  "fullTitle": "Unit Tests Basic Assertions #isTrue, #isNotTrue",
+                  "timedOut": false,
+                  "duration": 0,
+                  "state": "failed",
+                  "speed": null,
+                  "pass": false,
+                  "fail": true,
+                  "pending": false,
+                  "context": null,
+                  "code": "assert.fail(true, 'true is true');\nassert.fail(!!'double negation', 'Double negation of a truthy value is true');\nassert.fail({ value: 'truthy' }, 'Objects are truthy, but are not boolean values');",
+                  "err": {
+                    "message": "AssertionError: assert.fail()",
+                    "estack": "AssertionError: assert.fail()\n    at Context.<anonymous> (tests\\1_unit-tests.js:26:14)\n    at process.processImmediate (node:internal/timers:478:21)",
+                    "diff": null
+                  },
+                  "uuid": "cc1b0dbe-963b-4f1e-b070-8a49676d3610",
+                  "parentUUID": "9d338179-7681-4cdc-9e11-a877fb427c96",
+                  "isHook": false,
+                  "skipped": false
+                }
+              ],
+              "suites": [],
+              "passes": [
+                "0edba1e9-78da-4598-8059-39bff54a02b4"
+              ],
+              "failures": [
+                "48f5c262-d5b4-41e2-b787-ec1a43a6a31f",
+                "5a86c60f-b9d5-41aa-a9ec-c54e56c3768e",
+                "cc1b0dbe-963b-4f1e-b070-8a49676d3610"
+              ],
+              "pending": [],
+              "skipped": [],
+              "duration": 0,
+              "root": false,
+              "rootEmpty": false,
+              "_timeout": 2000
+            },
+            {
+              "uuid": "e5119aa5-eb00-4333-b383-6d3b3af21e30",
+              "title": "Equality",
+              "fullFile": "C:\\Users\\Lora Saranillo\\OneDrive\\Documents\\GitHub\\SoftwareTesting\\boilerplate-mochachai-main\\tests\\1_unit-tests.js",
+              "file": "\\tests\\1_unit-tests.js",
+              "beforeHooks": [],
+              "afterHooks": [],
+              "tests": [
+                {
+                  "title": "#equal, #notEqual",
+                  "fullTitle": "Unit Tests Equality #equal, #notEqual",
+                  "timedOut": false,
+                  "duration": 0,
+                  "state": "failed",
+                  "speed": null,
+                  "pass": false,
+                  "fail": true,
+                  "pending": false,
+                  "context": null,
+                  "code": "assert.fail(12, '12', 'Numbers are coerced into strings with ==');\nassert.fail({ value: 1 }, { value: 1 }, '== compares object references');\nassert.fail(6 * '2', '12');\nassert.fail(6 + '2', '12');",
+                  "err": {
+                    "message": "AssertionError: Numbers are coerced into strings with ==",
+                    "estack": "AssertionError: Numbers are coerced into strings with ==\n    at Context.<anonymous> (tests\\1_unit-tests.js:37:14)\n    at process.processImmediate (node:internal/timers:478:21)",
+                    "diff": null
+                  },
+                  "uuid": "e87b99fd-dcec-4375-9288-dc329e8468f9",
+                  "parentUUID": "e5119aa5-eb00-4333-b383-6d3b3af21e30",
+                  "isHook": false,
+                  "skipped": false
+                },
+                {
+                  "title": "#strictEqual, #notStrictEqual",
+                  "fullTitle": "Unit Tests Equality #strictEqual, #notStrictEqual",
+                  "timedOut": false,
+                  "duration": 0,
+                  "state": "failed",
+                  "speed": null,
+                  "pass": false,
+                  "fail": true,
+                  "pending": false,
+                  "context": null,
+                  "code": "assert.fail(6, '6');\nassert.fail(6, 3 * 2);\nassert.fail(6 * '2', 12);\nassert.fail([1, 'a', {}], [1, 'a', {}]);",
+                  "err": {
+                    "message": "AssertionError: assert.fail()",
+                    "estack": "AssertionError: assert.fail()\n    at Context.<anonymous> (tests\\1_unit-tests.js:44:14)\n    at process.processImmediate (node:internal/timers:478:21)",
+                    "diff": null
+                  },
+                  "uuid": "4c37b4dd-c9c6-4514-a663-de59e706f70a",
+                  "parentUUID": "e5119aa5-eb00-4333-b383-6d3b3af21e30",
+                  "isHook": false,
+                  "skipped": false
+                },
+                {
+                  "title": "#deepEqual, #notDeepEqual",
+                  "fullTitle": "Unit Tests Equality #deepEqual, #notDeepEqual",
+                  "timedOut": false,
+                  "duration": 0,
+                  "state": "failed",
+                  "speed": null,
+                  "pass": false,
+                  "fail": true,
+                  "pending": false,
+                  "context": null,
+                  "code": "assert.fail({ a: '1', b: 5 }, { b: 5, a: '1' }, \"The order of keys doesn't matter\");\nassert.fail({ a: [5, 6] }, { a: [6, 5] }, 'The order of array elements does matter');",
+                  "err": {
+                    "message": "AssertionError: The order of keys doesn't matter",
+                    "estack": "AssertionError: The order of keys doesn't matter\n    at Context.<anonymous> (tests\\1_unit-tests.js:51:14)\n    at process.processImmediate (node:internal/timers:478:21)",
+                    "diff": null
+                  },
+                  "uuid": "e10d45db-dc64-49b8-9927-86506f53e422",
+                  "parentUUID": "e5119aa5-eb00-4333-b383-6d3b3af21e30",
+                  "isHook": false,
+                  "skipped": false
+                }
+              ],
+              "suites": [],
+              "passes": [],
+              "failures": [
+                "e87b99fd-dcec-4375-9288-dc329e8468f9",
+                "4c37b4dd-c9c6-4514-a663-de59e706f70a",
+                "e10d45db-dc64-49b8-9927-86506f53e422"
+              ],
+              "pending": [],
+              "skipped": [],
+              "duration": 0,
+              "root": false,
+              "rootEmpty": false,
+              "_timeout": 2000
+            },
+            {
+              "uuid": "8520a423-c01c-4b81-acd5-31df64ed8fef",
+              "title": "Comparisons",
+              "fullFile": "C:\\Users\\Lora Saranillo\\OneDrive\\Documents\\GitHub\\SoftwareTesting\\boilerplate-mochachai-main\\tests\\1_unit-tests.js",
+              "file": "\\tests\\1_unit-tests.js",
+              "beforeHooks": [],
+              "afterHooks": [],
+              "tests": [
+                {
+                  "title": "#isAbove, #isAtMost",
+                  "fullTitle": "Unit Tests Comparisons #isAbove, #isAtMost",
+                  "timedOut": false,
+                  "duration": 0,
+                  "state": "failed",
+                  "speed": null,
+                  "pass": false,
+                  "fail": true,
+                  "pending": false,
+                  "context": null,
+                  "code": "assert.fail('hello'.length, 5);\nassert.fail(1, 0);\nassert.fail(Math.PI, 3);\nassert.fail(1 - Math.random(), 1);",
+                  "err": {
+                    "message": "AssertionError: assert.fail()",
+                    "estack": "AssertionError: assert.fail()\n    at Context.<anonymous> (tests\\1_unit-tests.js:65:14)\n    at process.processImmediate (node:internal/timers:478:21)",
+                    "diff": null
+                  },
+                  "uuid": "856798fe-cb63-4124-a3fd-116730ed2597",
+                  "parentUUID": "8520a423-c01c-4b81-acd5-31df64ed8fef",
+                  "isHook": false,
+                  "skipped": false
+                },
+                {
+                  "title": "#isBelow, #isAtLeast",
+                  "fullTitle": "Unit Tests Comparisons #isBelow, #isAtLeast",
+                  "timedOut": false,
+                  "duration": 0,
+                  "state": "failed",
+                  "speed": null,
+                  "pass": false,
+                  "fail": true,
+                  "pending": false,
+                  "context": null,
+                  "code": "assert.fail('world'.length, 5);\nassert.fail(2 * Math.random(), 0);\nassert.fail(5 % 2, 2);\nassert.fail(2 / 3, 1);",
+                  "err": {
+                    "message": "AssertionError: assert.fail()",
+                    "estack": "AssertionError: assert.fail()\n    at Context.<anonymous> (tests\\1_unit-tests.js:72:14)\n    at process.processImmediate (node:internal/timers:478:21)",
+                    "diff": null
+                  },
+                  "uuid": "d8c4eed6-c188-4232-bdeb-7e7673a5ff2c",
+                  "parentUUID": "8520a423-c01c-4b81-acd5-31df64ed8fef",
+                  "isHook": false,
+                  "skipped": false
+                },
+                {
+                  "title": "#approximately",
+                  "fullTitle": "Unit Tests Comparisons #approximately",
+                  "timedOut": false,
+                  "duration": 0,
+                  "state": "failed",
+                  "speed": null,
+                  "pass": false,
+                  "fail": true,
+                  "pending": false,
+                  "context": null,
+                  "code": "assert.fail(weirdNumbers(0.5), 1, 0);\nassert.fail(weirdNumbers(0.2), 1, 0);",
+                  "err": {
+                    "message": "AssertionError: assert.fail()",
+                    "estack": "AssertionError: assert.fail()\n    at Context.<anonymous> (tests\\1_unit-tests.js:79:14)\n    at process.processImmediate (node:internal/timers:478:21)",
+                    "diff": null
+                  },
+                  "uuid": "b22e82d4-6358-404c-abd1-c1c366e901d8",
+                  "parentUUID": "8520a423-c01c-4b81-acd5-31df64ed8fef",
+                  "isHook": false,
+                  "skipped": false
+                }
+              ],
+              "suites": [],
+              "passes": [],
+              "failures": [
+                "856798fe-cb63-4124-a3fd-116730ed2597",
+                "d8c4eed6-c188-4232-bdeb-7e7673a5ff2c",
+                "b22e82d4-6358-404c-abd1-c1c366e901d8"
+              ],
+              "pending": [],
+              "skipped": [],
+              "duration": 0,
+              "root": false,
+              "rootEmpty": false,
+              "_timeout": 2000
+            },
+            {
+              "uuid": "fd80e669-cb28-435b-b320-904bdd234625",
+              "title": "Arrays",
+              "fullFile": "C:\\Users\\Lora Saranillo\\OneDrive\\Documents\\GitHub\\SoftwareTesting\\boilerplate-mochachai-main\\tests\\1_unit-tests.js",
+              "file": "\\tests\\1_unit-tests.js",
+              "beforeHooks": [],
+              "afterHooks": [],
+              "tests": [
+                {
+                  "title": "#isArray, #isNotArray",
+                  "fullTitle": "Unit Tests Arrays #isArray, #isNotArray",
+                  "timedOut": false,
+                  "duration": 0,
+                  "state": "failed",
+                  "speed": null,
+                  "pass": false,
+                  "fail": true,
+                  "pending": false,
+                  "context": null,
+                  "code": "assert.fail('isThisAnArray?'.split(''), 'String.prototype.split() returns an array');\nassert.fail([1, 2, 3].indexOf(2), 'indexOf returns a number');",
+                  "err": {
+                    "message": "AssertionError: assert.fail()",
+                    "estack": "AssertionError: assert.fail()\n    at Context.<anonymous> (tests\\1_unit-tests.js:91:14)\n    at process.processImmediate (node:internal/timers:478:21)",
+                    "diff": null
+                  },
+                  "uuid": "c37592c3-58b6-4b8a-a570-a3313b399e2e",
+                  "parentUUID": "fd80e669-cb28-435b-b320-904bdd234625",
+                  "isHook": false,
+                  "skipped": false
+                },
+                {
+                  "title": "Array #include, #notInclude",
+                  "fullTitle": "Unit Tests Arrays Array #include, #notInclude",
+                  "timedOut": false,
+                  "duration": 0,
+                  "state": "failed",
+                  "speed": null,
+                  "pass": false,
+                  "fail": true,
+                  "pending": false,
+                  "context": null,
+                  "code": "assert.fail(winterMonths, 'jul', \"It's summer in july...\");\nassert.fail(backendLanguages, 'javascript', 'JS is a backend language');",
+                  "err": {
+                    "message": "AssertionError: It's summer in july...",
+                    "estack": "AssertionError: It's summer in july...\n    at Context.<anonymous> (tests\\1_unit-tests.js:96:14)\n    at process.processImmediate (node:internal/timers:478:21)",
+                    "diff": null
+                  },
+                  "uuid": "214fd7a9-a993-4584-abb8-d5727e2e2abb",
+                  "parentUUID": "fd80e669-cb28-435b-b320-904bdd234625",
+                  "isHook": false,
+                  "skipped": false
+                }
+              ],
+              "suites": [],
+              "passes": [],
+              "failures": [
+                "c37592c3-58b6-4b8a-a570-a3313b399e2e",
+                "214fd7a9-a993-4584-abb8-d5727e2e2abb"
+              ],
+              "pending": [],
+              "skipped": [],
+              "duration": 0,
+              "root": false,
+              "rootEmpty": false,
+              "_timeout": 2000
+            },
+            {
+              "uuid": "b49e7be1-7158-4321-b4e8-79ffae15ce2c",
+              "title": "Strings",
+              "fullFile": "C:\\Users\\Lora Saranillo\\OneDrive\\Documents\\GitHub\\SoftwareTesting\\boilerplate-mochachai-main\\tests\\1_unit-tests.js",
+              "file": "\\tests\\1_unit-tests.js",
+              "beforeHooks": [],
+              "afterHooks": [],
+              "tests": [
+                {
+                  "title": "#isString, #isNotString",
+                  "fullTitle": "Unit Tests Strings #isString, #isNotString",
+                  "timedOut": false,
+                  "duration": 0,
+                  "state": "failed",
+                  "speed": null,
+                  "pass": false,
+                  "fail": true,
+                  "pending": false,
+                  "context": null,
+                  "code": "assert.fail(Math.sin(Math.PI / 4), 'A float is not a string');\nassert.fail(process.env.PATH, 'An env variable is a string (or undefined)');\nassert.fail(JSON.stringify({ type: 'object' }), 'JSON is a string');",
+                  "err": {
+                    "message": "AssertionError: assert.fail()",
+                    "estack": "AssertionError: assert.fail()\n    at Context.<anonymous> (tests\\1_unit-tests.js:109:14)\n    at process.processImmediate (node:internal/timers:478:21)",
+                    "diff": null
+                  },
+                  "uuid": "5d5fb1bf-c77f-4d35-a78d-1baf9e765a19",
+                  "parentUUID": "b49e7be1-7158-4321-b4e8-79ffae15ce2c",
+                  "isHook": false,
+                  "skipped": false
+                },
+                {
+                  "title": "String #include, #notInclude",
+                  "fullTitle": "Unit Tests Strings String #include, #notInclude",
+                  "timedOut": false,
+                  "duration": 1,
+                  "state": "failed",
+                  "speed": null,
+                  "pass": false,
+                  "fail": true,
+                  "pending": false,
+                  "context": null,
+                  "code": "assert.fail('Arrow', 'row', \"'Arrow' contains 'row'\");\nassert.fail('dart', 'queue', \"But 'dart' doesn't contain 'queue'\");",
+                  "err": {
+                    "message": "AssertionError: 'Arrow' contains 'row'",
+                    "estack": "AssertionError: 'Arrow' contains 'row'\n    at Context.<anonymous> (tests\\1_unit-tests.js:115:14)\n    at process.processImmediate (node:internal/timers:478:21)",
+                    "diff": null
+                  },
+                  "uuid": "b52c1a82-ee39-49bc-8447-ce80d00282a0",
+                  "parentUUID": "b49e7be1-7158-4321-b4e8-79ffae15ce2c",
+                  "isHook": false,
+                  "skipped": false
+                },
+                {
+                  "title": "#match, #notMatch",
+                  "fullTitle": "Unit Tests Strings #match, #notMatch",
+                  "timedOut": false,
+                  "duration": 0,
+                  "state": "failed",
+                  "speed": null,
+                  "pass": false,
+                  "fail": true,
+                  "pending": false,
+                  "context": null,
+                  "code": "const regex = /^#\\sname\\:\\s[\\w\\s]+,\\sage\\:\\s\\d+\\s?$/;\nassert.fail(formatPeople('John Doe', 35), regex);\nassert.fail(formatPeople('Paul Smith III', 'twenty-four'), regex);",
+                  "err": {
+                    "message": "AssertionError: assert.fail()",
+                    "estack": "AssertionError: assert.fail()\n    at Context.<anonymous> (tests\\1_unit-tests.js:121:14)\n    at process.processImmediate (node:internal/timers:478:21)",
+                    "diff": null
+                  },
+                  "uuid": "771e120e-b501-4fc1-9129-97f6ecc68a78",
+                  "parentUUID": "b49e7be1-7158-4321-b4e8-79ffae15ce2c",
+                  "isHook": false,
+                  "skipped": false
+                }
+              ],
+              "suites": [],
+              "passes": [],
+              "failures": [
+                "5d5fb1bf-c77f-4d35-a78d-1baf9e765a19",
+                "b52c1a82-ee39-49bc-8447-ce80d00282a0",
+                "771e120e-b501-4fc1-9129-97f6ecc68a78"
+              ],
+              "pending": [],
+              "skipped": [],
+              "duration": 1,
+              "root": false,
+              "rootEmpty": false,
+              "_timeout": 2000
+            },
+            {
+              "uuid": "f5107ec5-6d4c-4087-b480-703f5a2cb637",
+              "title": "Objects",
+              "fullFile": "C:\\Users\\Lora Saranillo\\OneDrive\\Documents\\GitHub\\SoftwareTesting\\boilerplate-mochachai-main\\tests\\1_unit-tests.js",
+              "file": "\\tests\\1_unit-tests.js",
+              "beforeHooks": [],
+              "afterHooks": [],
+              "tests": [
+                {
+                  "title": "#property, #notProperty",
+                  "fullTitle": "Unit Tests Objects #property, #notProperty",
+                  "timedOut": false,
+                  "duration": 0,
+                  "state": "failed",
+                  "speed": null,
+                  "pass": false,
+                  "fail": true,
+                  "pending": false,
+                  "context": null,
+                  "code": "assert.fail(myCar, 'wings', \"Cars don't have wings\");\nassert.fail(airlinePlane, 'engines', 'Planes have engines');\nassert.fail(myCar, 'wheels', 'Cars have wheels');",
+                  "err": {
+                    "message": "AssertionError: Cars don't have wings",
+                    "estack": "AssertionError: Cars don't have wings\n    at Context.<anonymous> (tests\\1_unit-tests.js:147:14)\n    at process.processImmediate (node:internal/timers:478:21)",
+                    "diff": null
+                  },
+                  "uuid": "fe990f33-3ea4-436b-8e69-89df42d5b012",
+                  "parentUUID": "f5107ec5-6d4c-4087-b480-703f5a2cb637",
+                  "isHook": false,
+                  "skipped": false
+                },
+                {
+                  "title": "#typeOf, #notTypeOf",
+                  "fullTitle": "Unit Tests Objects #typeOf, #notTypeOf",
+                  "timedOut": false,
+                  "duration": 0,
+                  "state": "failed",
+                  "speed": null,
+                  "pass": false,
+                  "fail": true,
+                  "pending": false,
+                  "context": null,
+                  "code": "assert.fail(myCar, 'object');\nassert.fail(myCar.model, 'string');\nassert.fail(airlinePlane.wings, 'string');\nassert.fail(airlinePlane.engines, 'array');\nassert.fail(myCar.wheels, 'number');",
+                  "err": {
+                    "message": "AssertionError: assert.fail()",
+                    "estack": "AssertionError: assert.fail()\n    at Context.<anonymous> (tests\\1_unit-tests.js:153:14)\n    at process.processImmediate (node:internal/timers:478:21)",
+                    "diff": null
+                  },
+                  "uuid": "2c5e47b9-f4db-48aa-8cd3-c9ee80c727e8",
+                  "parentUUID": "f5107ec5-6d4c-4087-b480-703f5a2cb637",
+                  "isHook": false,
+                  "skipped": false
+                },
+                {
+                  "title": "#instanceOf, #notInstanceOf",
+                  "fullTitle": "Unit Tests Objects #instanceOf, #notInstanceOf",
+                  "timedOut": false,
+                  "duration": 0,
+                  "state": "failed",
+                  "speed": null,
+                  "pass": false,
+                  "fail": true,
+                  "pending": false,
+                  "context": null,
+                  "code": "assert.fail(myCar, Plane);\nassert.fail(airlinePlane, Plane);\nassert.fail(airlinePlane, Object);\nassert.fail(myCar.wheels, String);",
+                  "err": {
+                    "message": "AssertionError: assert.fail()",
+                    "estack": "AssertionError: assert.fail()\n    at Context.<anonymous> (tests\\1_unit-tests.js:161:14)\n    at process.processImmediate (node:internal/timers:478:21)",
+                    "diff": null
+                  },
+                  "uuid": "2438d8e8-ed21-4fe7-bef1-be191b579b4b",
+                  "parentUUID": "f5107ec5-6d4c-4087-b480-703f5a2cb637",
+                  "isHook": false,
+                  "skipped": false
+                }
+              ],
+              "suites": [],
+              "passes": [],
+              "failures": [
+                "fe990f33-3ea4-436b-8e69-89df42d5b012",
+                "2c5e47b9-f4db-48aa-8cd3-c9ee80c727e8",
+                "2438d8e8-ed21-4fe7-bef1-be191b579b4b"
+              ],
+              "pending": [],
+              "skipped": [],
+              "duration": 0,
+              "root": false,
+              "rootEmpty": false,
+              "_timeout": 2000
+            }
+          ],
+          "passes": [],
+          "failures": [],
+          "pending": [],
+          "skipped": [],
+          "duration": 0,
+          "root": false,
+          "rootEmpty": false,
+          "_timeout": 2000
+        },
+        {
+          "uuid": "aa74bf5b-9e1a-489e-b682-ea22a5dab2b1",
+          "title": "Functional Tests",
+          "fullFile": "C:\\Users\\Lora Saranillo\\OneDrive\\Documents\\GitHub\\SoftwareTesting\\boilerplate-mochachai-main\\tests\\2_functional-tests.js",
+          "file": "\\tests\\2_functional-tests.js",
+          "beforeHooks": [],
+          "afterHooks": [],
+          "tests": [],
+          "suites": [
+            {
+              "uuid": "eb645be5-7a4d-4d7b-8c86-f6d93b5f6bae",
+              "title": "Integration tests with chai-http",
+              "fullFile": "C:\\Users\\Lora Saranillo\\OneDrive\\Documents\\GitHub\\SoftwareTesting\\boilerplate-mochachai-main\\tests\\2_functional-tests.js",
+              "file": "\\tests\\2_functional-tests.js",
+              "beforeHooks": [],
+              "afterHooks": [],
+              "tests": [
+                {
+                  "title": "Test GET /hello with no name",
+                  "fullTitle": "Functional Tests Integration tests with chai-http Test GET /hello with no name",
+                  "timedOut": false,
+                  "duration": 17,
+                  "state": "failed",
+                  "speed": null,
+                  "pass": false,
+                  "fail": true,
+                  "pending": false,
+                  "context": null,
+                  "code": "chai\n  .request(server)\n  .keepOpen()\n  .get('/hello')\n  .end(function (err, res) {\n    assert.fail(res.status, 200);\n    assert.fail(res.text, 'hello Guest');\n    done();\n  });",
+                  "err": {
+                    "message": "AssertionError: assert.fail()",
+                    "estack": "AssertionError: assert.fail()\n    at C:\\Users\\Lora Saranillo\\OneDrive\\Documents\\GitHub\\SoftwareTesting\\boilerplate-mochachai-main\\tests\\2_functional-tests.js:19:18\n    at Request.callback (node_modules\\superagent\\lib\\node\\index.js:716:12)\n    at IncomingMessage.<anonymous> (node_modules\\superagent\\lib\\node\\index.js:916:18)\n    at IncomingMessage.emit (node:events:526:35)\n    at endReadableNT (node:internal/streams/readable:1376:12)\n    at process.processTicksAndRejections (node:internal/process/task_queues:82:21)",
+                    "diff": null
+                  },
+                  "uuid": "21642ad9-f6db-4b61-acf6-186691f7d9b5",
+                  "parentUUID": "eb645be5-7a4d-4d7b-8c86-f6d93b5f6bae",
+                  "isHook": false,
+                  "skipped": false
+                },
+                {
+                  "title": "Test GET /hello with your name",
+                  "fullTitle": "Functional Tests Integration tests with chai-http Test GET /hello with your name",
+                  "timedOut": false,
+                  "duration": 4,
+                  "state": "failed",
+                  "speed": null,
+                  "pass": false,
+                  "fail": true,
+                  "pending": false,
+                  "context": null,
+                  "code": "chai\n  .request(server)\n  .keepOpen()\n  .get('/hello?name=xy_z')\n  .end(function (err, res) {\n    assert.fail(res.status, 200);\n    assert.fail(res.text, 'hello xy_z');\n    done();\n  });",
+                  "err": {
+                    "message": "AssertionError: assert.fail()",
+                    "estack": "AssertionError: assert.fail()\n    at C:\\Users\\Lora Saranillo\\OneDrive\\Documents\\GitHub\\SoftwareTesting\\boilerplate-mochachai-main\\tests\\2_functional-tests.js:31:18\n    at Request.callback (node_modules\\superagent\\lib\\node\\index.js:716:12)\n    at IncomingMessage.<anonymous> (node_modules\\superagent\\lib\\node\\index.js:916:18)\n    at IncomingMessage.emit (node:events:526:35)\n    at endReadableNT (node:internal/streams/readable:1376:12)\n    at process.processTicksAndRejections (node:internal/process/task_queues:82:21)",
+                    "diff": null
+                  },
+                  "uuid": "c0bc2d9d-d535-4306-89ab-76e8486944e9",
+                  "parentUUID": "eb645be5-7a4d-4d7b-8c86-f6d93b5f6bae",
+                  "isHook": false,
+                  "skipped": false
+                },
+                {
+                  "title": "Send {surname: \"Colombo\"}",
+                  "fullTitle": "Functional Tests Integration tests with chai-http Send {surname: \"Colombo\"}",
+                  "timedOut": false,
+                  "duration": 4,
+                  "state": "failed",
+                  "speed": null,
+                  "pass": false,
+                  "fail": true,
+                  "pending": false,
+                  "context": null,
+                  "code": "chai\n  .request(server)\n  .keepOpen()\n  .put('/travellers')\n  .end(function (err, res) {\n    assert.fail();\n    done();\n  });",
+                  "err": {
+                    "message": "AssertionError: assert.fail()",
+                    "estack": "AssertionError: assert.fail()\n    at C:\\Users\\Lora Saranillo\\OneDrive\\Documents\\GitHub\\SoftwareTesting\\boilerplate-mochachai-main\\tests\\2_functional-tests.js:44:18\n    at Request.callback (node_modules\\superagent\\lib\\node\\index.js:716:12)\n    at C:\\Users\\Lora Saranillo\\OneDrive\\Documents\\GitHub\\SoftwareTesting\\boilerplate-mochachai-main\\node_modules\\superagent\\lib\\node\\index.js:916:18\n    at IncomingMessage.<anonymous> (node_modules\\superagent\\lib\\node\\parsers\\json.js:19:7)\n    at IncomingMessage.emit (node:events:526:35)\n    at endReadableNT (node:internal/streams/readable:1376:12)\n    at process.processTicksAndRejections (node:internal/process/task_queues:82:21)",
+                    "diff": null
+                  },
+                  "uuid": "d34deefc-cbfa-476c-8529-c0d57f5029e5",
+                  "parentUUID": "eb645be5-7a4d-4d7b-8c86-f6d93b5f6bae",
+                  "isHook": false,
+                  "skipped": false
+                },
+                {
+                  "title": "Send {surname: \"da Verrazzano\"}",
+                  "fullTitle": "Functional Tests Integration tests with chai-http Send {surname: \"da Verrazzano\"}",
+                  "timedOut": false,
+                  "duration": 0,
+                  "state": "failed",
+                  "speed": null,
+                  "pass": false,
+                  "fail": true,
+                  "pending": false,
+                  "context": null,
+                  "code": "assert.fail();\ndone();",
+                  "err": {
+                    "message": "AssertionError: assert.fail()",
+                    "estack": "AssertionError: assert.fail()\n    at Context.<anonymous> (tests\\2_functional-tests.js:51:14)\n    at process.processImmediate (node:internal/timers:478:21)",
+                    "diff": null
+                  },
+                  "uuid": "1973ef57-c527-40ef-967d-376cf67af9b2",
+                  "parentUUID": "eb645be5-7a4d-4d7b-8c86-f6d93b5f6bae",
+                  "isHook": false,
+                  "skipped": false
+                }
+              ],
+              "suites": [],
+              "passes": [],
+              "failures": [
+                "21642ad9-f6db-4b61-acf6-186691f7d9b5",
+                "c0bc2d9d-d535-4306-89ab-76e8486944e9",
+                "d34deefc-cbfa-476c-8529-c0d57f5029e5",
+                "1973ef57-c527-40ef-967d-376cf67af9b2"
+              ],
+              "pending": [],
+              "skipped": [],
+              "duration": 25,
+              "root": false,
+              "rootEmpty": false,
+              "_timeout": 5000
+            }
+          ],
+          "passes": [],
+          "failures": [],
+          "pending": [],
+          "skipped": [],
+          "duration": 0,
+          "root": false,
+          "rootEmpty": false,
+          "_timeout": 5000
+        },
+        {
+          "uuid": "cfde53c2-b3a0-4926-ae6b-f728a8a02457",
+          "title": "Functional Tests with Zombie.js",
+          "fullFile": "C:\\Users\\Lora Saranillo\\OneDrive\\Documents\\GitHub\\SoftwareTesting\\boilerplate-mochachai-main\\tests\\2_functional-tests.js",
+          "file": "\\tests\\2_functional-tests.js",
+          "beforeHooks": [],
+          "afterHooks": [],
+          "tests": [],
+          "suites": [
+            {
+              "uuid": "389f5786-49cc-41ef-a13a-5e9cb4ce90a5",
+              "title": "Headless browser",
+              "fullFile": "C:\\Users\\Lora Saranillo\\OneDrive\\Documents\\GitHub\\SoftwareTesting\\boilerplate-mochachai-main\\tests\\2_functional-tests.js",
+              "file": "\\tests\\2_functional-tests.js",
+              "beforeHooks": [],
+              "afterHooks": [],
+              "tests": [
+                {
+                  "title": "should have a working \"site\" property",
+                  "fullTitle": "Functional Tests with Zombie.js Headless browser should have a working \"site\" property",
+                  "timedOut": false,
+                  "duration": 0,
+                  "state": "failed",
+                  "speed": null,
+                  "pass": false,
+                  "fail": true,
+                  "pending": false,
+                  "context": null,
+                  "code": "assert.isNotNull(browser.site);",
+                  "err": {
+                    "message": "ReferenceError: browser is not defined",
+                    "estack": "ReferenceError: browser is not defined\n    at Context.<anonymous> (tests\\2_functional-tests.js:67:24)\n    at process.processImmediate (node:internal/timers:478:21)",
+                    "diff": null
+                  },
+                  "uuid": "db93986b-d9c9-4f54-b2c8-7dba8bcd4ae3",
+                  "parentUUID": "389f5786-49cc-41ef-a13a-5e9cb4ce90a5",
+                  "isHook": false,
+                  "skipped": false
+                }
+              ],
+              "suites": [],
+              "passes": [],
+              "failures": [
+                "db93986b-d9c9-4f54-b2c8-7dba8bcd4ae3"
+              ],
+              "pending": [],
+              "skipped": [],
+              "duration": 0,
+              "root": false,
+              "rootEmpty": false,
+              "_timeout": 5000
+            },
+            {
+              "uuid": "e6ce2ecd-542b-4405-b41d-26d08b916d71",
+              "title": "\"Famous Italian Explorers\" form",
+              "fullFile": "C:\\Users\\Lora Saranillo\\OneDrive\\Documents\\GitHub\\SoftwareTesting\\boilerplate-mochachai-main\\tests\\2_functional-tests.js",
+              "file": "\\tests\\2_functional-tests.js",
+              "beforeHooks": [],
+              "afterHooks": [],
+              "tests": [
+                {
+                  "title": "Submit the surname \"Colombo\" in the HTML form",
+                  "fullTitle": "Functional Tests with Zombie.js \"Famous Italian Explorers\" form Submit the surname \"Colombo\" in the HTML form",
+                  "timedOut": false,
+                  "duration": 0,
+                  "state": "failed",
+                  "speed": null,
+                  "pass": false,
+                  "fail": true,
+                  "pending": false,
+                  "context": null,
+                  "code": "assert.fail();\ndone();",
+                  "err": {
+                    "message": "AssertionError: assert.fail()",
+                    "estack": "AssertionError: assert.fail()\n    at Context.<anonymous> (tests\\2_functional-tests.js:74:14)\n    at process.processImmediate (node:internal/timers:478:21)",
+                    "diff": null
+                  },
+                  "uuid": "9aea69df-9edc-4b5c-a20d-4137b2e730e8",
+                  "parentUUID": "e6ce2ecd-542b-4405-b41d-26d08b916d71",
+                  "isHook": false,
+                  "skipped": false
+                },
+                {
+                  "title": "Submit the surname \"Vespucci\" in the HTML form",
+                  "fullTitle": "Functional Tests with Zombie.js \"Famous Italian Explorers\" form Submit the surname \"Vespucci\" in the HTML form",
+                  "timedOut": false,
+                  "duration": 0,
+                  "state": "failed",
+                  "speed": null,
+                  "pass": false,
+                  "fail": true,
+                  "pending": false,
+                  "context": null,
+                  "code": "assert.fail();\ndone();",
+                  "err": {
+                    "message": "AssertionError: assert.fail()",
+                    "estack": "AssertionError: assert.fail()\n    at Context.<anonymous> (tests\\2_functional-tests.js:80:14)\n    at process.processImmediate (node:internal/timers:478:21)",
+                    "diff": null
+                  },
+                  "uuid": "3740fe8d-6c66-4782-a257-1903e876753c",
+                  "parentUUID": "e6ce2ecd-542b-4405-b41d-26d08b916d71",
+                  "isHook": false,
+                  "skipped": false
+                }
+              ],
+              "suites": [],
+              "passes": [],
+              "failures": [
+                "9aea69df-9edc-4b5c-a20d-4137b2e730e8",
+                "3740fe8d-6c66-4782-a257-1903e876753c"
+              ],
+              "pending": [],
+              "skipped": [],
+              "duration": 0,
+              "root": false,
+              "rootEmpty": false,
+              "_timeout": 5000
+            }
+          ],
+          "passes": [],
+          "failures": [],
+          "pending": [],
+          "skipped": [],
+          "duration": 0,
+          "root": false,
+          "rootEmpty": false,
+          "_timeout": 5000
+        }
+      ],
+      "passes": [],
+      "failures": [],
+      "pending": [],
+      "skipped": [],
+      "duration": 0,
+      "root": true,
+      "rootEmpty": true,
+      "_timeout": 2000
+    }
+  ],
+  "meta": {
+    "mocha": {
+      "version": "10.2.0"
+    },
+    "mochawesome": {
+      "options": {
+        "quiet": false,
+        "reportFilename": "mochawesome",
+        "saveHtml": true,
+        "saveJson": true,
+        "consoleReporter": "spec",
+        "useInlineDiffs": false,
+        "code": true
+      },
+      "version": "7.1.3"
+    },
+    "marge": {
+      "options": null,
+      "version": "6.2.0"
+    }
+  }
+}

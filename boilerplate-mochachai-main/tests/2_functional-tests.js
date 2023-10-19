@@ -6,11 +6,11 @@ const server = require('../server');
 const chaiHttp = require('chai-http');
 chai.use(chaiHttp);
 
-suite('Functional Tests', function () {
+describe('Functional Tests', function () {
   this.timeout(5000);
-  suite('Integration tests with chai-http', function () {
+  describe('Integration tests with chai-http', function () {
     // #1
-    test('Test GET /hello with no name', function (done) {
+    it('Test GET /hello with no name', function (done) {
       chai
         .request(server)
         .keepOpen()
@@ -22,7 +22,7 @@ suite('Functional Tests', function () {
         });
     });
     // #2
-    test('Test GET /hello with your name', function (done) {
+    it('Test GET /hello with your name', function (done) {
       chai
         .request(server)
         .keepOpen()
@@ -34,7 +34,7 @@ suite('Functional Tests', function () {
         });
     });
     // #3
-    test('Send {surname: "Colombo"}', function (done) {
+    it('Send {surname: "Colombo"}', function (done) {
       chai
         .request(server)
         .keepOpen()
@@ -47,7 +47,7 @@ suite('Functional Tests', function () {
         });
     });
     // #4
-    test('Send {surname: "da Verrazzano"}', function (done) {
+    it('Send {surname: "da Verrazzano"}', function (done) {
       assert.fail();
 
       done();
@@ -57,26 +57,26 @@ suite('Functional Tests', function () {
 
 const Browser = require('zombie');
 
-suite('Functional Tests with Zombie.js', function () {
+describe('Functional Tests with Zombie.js', function () {
   this.timeout(5000);
 
 
 
-  suite('Headless browser', function () {
-    test('should have a working "site" property', function() {
+  describe('Headless browser', function () {
+    it('should have a working "site" property', function() {
       assert.isNotNull(browser.site);
     });
   });
 
-  suite('"Famous Italian Explorers" form', function () {
+  describe('"Famous Italian Explorers" form', function () {
     // #5
-    test('Submit the surname "Colombo" in the HTML form', function (done) {
+    it('Submit the surname "Colombo" in the HTML form', function (done) {
       assert.fail();
 
       done();
     });
     // #6
-    test('Submit the surname "Vespucci" in the HTML form', function (done) {
+    it('Submit the surname "Vespucci" in the HTML form', function (done) {
       assert.fail();
 
       done();
