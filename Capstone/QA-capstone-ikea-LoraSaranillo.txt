@@ -1,0 +1,6 @@
+
+- Website title:  IKEA PH
+- Website link:https://www.ikea.com/ph/en/ 
+- Video link: https://clipchamp.com/watch/M85ELIDsDY2
+- List of tests conducted (Manual/API/Performance/Automation) Manual tests, Selenium IDE
+
